@@ -31,16 +31,20 @@ jobs:
         run: |
           python3 proxyScraper.py -p http -o proxies/http.txt
           python3 proxyScraper.py -p https -o proxies/https.txt
+          python3 proxyScraper.py -p socks4 -o proxies/socks4.txt
+          python3 proxyScraper.py -p socks5 -o proxies/socks5.txt
 
       - name: Check HTTP proxies
         run: |
           python3 proxyChecker.py -t 20 -s google.com -l proxies/http.txt -o proxies/http-tested/google.txt
           python3 proxyChecker.py -t 20 -s facebook.com -l proxies/http.txt -o proxies/http-tested/facebook.txt
+          python3 proxyChecker.py -t 20 -s twitter.com -l proxies/http.txt -o proxies/http-tested/twitter.txt
 
       - name: Check HTTPS proxies
         run: |
           python3 proxyChecker.py -t 20 -s google.com -l proxies/https.txt -o proxies/https-tested/google.txt
           python3 proxyChecker.py -t 20 -s facebook.com -l proxies/https.txt -o proxies/https-tested/facebook.txt
+          python3 proxyChecker.py -t 20 -s twitter.com -l proxies/https.txt -o proxies/https-tested/twitter.txt
 
       - name: Commit
         run: |
