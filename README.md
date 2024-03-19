@@ -57,5 +57,5 @@ python3 proxyChecker.py -t 20 -s google.com -l output.txt
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=iw4p/proxy-scraper&type=Date)](https://star-history.com/#iw4p/proxy-scraper&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=vann-dev/proxy-list&type=Date)](https://star-history.com/#iw4p/proxy-scraper&Date)
 
