@@ -4,6 +4,8 @@ This repository originally created by [iw4p](https://github.com/iw4p/proxy-scrap
 
 Please check the original repository too.
 
+> ## Please remember, this proxy is for learning purposes, any issues with proxy use are at the expense of the proxy user
+
 ___
 
 # Directory
