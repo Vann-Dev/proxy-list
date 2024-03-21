@@ -1,17 +1,16 @@
 name: Check and push proxies
 
 on:
-  schedule:
-    - cron: '0 */3 * * *'
-  push: 
-    branches:
-      - main
+  workflow_run: 
+    workflows: ["get_proxies"]
+    types: 
+      - completed
 
 permissions:                
     contents: write
     
 jobs:
-  scrape_and_push_proxies:
+  test_proxies:
     runs-on: ubuntu-latest
     strategy:
       matrix:

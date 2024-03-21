@@ -11,7 +11,7 @@ permissions:
     contents: write
     
 jobs:
-  scrape_and_push_proxies:
+  get_proxies:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
