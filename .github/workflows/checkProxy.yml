@@ -1,0 +1,72 @@
+name: Check and push proxies
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  push: 
+    branches:
+      - main
+
+permissions:                
+    contents: write
+    
+jobs:
+  scrape_and_push_proxies:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        domains:
+          - google
+          - facebook
+          - twitter
+          - tiktok
+          - youtube
+
+    steps:
+      - name: Wait for updated proxies
+        uses: kamilchodola/wait-for-workflow-action@1.1.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          workflow_id: 'getProxy.yml'
+          max_wait_minutes: '5'
+          interval: '10'
+          timeout: '60'
+          org_name: 'Vann-Dev'
+          repo_name: 'proxy-list'
+          ref: '${{ github.ref }}'
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Check HTTP proxies
+        run: |
+          python3 proxyChecker.py -t 20 -s ${{ matrix.domains }}.com -l proxies/http.txt -o proxies/http-tested/${{ matrix.domains }}.txt
+
+      - name: Check HTTPS proxies
+        run: |
+          python3 proxyChecker.py -t 20 -s ${{ matrix.domains }}.com -l proxies/https.txt -o proxies/https-tested/${{ matrix.domains }}.txt
+
+      - name: Commit
+        run: |
+          git config --global user.email ${{ secrets.GIT_EMAIL }}
+          git config --local user.name ${{ secrets.GIT_NAME }}
+          git commit -am "feat: update checked proxies for ${{ matrix.domains }}"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+            CI: true
