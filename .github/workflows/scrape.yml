@@ -39,12 +39,16 @@ jobs:
           python3 proxyChecker.py -t 20 -s google.com -l proxies/http.txt -o proxies/http-tested/google.txt
           python3 proxyChecker.py -t 20 -s facebook.com -l proxies/http.txt -o proxies/http-tested/facebook.txt
           python3 proxyChecker.py -t 20 -s twitter.com -l proxies/http.txt -o proxies/http-tested/twitter.txt
+          python3 proxyChecker.py -t 20 -s tiktok.com -l proxies/http.txt -o proxies/http-tested/tiktok.txt
+          python3 proxyChecker.py -t 20 -s youtube.com -l proxies/http.txt -o proxies/http-tested/youtube.txt
 
       - name: Check HTTPS proxies
         run: |
           python3 proxyChecker.py -t 20 -s google.com -l proxies/https.txt -o proxies/https-tested/google.txt
           python3 proxyChecker.py -t 20 -s facebook.com -l proxies/https.txt -o proxies/https-tested/facebook.txt
           python3 proxyChecker.py -t 20 -s twitter.com -l proxies/https.txt -o proxies/https-tested/twitter.txt
+          python3 proxyChecker.py -t 20 -s tiktok.com -l proxies/https.txt -o proxies/https-tested/tiktok.txt
+          python3 proxyChecker.py -t 20 -s youtube.com -l proxies/https.txt -o proxies/https-tested/youtube.txt
 
       - name: Commit
         run: |
