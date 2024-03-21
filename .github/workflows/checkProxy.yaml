@@ -2,7 +2,7 @@ name: Check and push proxies
 
 on:
   workflow_run: 
-    workflows: ["get_proxies"]
+    workflows: ["getProxy"]
     branches: 
       - main
     types: 
