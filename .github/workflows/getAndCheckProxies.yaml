@@ -1,18 +1,40 @@
 name: Check and push proxies
 
 on:
-  workflow_run: 
-    workflows: 
-      - Get Proxies and push proxies
-    branches: 
+  schedule:
+    - cron: '0 */3 * * *'
+  push: 
+    branches:
       - main
-    types: 
-      - completed
 
 permissions:                
     contents: write
     
 jobs:
+  get_proxies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Get HTTP proxies
+        run: |
+          python3 proxyScraper.py -t 20 -s http -o proxies/http.txt
+
+      - name: Get HTTPS proxies
+        run: |
+          python3 proxyScraper.py -t 20 -s https -o proxies/https.txt
+          
   test_proxies:
     runs-on: ubuntu-latest
     strategy:
@@ -48,14 +70,11 @@ jobs:
         run: |
           python3 proxyChecker.py -t 20 -s ${{ matrix.domains }}.com -l proxies/https.txt -o proxies/https-tested/${{ matrix.domains }}.txt
 
-      - name: Commit
-        run: |
-          git config --global user.email ${{ secrets.GIT_EMAIL }}
-          git config --local user.name ${{ secrets.GIT_NAME }}
-          git commit -am "feat: update checked proxies for ${{ matrix.domains }}"
-
       - name: Commit & Push changes
         uses: benkaiser/rebase-commit-push@v1.3
         with:
           rebase: true
+          author_email: ${{ secrets.GIT_EMAIL }}
+          author_name: ${{ secrets.GIT_NAME }}
+          branch: main
           message: "feat: update checked proxies for ${{ matrix.domains }}"
