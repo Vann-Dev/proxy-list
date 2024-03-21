@@ -27,18 +27,6 @@ jobs:
           - youtube
 
     steps:
-      - name: Wait for updated proxies
-        uses: kamilchodola/wait-for-workflow-action@1.1.0
-        with:
-          GITHUB_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
-          workflow_id: 'getProxy.yml'
-          max_wait_minutes: '5'
-          interval: '10'
-          timeout: '60'
-          org_name: 'Vann-Dev'
-          repo_name: 'proxy-list'
-          ref: '${{ github.ref }}'
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -66,9 +54,8 @@ jobs:
           git config --local user.name ${{ secrets.GIT_NAME }}
           git commit -am "feat: update checked proxies for ${{ matrix.domains }}"
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Commit & Push changes
+        uses: benkaiser/rebase-commit-push@v1.3
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-            CI: true
+          rebase: true
+          message: "feat: update checked proxies for ${{ matrix.domains }}"
