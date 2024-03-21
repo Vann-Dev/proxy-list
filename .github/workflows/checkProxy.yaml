@@ -52,7 +52,7 @@ jobs:
         uses: benkaiser/rebase-commit-push@v1.3
         with:
           rebase: true
-          author_email: ${{ secrets.GIT_EMAIL }}
-          author_name: ${{ secrets.GIT_NAME }}
+          author_email: github-actions@github.com
+          author_name: github-actions[bot]
           branch: main
           message: "feat: update checked proxies for ${{ matrix.domains }}"

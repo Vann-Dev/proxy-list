@@ -36,8 +36,8 @@ jobs:
 
       - name: Commit
         run: |
-          git config --global user.email ${{ secrets.GIT_EMAIL }}
-          git config --local user.name ${{ secrets.GIT_NAME }}
+          git config --global user.email github-actions@github.com
+          git config --local user.name github-actions[bot]
           git commit -am "feat: update proxies"
 
       - name: Push changes
