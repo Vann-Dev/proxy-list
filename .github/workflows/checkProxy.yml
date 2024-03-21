@@ -28,7 +28,7 @@ jobs:
       - name: Wait for updated proxies
         uses: kamilchodola/wait-for-workflow-action@1.1.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
           workflow_id: 'getProxy.yml'
           max_wait_minutes: '5'
           interval: '10'
