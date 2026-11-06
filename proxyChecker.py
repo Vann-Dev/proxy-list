@@ -50,14 +50,9 @@ DEFAULT_RETRIES = 1
 # Never replace existing results with an empty list because of an outage.
 MIN_INPUT_FOR_GUARD = 10
 
-# Errors that mean the proxy itself is unusable; no point trying other sites.
-FATAL_ERRORS = (
-    httpx.ConnectError,
-    httpx.ConnectTimeout,
-    httpx.ProxyError,
-    httpx.ReadTimeout,
-    httpx.RemoteProtocolError,
-)
+# A transport error means the proxy never delivered an HTTP response, so trying
+# the remaining domains would only multiply the timeout cost.
+FATAL_ERRORS = (httpx.TransportError,)
 
 
 def load_user_agents() -> list[str]:
@@ -99,8 +94,9 @@ async def try_site(
             latency = time.perf_counter() - started
             if response.status_code < 400:
                 return True, latency, None, False
-            # The proxy works, the site just answered with an error status.
-            return False, latency, f"HTTP {response.status_code}", False
+            # The proxy answered, so it is alive; 407/511 mean it also needs
+            # credentials and cannot be used as-is.
+            return False, latency, f"HTTP {response.status_code}", response.status_code in (407, 511)
         except Exception as exc:  # noqa: BLE001 - classified below
             latency = time.perf_counter() - started
             error = f"{type(exc).__name__}: {exc}"
