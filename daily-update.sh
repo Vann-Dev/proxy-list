@@ -1,37 +1,51 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Local equivalent of the GitHub Actions pipeline.
+# Usage: ./daily-update.sh [--no-commit]
+set -euo pipefail
 
-# Daily proxy list update script
-# Runs at 2 AM UTC+7 (9 AM UTC)
+cd "$(dirname "$0")"
 
-cd /home/komi/.openclaw/workspace/proxy-list
+PROTOCOLS=(http https socks4 socks5)
+DOMAINS=(google.com facebook.com twitter.com tiktok.com youtube.com whatsapp.com microsoft.com discord.com instagram.com)
 
-# Activate virtual environment if exists
-if [ -f "venv/bin/activate" ]; then
+if [ -d "venv" ]; then
+    # shellcheck disable=SC1091
     source venv/bin/activate
 fi
 
-# Update dependencies
-pip install --upgrade -r requirements.txt
+python3 -m pip install --upgrade -r requirements.txt
 
-# Scrape fresh proxies
-python3 proxyScraper.py -p http -o proxies/http-temp.txt
-python3 proxyScraper.py -p https -o proxies/https-temp.txt
+for protocol in "${PROTOCOLS[@]}"; do
+    python3 proxyScraper.py -p "$protocol" -o "proxies/$protocol.txt"
+done
 
-# Test proxies
-python3 proxyChecker.py -t 10 -s google.com -l proxies/http-temp.txt
-python3 proxyChecker.py -t 10 -s google.com -l proxies/https-temp.txt
+sites=()
+for domain in "${DOMAINS[@]}"; do
+    sites+=("-s" "$domain")
+done
 
-# Replace old files
-mv proxies/http-temp.txt proxies/http.txt
-mv proxies/https-temp.txt proxies/https.txt
+for protocol in http https socks5; do
+    python3 proxyChecker.py \
+        -p "$protocol" \
+        -l "proxies/$protocol.txt" \
+        --output-dir "proxies/$protocol-tested" \
+        --timeout 6 \
+        --concurrency 300 \
+        --retries 0 \
+        --report "proxies/$protocol-tested/meta.json" \
+        "${sites[@]}"
+done
 
-# Commit and push changes
-git config user.email "komi-bot@vann.my.id"
-git config user.name "Komi-Misaki"
-git add proxies/http.txt proxies/https.txt
-if ! git diff --staged --quiet; then
-    git commit -m "chore: daily proxy list update $(date -u +'%Y-%m-%d')"
-    git push origin main
+if [ "${1:-}" = "--no-commit" ]; then
+    echo "Skipping commit (--no-commit)."
+    exit 0
 fi
 
-echo "Daily proxy update completed: $(date)"
+git add proxies
+if git diff --cached --quiet; then
+    echo "No changes to commit."
+    exit 0
+fi
+
+git commit -m "feat: update proxies $(date -u +'%Y-%m-%d')"
+git push origin main

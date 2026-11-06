@@ -1,64 +1,88 @@
 name: Check and push proxies
 
 on:
-  workflow_run: 
-    workflows: 
+  workflow_run:
+    workflows:
       - Get Proxies and push proxies
-    branches: 
+    branches:
       - main
-    types: 
+    types:
       - completed
+  workflow_dispatch:
 
-permissions:                
-    contents: write
-    
+permissions:
+  contents: write
+
+# Shared with getProxy.yaml so scrapes and checks never push concurrently.
+concurrency:
+  group: proxy-data-write
+  cancel-in-progress: false
+
 jobs:
   test_proxies:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 1
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-        domains:
-          - google
-          - facebook
-          - twitter
-          - tiktok
-          - youtube
-          - whatsapp
-          - microsoft
-          - discord
-          - instagram
-
+    timeout-minutes: 45
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Install Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.12"
+          cache: pip
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Check HTTP proxies
+      - name: Check proxies against every domain
         run: |
-          python3 proxyChecker.py -t 20 -s ${{ matrix.domains }}.com -l proxies/http.txt -o proxies/http-tested/${{ matrix.domains }}.txt
+          set -uo pipefail
+          domains=(google.com facebook.com twitter.com tiktok.com youtube.com whatsapp.com microsoft.com discord.com instagram.com)
+          sites=()
+          for domain in "${domains[@]}"; do
+            sites+=("-s" "$domain")
+          done
 
-      - name: Check HTTPS proxies
+          # socks5 is supported; socks4 is published raw but cannot be checked yet.
+          for protocol in http https socks5; do
+            echo "::group::Checking $protocol proxies"
+            python3 proxyChecker.py \
+              -p "$protocol" \
+              -l "proxies/$protocol.txt" \
+              --output-dir "proxies/$protocol-tested" \
+              --timeout 6 \
+              --concurrency 300 \
+              --retries 0 \
+              --report "proxies/$protocol-tested/meta.json" \
+              "${sites[@]}"
+            echo "::endgroup::"
+          done
+
+      - name: Commit and push changes
         run: |
-          python3 proxyChecker.py -t 20 -s ${{ matrix.domains }}.com -l proxies/https.txt -o proxies/https-tested/${{ matrix.domains }}.txt
-
-      - name: Commit & Push changes
-        uses: benkaiser/rebase-commit-push@v1.3
-        with:
-          rebase: true
-          author_email: github-actions@github.com
-          author_name: github-actions[bot]
-          branch: main
-          message: "feat: update checked proxies for ${{ matrix.domains }}"
+          set -uo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions@github.com"
+          git add proxies
+          if git diff --cached --quiet; then
+            echo "Checked proxy lists unchanged, nothing to commit."
+            exit 0
+          fi
+          git commit -m "feat: update checked proxies"
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            git pull --rebase --autostash || true
+            sleep 5
+          done
+          echo "Could not push after 3 attempts" >&2
+          exit 1
