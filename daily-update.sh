@@ -33,8 +33,11 @@ for protocol in http https socks4 socks5; do
         --concurrency 300 \
         --retries 0 \
         --report "proxies/$protocol-tested/meta.json" \
+        --json-out "proxies/$protocol-tested/proxies.json" \
         "${sites[@]}"
 done
+
+python3 proxyCatalog.py --geo-cache .cache/ip2asn-v4-u32.tsv.gz
 
 if [ "${1:-}" = "--no-commit" ]; then
     echo "Skipping commit (--no-commit)."

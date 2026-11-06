@@ -36,6 +36,37 @@ Direct URLs work with `curl`, `wget`, or any HTTP client:
 curl -s https://raw.githubusercontent.com/Vann-Dev/proxy-list/main/proxies/http-tested/google.txt
 ```
 
+### JSON catalog
+
+For programmatic use, [`proxies/proxies.json`](proxies/proxies.json) contains one
+entry per unique working proxy across all protocols, enriched with country and
+ASN data and per-domain latency:
+
+```json
+{
+  "schema": 1,
+  "generated_at": "2026-11-06T13:12:33Z",
+  "count": 1,
+  "proxies": [
+    {
+      "address": "8.8.8.8:8080",
+      "ip": "8.8.8.8",
+      "port": 8080,
+      "protocols": ["http", "https"],
+      "country": "US",
+      "asn": "AS15169",
+      "as_name": "GOOGLE",
+      "sites": {"google": 123, "discord": 456}
+    }
+  ]
+}
+```
+
+[`proxies/stats.json`](proxies/stats.json) holds per-protocol, per-domain and
+per-country counts. Latency values are milliseconds. Country/ASN data comes from
+the free [iptoasn.com](https://iptoasn.com) dataset and is refreshed on every
+run; a proxy outside the dataset has `null` geo fields.
+
 ## How it works
 
 1. **Scrape** (`proxyScraper.py`) — pulls 40+ source URLs in parallel: raw GitHub
@@ -49,8 +80,10 @@ curl -s https://raw.githubusercontent.com/Vann-Dev/proxy-list/main/proxies/http-
    Working proxies are grouped per domain and sorted by latency. SOCKS5 goes
    through `httpx[socks]`; SOCKS4 uses a small standard-library client because
    `httpcore` only speaks SOCKS5.
-3. **Publish** — GitHub Actions runs the scrape every 3 hours and the check
-   afterwards, then commits the updated files.
+3. **Publish** — `proxyCatalog.py` merges the per-protocol results, adds
+   country/ASN metadata and writes `proxies/proxies.json` plus `proxies/stats.json`.
+   GitHub Actions runs the scrape every 3 hours and the check afterwards, then
+   commits the updated files.
 
 ### Sources
 
@@ -120,6 +153,8 @@ python3 proxyChecker.py -p http -l proxies/http.txt \
 * `--no-short-circuit` — keep testing other sites after a fatal proxy error
 * `--limit` — only check the first N proxies
 * `--report` — write a JSON summary to this path
+* `--json-out` — write machine-readable results (address, working sites, latency
+  in ms) for this protocol; this is the input of the catalog builder
 * `-v`, `--verbose` — print every proxy and the sites it passed
 
 Exit code `2` means no proxy worked; in that case existing output files are left
@@ -131,6 +166,25 @@ untouched so a network outage cannot wipe the published lists.
 ./daily-update.sh --no-commit   # scrape + check all protocols
 ./daily-update.sh               # same, then git commit and push
 ```
+
+### Build the JSON catalog
+
+After checking, merge every `proxies/*-tested/proxies.json` into a single
+catalog and add country/ASN metadata:
+
+```bash
+python3 proxyCatalog.py --geo-cache .cache/ip2asn-v4-u32.tsv.gz
+```
+
+* `--proxies-dir` — directory holding the `*-tested` folders (default `proxies`)
+* `--output` — catalog path (default `proxies/proxies.json`)
+* `--stats` — stats path (default `proxies/stats.json`)
+* `--geo-cache` — path of the downloaded ip2asn dataset
+* `--no-geo` — skip enrichment and leave country/ASN fields `null`
+* `--refresh-geo` — force a fresh download of the ip2asn dataset
+
+The dataset is cached locally and is not committed; `--no-geo` keeps the build
+fully offline.
 
 ## Development
 

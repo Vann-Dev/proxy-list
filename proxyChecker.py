@@ -182,7 +182,7 @@ async def socks4_request(
         writer.close()
         try:
             await writer.wait_closed()
-        except Exception:  # noqa: BLE001 - connection may already be broken
+        except Exception:  # noqa: BLE001, S110 - connection may already be broken
             pass
 
 
@@ -203,7 +203,7 @@ async def try_site_socks4(
                 socks4_request(proxy, url, timeout, user_agent, verify), timeout=timeout
             )
             return ok, latency, error, False
-        except asyncio.TimeoutError:
+        except TimeoutError:
             error = f"timeout after {timeout:.0f}s"
             fatal = True
         except Exception as exc:  # noqa: BLE001 - classified as fatal below
@@ -264,7 +264,7 @@ async def check_proxy(
                         try_site_socks4(proxy, url, timeout, retries, user_agent, verify),
                         timeout=hard_timeout,
                     )
-                except asyncio.TimeoutError:
+                except TimeoutError:
                     ok, latency, error, fatal = False, 0.0, f"timeout after {hard_timeout:.0f}s", True
                 if record_result(result, sites, index, ok, latency, error, fatal, short_circuit):
                     break
@@ -292,7 +292,7 @@ async def check_proxy(
                     ok, latency, error, fatal = await asyncio.wait_for(
                         try_site(client, url, timeout, retries), timeout=hard_timeout
                     )
-                except asyncio.TimeoutError:
+                except TimeoutError:
                     ok, latency, error, fatal = False, 0.0, f"timeout after {hard_timeout:.0f}s", True
                 if record_result(result, sites, index, ok, latency, error, fatal, short_circuit):
                     break
@@ -348,6 +348,56 @@ def write_results(
         elif output:
             write_lines(Path(output), addresses)
         print(f"  {url}: {len(addresses)} working proxies")
+
+
+def write_json_results(
+    path: str,
+    method: str,
+    input_path: str,
+    input_count: int,
+    results: list[ProxyResult],
+    sites: list[str],
+    slugs: dict[str, str],
+    timeout: float,
+    duration: float,
+) -> None:
+    """Write per-proxy results consumed by proxyCatalog.py."""
+    proxies = []
+    for result in sorted(results, key=lambda item: sort_key(item.proxy)):
+        if not result.alive:
+            continue
+        ip, _, port = result.proxy.partition(":")
+        proxies.append(
+            {
+                "address": result.proxy,
+                "ip": ip,
+                "port": int(port),
+                "sites": {slugs[url]: round(latency * 1000) for url, latency in result.alive.items()},
+            }
+        )
+    payload = {
+        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "protocol": method,
+        "input": input_path,
+        "input_count": input_count,
+        "timeout_seconds": timeout,
+        "duration_seconds": round(duration, 1),
+        "sites": [
+            {
+                "name": slugs[url],
+                "url": url,
+                "alive": sum(1 for result in results if url in result.alive),
+            }
+            for url in sites
+        ],
+        "count": len(proxies),
+        "proxies": proxies,
+    }
+    destination = Path(path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    temporary = destination.with_name(destination.name + ".tmp")
+    temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(destination)
 
 
 def write_report(
@@ -407,6 +457,7 @@ async def check(
     short_circuit: bool,
     limit: int | None,
     report: str | None,
+    json_out: str | None,
 ) -> int:
     started = time.perf_counter()
     try:
@@ -468,6 +519,8 @@ async def check(
     write_results(results, urls, slugs, output, output_dir)
 
     duration = time.perf_counter() - started
+    if json_out:
+        write_json_results(json_out, method, file, len(proxies), results, urls, slugs, timeout, duration)
     if report:
         write_report(report, method, file, len(proxies), results, urls, slugs, timeout, concurrency, duration)
 
@@ -502,6 +555,7 @@ def main() -> int:
     )
     parser.add_argument("--limit", type=int, help="Only check the first N proxies (debugging)")
     parser.add_argument("--report", help="Write a JSON summary to this path")
+    parser.add_argument("--json-out", help="Write per-proxy results (for proxyCatalog.py) to this path")
     parser.add_argument("-v", "--verbose", action="store_true", help="Print per-proxy results")
     args = parser.parse_args()
 
@@ -527,6 +581,7 @@ def main() -> int:
             short_circuit=args.short_circuit,
             limit=args.limit,
             report=args.report,
+            json_out=args.json_out,
         )
     )
 
