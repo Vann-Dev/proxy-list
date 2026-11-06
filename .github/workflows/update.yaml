@@ -19,12 +19,13 @@ concurrency:
 
 env:
   DOMAINS: google.com facebook.com twitter.com tiktok.com youtube.com whatsapp.com microsoft.com discord.com instagram.com
+  PYTHONUNBUFFERED: "1"
 
 jobs:
   check:
     name: Check ${{ matrix.protocol }} proxies
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
