@@ -198,25 +198,10 @@ async def socks4_fetch(
             body = await reader.read(MAX_BODY_BYTES)
         return status_code, latency, body
     finally:
+        # close() alone is enough. wait_closed() can block forever on a dead
+        # TLS peer, and a cancellation delivered during that await used to keep
+        # the semaphore slot occupied, stalling the whole run.
         writer.close()
-        try:
-            await writer.wait_closed()
-        except Exception:  # noqa: BLE001, S110 - connection may already be broken
-            pass
-
-
-async def socks4_request(
-    proxy: str,
-    url: str,
-    timeout: float,
-    user_agent: str,
-    verify: bool,
-) -> tuple[bool, float, str | None]:
-    """Return (ok, latency, error) for a GET through a SOCKS4 proxy."""
-    status_code, latency, _ = await socks4_fetch(proxy, url, timeout, user_agent, verify)
-    if status_code < 400:
-        return True, latency, None
-    return False, latency, f"HTTP {status_code}"
 
 
 async def try_site_socks4(
@@ -232,10 +217,13 @@ async def try_site_socks4(
     fatal = False
     for attempt in range(retries + 1):
         try:
-            ok, latency, error = await asyncio.wait_for(
-                socks4_request(proxy, url, timeout, user_agent, verify), timeout=timeout
+            status_code, latency, _ = await asyncio.wait_for(
+                socks4_fetch(proxy, url, timeout, user_agent, verify), timeout=timeout
             )
-            return ok, latency, error, False
+            if status_code < 400:
+                return True, latency, None, False
+            # The proxy answered but needs credentials, so it is unusable.
+            return False, latency, f"HTTP {status_code}", status_code in (407, 511)
         except TimeoutError:
             error = f"timeout after {timeout:.0f}s"
             fatal = True
