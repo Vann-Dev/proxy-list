@@ -94,6 +94,11 @@ fields.
    GitHub Actions runs the scrape every 3 hours and the check afterwards, then
    commits the updated files.
 
+The freshness state (`--state`) is kept in `.cache/` and never committed; CI
+stores it with the actions cache. A proxy that fails twice in a row is skipped
+for 24 hours and then retried, so a temporary outage does not blacklist it
+forever.
+
 ### Sources
 
 | Source | Protocols |
@@ -168,6 +173,11 @@ python3 proxyChecker.py -p http -l proxies/http.txt \
   `elite` with one extra request each
 * `--anonymity-url` — echo endpoint returning the request headers
   (default `https://httpbingo.org/headers`)
+* `--state` — JSON file with failure history; recently dead proxies are skipped
+  so they are not retested on every run
+* `--skip-after` — consecutive failures before a proxy is skipped (default 2)
+* `--skip-failed-hours` — retry skipped proxies after this many hours
+  (default 24; `0` disables skipping)
 * `-v`, `--verbose` — print every proxy and the sites it passed
 
 Exit code `2` means no proxy worked; in that case existing output files are left

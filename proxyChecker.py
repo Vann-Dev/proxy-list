@@ -34,6 +34,7 @@ from proxy_anonymity import (
     echo_ip,
     ip_url,
 )
+from proxy_state import DEFAULT_MIN_FAILURES, DEFAULT_SKIP_HOURS, ProxyState
 from proxy_utils import PROXY_SCHEMES, parse_entry, site_slug, site_url, sort_key
 
 USER_AGENTS_PATH = Path(__file__).with_name("user_agents.txt")
@@ -555,6 +556,9 @@ async def check(
     report: str | None,
     json_out: str | None,
     anonymity_url: str | None = None,
+    state_path: str | None = None,
+    skip_failed_hours: float = DEFAULT_SKIP_HOURS,
+    skip_after: int = DEFAULT_MIN_FAILURES,
 ) -> int:
     started = time.perf_counter()
     try:
@@ -568,6 +572,22 @@ async def check(
     if not proxies:
         print(f"No usable proxies found in {file}", file=sys.stderr)
         return 1
+
+    state = None
+    if state_path:
+        state = ProxyState.load(state_path, min_failures=skip_after, skip_hours=skip_failed_hours)
+        key_prefix = f"{method}:"
+        before = len(proxies)
+        proxies = [proxy for proxy in proxies if not state.should_skip(key_prefix + proxy)]
+        skipped = before - len(proxies)
+        if skipped:
+            print(
+                f"Skipping {skipped} proxies that failed {skip_after}+ times in the last "
+                f"{skip_failed_hours:.0f}h (state: {state_path})"
+            )
+        if not proxies:
+            print("Every proxy was skipped by the freshness state; nothing to check.", file=sys.stderr)
+            return 0
 
     urls = [site_url(site, method) for site in sites]
     # Deduplicate while preserving order (e.g. google.com and https://google.com).
@@ -627,6 +647,14 @@ async def check(
         )
         return 2
 
+    if state is not None:
+        # Only record after the outage guard so one bad run cannot mark every
+        # proxy as dead.
+        for result in results:
+            state.record(f"{method}:{result.proxy}", ok=bool(result.alive))
+        state.prune()
+        state.save()
+
     slugs = unique_slugs(urls)
     write_results(results, urls, slugs, output, output_dir)
 
@@ -676,6 +704,17 @@ def main() -> int:
         "--anonymity-url", default=DEFAULT_ECHO_URL,
         help=f"Echo endpoint that returns the request headers (default {DEFAULT_ECHO_URL})",
     )
+    parser.add_argument(
+        "--state", help="Track failures in this JSON file and skip recently dead proxies",
+    )
+    parser.add_argument(
+        "--skip-after", type=int, default=DEFAULT_MIN_FAILURES,
+        help="Consecutive failures before a proxy is skipped (default 2)",
+    )
+    parser.add_argument(
+        "--skip-failed-hours", type=float, default=DEFAULT_SKIP_HOURS,
+        help="Retry skipped proxies after this many hours; 0 disables skipping (default 24)",
+    )
     parser.add_argument("-v", "--verbose", action="store_true", help="Print per-proxy results")
     args = parser.parse_args()
 
@@ -703,6 +742,9 @@ def main() -> int:
             report=args.report,
             json_out=args.json_out,
             anonymity_url=args.anonymity_url if args.anonymity else None,
+            state_path=args.state,
+            skip_failed_hours=args.skip_failed_hours,
+            skip_after=args.skip_after,
         )
     )
 

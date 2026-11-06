@@ -42,6 +42,14 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Restore freshness state
+        uses: actions/cache@v4
+        with:
+          path: .cache/proxy-state.json
+          key: proxy-state-${{ github.run_id }}
+          restore-keys: |
+            proxy-state-
+
       - name: Check proxies against every domain
         run: |
           set -uo pipefail
@@ -64,6 +72,7 @@ jobs:
               --report "proxies/$protocol-tested/meta.json" \
               --json-out "proxies/$protocol-tested/proxies.json" \
               --anonymity \
+              --state .cache/proxy-state.json \
               "${sites[@]}"
             echo "::endgroup::"
           done

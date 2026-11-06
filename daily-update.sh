@@ -35,6 +35,7 @@ for protocol in http https socks4 socks5; do
         --report "proxies/$protocol-tested/meta.json" \
         --json-out "proxies/$protocol-tested/proxies.json" \
         --anonymity \
+        --state .cache/proxy-state.json \
         "${sites[@]}"
 done
 
