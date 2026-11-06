@@ -16,7 +16,13 @@ GEO_TSV = "\n".join(  # noqa: FLY002 - keep the columns visible
 )
 
 
-def result_payload(protocol: str, address: str, sites: dict[str, int], tested: int = 10) -> dict:
+def result_payload(
+    protocol: str,
+    address: str,
+    sites: dict[str, int],
+    tested: int = 10,
+    anonymity: str | None = None,
+) -> dict:
     return {
         "generated_at": "2026-11-06T00:00:00Z",
         "protocol": protocol,
@@ -29,6 +35,7 @@ def result_payload(protocol: str, address: str, sites: dict[str, int], tested: i
                 "address": address,
                 "ip": address.partition(":")[0],
                 "port": int(address.partition(":")[2]),
+                "anonymity": anonymity,
                 "sites": sites,
             }
         ],
@@ -89,6 +96,30 @@ class CatalogTests(unittest.TestCase):
         unknown = next(item for item in catalog["proxies"] if item["address"] == "9.9.9.9:80")
         self.assertIsNone(unknown["country"])
         self.assertIsNone(unknown["asn"])
+
+    def test_anonymity_is_merged_with_least_private_value(self):
+        (self.root / "http-tested" / "proxies.json").write_text(
+            json.dumps(result_payload("http", "8.8.8.8:8080", {"google": 100}, anonymity="anonymous")),
+            encoding="utf-8",
+        )
+        directory = self.root / "socks5-tested"
+        directory.mkdir()
+        (directory / "proxies.json").write_text(
+            json.dumps(result_payload("socks5", "8.8.8.8:8080", {"google": 50}, anonymity="elite")),
+            encoding="utf-8",
+        )
+
+        entries, summaries = merge_results(discover_results(self.root))
+        self.assertEqual(entries["8.8.8.8:8080"].anonymity, "anonymous")
+        catalog, stats = build_catalog(entries, summaries, self.geo)
+        self.assertEqual(catalog["proxies"][0]["anonymity"], "anonymous")
+        self.assertEqual(stats["anonymity"], {"anonymous": 1})
+
+    def test_anonymity_is_null_when_no_protocol_reported_it(self):
+        entries, summaries = merge_results(discover_results(self.root))
+        catalog, stats = build_catalog(entries, summaries, self.geo)
+        self.assertIsNone(catalog["proxies"][0]["anonymity"])
+        self.assertIsNone(stats["anonymity"])
 
     def test_private_addresses_are_rejected(self):
         directory = self.root / "socks5-tested"

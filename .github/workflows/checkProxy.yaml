@@ -63,6 +63,7 @@ jobs:
               --retries 0 \
               --report "proxies/$protocol-tested/meta.json" \
               --json-out "proxies/$protocol-tested/proxies.json" \
+              --anonymity \
               "${sites[@]}"
             echo "::endgroup::"
           done

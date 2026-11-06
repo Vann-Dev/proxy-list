@@ -56,16 +56,23 @@ ASN data and per-domain latency:
       "country": "US",
       "asn": "AS15169",
       "as_name": "GOOGLE",
+      "anonymity": "elite",
       "sites": {"google": 123, "discord": 456}
     }
   ]
 }
 ```
 
-[`proxies/stats.json`](proxies/stats.json) holds per-protocol, per-domain and
-per-country counts. Latency values are milliseconds. Country/ASN data comes from
-the free [iptoasn.com](https://iptoasn.com) dataset and is refreshed on every
-run; a proxy outside the dataset has `null` geo fields.
+Anonymity is one of `transparent` (your IP leaks to the target),
+`anonymous` (the proxy is visible but your IP is not), `elite` (neither is
+visible) or `null` when the check was not run. When one address works as
+several protocols, the least private result wins.
+
+[`proxies/stats.json`](proxies/stats.json) holds per-protocol, per-domain,
+per-country and per-anonymity counts. Latency values are milliseconds.
+Country/ASN data comes from the free [iptoasn.com](https://iptoasn.com) dataset
+and is refreshed on every run; a proxy outside the dataset has `null` geo
+fields.
 
 ## How it works
 
@@ -79,7 +86,9 @@ run; a proxy outside the dataset has `null` geo fields.
    domain once; if the connection is dead, the remaining domains are skipped.
    Working proxies are grouped per domain and sorted by latency. SOCKS5 goes
    through `httpx[socks]`; SOCKS4 uses a small standard-library client because
-   `httpcore` only speaks SOCKS5.
+   `httpcore` only speaks SOCKS5. With `--anonymity`, every working proxy also
+   loads an echo endpoint (default `httpbingo.org/headers`) so the headers the
+   target would see can be classified as transparent, anonymous or elite.
 3. **Publish** — `proxyCatalog.py` merges the per-protocol results, adds
    country/ASN metadata and writes `proxies/proxies.json` plus `proxies/stats.json`.
    GitHub Actions runs the scrape every 3 hours and the check afterwards, then
@@ -155,6 +164,10 @@ python3 proxyChecker.py -p http -l proxies/http.txt \
 * `--report` — write a JSON summary to this path
 * `--json-out` — write machine-readable results (address, working sites, latency
   in ms) for this protocol; this is the input of the catalog builder
+* `--anonymity` — classify working proxies as `transparent`, `anonymous` or
+  `elite` with one extra request each
+* `--anonymity-url` — echo endpoint returning the request headers
+  (default `https://httpbingo.org/headers`)
 * `-v`, `--verbose` — print every proxy and the sites it passed
 
 Exit code `2` means no proxy worked; in that case existing output files are left
@@ -202,6 +215,9 @@ runs them on every push and pull request.
   traffic is tunnelled.
 * A proxy can work for one domain and fail for another; always use the per-domain
   file that matches your target.
+* Anonymity is inferred from headers only, so a proxy that leaks the client IP in
+  another way can still be labelled `anonymous`. A failed echo request is
+  reported as `unknown` rather than guessed.
 
 ## Star History
 

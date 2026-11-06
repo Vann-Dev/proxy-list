@@ -18,6 +18,7 @@ from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from proxy_anonymity import ANONYMOUS, ELITE, TRANSPARENT, UNKNOWN, weakest
 from proxy_geo import DEFAULT_CACHE, Ip2Asn, load_dataset
 from proxy_utils import normalize_address, sort_key
 
@@ -32,6 +33,7 @@ class Entry:
     country: str | None = None
     asn: str | None = None
     as_name: str | None = None
+    anonymity: str | None = None
 
 
 def discover_results(proxies_dir: Path) -> list[Path]:
@@ -64,6 +66,11 @@ def merge_results(paths: list[Path]) -> tuple[dict[str, Entry], dict[str, dict]]
             if entry is None:
                 entry = entries[address] = Entry(address=address)
             entry.protocols.add(protocol)
+            reported_anonymity = item.get("anonymity")
+            if reported_anonymity:
+                # Different protocols can expose different amounts of information;
+                # publish the least private result across all of them.
+                entry.anonymity = weakest([entry.anonymity, reported_anonymity])
             for slug, latency in item.get("sites", {}).items():
                 value = int(latency)
                 entry.sites[slug] = min(value, entry.sites.get(slug, value))
@@ -93,6 +100,7 @@ def build_catalog(
                 "country": entry.country,
                 "asn": entry.asn,
                 "as_name": entry.as_name,
+                "anonymity": entry.anonymity,
                 "sites": dict(sorted(entry.sites.items())),
             }
         )
@@ -127,6 +135,12 @@ def build_catalog(
         for slug, by_protocol in sorted(site_protocols.items())
     }
     countries = Counter(entry.country for entry in entries.values() if entry.country)
+    anonymities = Counter(entry.anonymity for entry in entries.values() if entry.anonymity)
+    anonymity_stats = {
+        name: anonymities[name]
+        for name in (TRANSPARENT, ANONYMOUS, ELITE, UNKNOWN)
+        if anonymities[name]
+    }
 
     stats = {
         "schema": SCHEMA_VERSION,
@@ -135,6 +149,7 @@ def build_catalog(
         "protocols": protocol_stats,
         "sites": sites,
         "countries": dict(sorted(countries.items(), key=lambda item: (-item[1], item[0]))),
+        "anonymity": anonymity_stats or None,
     }
     return catalog, stats
 
