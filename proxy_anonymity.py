@@ -18,7 +18,10 @@ from __future__ import annotations
 import re
 from urllib.parse import urlsplit, urlunsplit
 
-DEFAULT_ECHO_URL = "https://httpbingo.org/headers"
+DEFAULT_ECHO_URLS = (
+    "https://httpbin.org/headers",
+    "https://httpbingo.org/headers",
+)
 
 TRANSPARENT = "transparent"
 ANONYMOUS = "anonymous"
@@ -80,6 +83,15 @@ def ip_url(echo_url: str) -> str:
     """Derive the /ip endpoint from an echo endpoint on the same host."""
     parts = urlsplit(echo_url)
     return urlunsplit((parts.scheme, parts.netloc, "/ip", "", ""))
+
+
+def parse_echo_urls(value: str | None) -> list[str]:
+    """Return the configured comma-separated endpoints, or the defaults."""
+    if value:
+        urls = [part.strip() for part in value.split(",") if part.strip()]
+        if urls:
+            return urls
+    return list(DEFAULT_ECHO_URLS)
 
 
 def _contains_ip(value: str, ip: str) -> bool:

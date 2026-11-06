@@ -87,8 +87,8 @@ fields.
    Working proxies are grouped per domain and sorted by latency. SOCKS5 goes
    through `httpx[socks]`; SOCKS4 uses a small standard-library client because
    `httpcore` only speaks SOCKS5. With `--anonymity`, every working proxy also
-   loads an echo endpoint (default `httpbingo.org/headers`) so the headers the
-   target would see can be classified as transparent, anonymous or elite.
+   loads a public echo endpoint so the headers the target would see can be
+   classified as transparent, anonymous or elite.
 3. **Publish** — `proxyCatalog.py` merges the per-protocol results, adds
    country/ASN metadata and writes `proxies/proxies.json` plus `proxies/stats.json`.
    GitHub Actions runs the whole pipeline every 3 hours and pushes a single
@@ -171,8 +171,8 @@ python3 proxyChecker.py -p http -l proxies/http.txt \
   in ms) for this protocol; this is the input of the catalog builder
 * `--anonymity` — classify working proxies as `transparent`, `anonymous` or
   `elite` with one extra request each
-* `--anonymity-url` — echo endpoint returning the request headers
-  (default `https://httpbingo.org/headers`)
+* `--anonymity-url` — comma-separated echo endpoints returning the request
+  headers (default `httpbin.org/headers`, then `httpbingo.org/headers`)
 * `--state` — JSON file with failure history; recently dead proxies are skipped
   so they are not retested on every run
 * `--skip-after` — consecutive failures before a proxy is skipped (default 2)

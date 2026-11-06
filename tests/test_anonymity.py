@@ -2,6 +2,7 @@ import unittest
 
 from proxy_anonymity import (
     ANONYMOUS,
+    DEFAULT_ECHO_URLS,
     ELITE,
     TRANSPARENT,
     UNKNOWN,
@@ -9,6 +10,7 @@ from proxy_anonymity import (
     echo_headers,
     echo_ip,
     ip_url,
+    parse_echo_urls,
     weakest,
 )
 
@@ -65,6 +67,14 @@ class EchoPayloadTests(unittest.TestCase):
     def test_ip_url_keeps_host_and_replaces_path(self):
         self.assertEqual(ip_url("https://httpbingo.org/headers"), "https://httpbingo.org/ip")
         self.assertEqual(ip_url("http://example.com:8080/anything"), "http://example.com:8080/ip")
+
+    def test_parse_echo_urls_uses_defaults_when_unset(self):
+        self.assertEqual(parse_echo_urls(None), list(DEFAULT_ECHO_URLS))
+        self.assertEqual(parse_echo_urls(""), list(DEFAULT_ECHO_URLS))
+
+    def test_parse_echo_urls_splits_a_custom_list(self):
+        value = " https://a.test/headers , https://b.test/headers "
+        self.assertEqual(parse_echo_urls(value), ["https://a.test/headers", "https://b.test/headers"])
 
 
 class WeakestTests(unittest.TestCase):

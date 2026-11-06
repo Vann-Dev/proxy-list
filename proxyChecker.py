@@ -25,7 +25,7 @@ import httpx
 
 from proxy_anonymity import (
     ANONYMOUS,
-    DEFAULT_ECHO_URL,
+    DEFAULT_ECHO_URLS,
     ELITE,
     TRANSPARENT,
     UNKNOWN,
@@ -33,6 +33,7 @@ from proxy_anonymity import (
     echo_headers,
     echo_ip,
     ip_url,
+    parse_echo_urls,
 )
 from proxy_state import DEFAULT_MIN_FAILURES, DEFAULT_SKIP_HOURS, ProxyState
 from proxy_utils import PROXY_SCHEMES, parse_entry, site_slug, site_url, sort_key
@@ -275,51 +276,59 @@ def record_result(
     return False
 
 
-async def fetch_client_ip(echo_url: str, timeout: float) -> str | None:
+async def fetch_client_ip(echo_urls: list[str], timeout: float) -> str | None:
     """Resolve this host's public IP without a proxy (needed for transparent)."""
-    try:
-        async with httpx.AsyncClient(timeout=timeout, follow_redirects=True) as client:
-            response = await client.get(ip_url(echo_url))
-            response.raise_for_status()
-            return echo_ip(response.json())
-    except Exception:  # noqa: BLE001 - anonymity classification is optional
-        return None
+    async with httpx.AsyncClient(timeout=timeout, follow_redirects=True) as client:
+        for echo_url in echo_urls:
+            try:
+                response = await client.get(ip_url(echo_url))
+                response.raise_for_status()
+                ip = echo_ip(response.json())
+                if ip:
+                    return ip
+            except Exception:  # noqa: BLE001, S112 - try the next echo endpoint
+                continue
+    return None
 
 
 async def detect_anonymity_http(
     client: httpx.AsyncClient,
-    echo_url: str,
+    echo_urls: list[str],
     timeout: float,
     client_ip: str | None,
 ) -> str:
     """Classify a proxy over HTTP(S)/SOCKS5 using an already-open client."""
-    try:
-        response = await asyncio.wait_for(client.get(echo_url, timeout=timeout), timeout=timeout * 2 + 3)
-        if response.status_code >= 400:
-            return UNKNOWN
-        return classify(echo_headers(response.json()), client_ip)
-    except Exception:  # noqa: BLE001 - never let the echo request fail a check
-        return UNKNOWN
+    for echo_url in echo_urls:
+        try:
+            response = await asyncio.wait_for(client.get(echo_url, timeout=timeout), timeout=timeout * 2 + 3)
+            if response.status_code >= 400:
+                continue
+            return classify(echo_headers(response.json()), client_ip)
+        except Exception:  # noqa: BLE001, S112 - try the next echo endpoint
+            continue
+    return UNKNOWN
 
 
 async def detect_anonymity_socks4(
     proxy: str,
-    echo_url: str,
+    echo_urls: list[str],
     timeout: float,
     user_agent: str,
     verify: bool,
     client_ip: str | None,
 ) -> str:
-    try:
-        status_code, _, body = await asyncio.wait_for(
-            socks4_fetch(proxy, echo_url, timeout, user_agent, verify, include_body=True),
-            timeout=timeout * 2 + 3,
-        )
-        if status_code >= 400:
-            return UNKNOWN
-        return classify(echo_headers(json.loads(body.decode("utf-8", "replace"))), client_ip)
-    except Exception:  # noqa: BLE001 - never let the echo request fail a check
-        return UNKNOWN
+    for echo_url in echo_urls:
+        try:
+            status_code, _, body = await asyncio.wait_for(
+                socks4_fetch(proxy, echo_url, timeout, user_agent, verify, include_body=True),
+                timeout=timeout * 2 + 3,
+            )
+            if status_code >= 400:
+                continue
+            return classify(echo_headers(json.loads(body.decode("utf-8", "replace"))), client_ip)
+        except Exception:  # noqa: BLE001, S112 - try the next echo endpoint
+            continue
+    return UNKNOWN
 
 
 async def check_proxy(
@@ -333,7 +342,7 @@ async def check_proxy(
     random_user_agent: bool,
     verify: bool,
     short_circuit: bool,
-    anonymity_url: str | None,
+    anonymity_urls: list[str] | None,
     client_ip: str | None,
 ) -> ProxyResult:
     result = ProxyResult(proxy=proxy)
@@ -353,9 +362,9 @@ async def check_proxy(
                     ok, latency, error, fatal = False, 0.0, f"timeout after {hard_timeout:.0f}s", True
                 if record_result(result, sites, index, ok, latency, error, fatal, short_circuit):
                     break
-            if anonymity_url and result.alive:
+            if anonymity_urls and result.alive:
                 result.anonymity = await detect_anonymity_socks4(
-                    proxy, anonymity_url, timeout, user_agent, verify, client_ip
+                    proxy, anonymity_urls, timeout, user_agent, verify, client_ip
                 )
             return result
 
@@ -385,8 +394,8 @@ async def check_proxy(
                     ok, latency, error, fatal = False, 0.0, f"timeout after {hard_timeout:.0f}s", True
                 if record_result(result, sites, index, ok, latency, error, fatal, short_circuit):
                     break
-            if anonymity_url and result.alive:
-                result.anonymity = await detect_anonymity_http(client, anonymity_url, timeout, client_ip)
+            if anonymity_urls and result.alive:
+                result.anonymity = await detect_anonymity_http(client, anonymity_urls, timeout, client_ip)
     return result
 
 
@@ -555,7 +564,7 @@ async def check(
     limit: int | None,
     report: str | None,
     json_out: str | None,
-    anonymity_url: str | None = None,
+    anonymity_urls: list[str] | None = None,
     state_path: str | None = None,
     skip_failed_hours: float = DEFAULT_SKIP_HOURS,
     skip_after: int = DEFAULT_MIN_FAILURES,
@@ -596,10 +605,10 @@ async def check(
     semaphore = asyncio.Semaphore(concurrency)
 
     client_ip = None
-    if anonymity_url:
-        client_ip = await fetch_client_ip(anonymity_url, timeout)
+    if anonymity_urls:
+        client_ip = await fetch_client_ip(anonymity_urls, timeout)
         if client_ip:
-            print(f"Anonymity checks use {anonymity_url} (this host: {client_ip})")
+            print(f"Anonymity checks use {', '.join(anonymity_urls)} (this host: {client_ip})")
         else:
             print(
                 "Could not determine this host's public IP; transparent proxies will be "
@@ -623,7 +632,7 @@ async def check(
                 random_user_agent=random_user_agent,
                 verify=verify,
                 short_circuit=short_circuit,
-                anonymity_url=anonymity_url,
+                anonymity_urls=anonymity_urls,
                 client_ip=client_ip,
             )
             for proxy in proxies
@@ -701,8 +710,11 @@ def main() -> int:
         help="Classify working proxies as transparent/anonymous/elite (one extra request each)",
     )
     parser.add_argument(
-        "--anonymity-url", default=DEFAULT_ECHO_URL,
-        help=f"Echo endpoint that returns the request headers (default {DEFAULT_ECHO_URL})",
+        "--anonymity-url",
+        help=(
+            "Comma-separated echo endpoints returning the request headers "
+            f"(default: {', '.join(DEFAULT_ECHO_URLS)})"
+        ),
     )
     parser.add_argument(
         "--state", help="Track failures in this JSON file and skip recently dead proxies",
@@ -741,7 +753,7 @@ def main() -> int:
             limit=args.limit,
             report=args.report,
             json_out=args.json_out,
-            anonymity_url=args.anonymity_url if args.anonymity else None,
+            anonymity_urls=parse_echo_urls(args.anonymity_url) if args.anonymity else None,
             state_path=args.state,
             skip_failed_hours=args.skip_failed_hours,
             skip_after=args.skip_after,
