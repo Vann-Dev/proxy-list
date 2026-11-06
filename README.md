@@ -91,8 +91,8 @@ fields.
    target would see can be classified as transparent, anonymous or elite.
 3. **Publish** — `proxyCatalog.py` merges the per-protocol results, adds
    country/ASN metadata and writes `proxies/proxies.json` plus `proxies/stats.json`.
-   GitHub Actions runs the scrape every 3 hours and the check afterwards, then
-   commits the updated files.
+   GitHub Actions runs the whole pipeline every 3 hours and pushes a single
+   data commit per run, so the history stays readable.
 
 The freshness state (`--state`) is kept in `.cache/` and never committed; CI
 stores it with the actions cache. A proxy that fails twice in a row is skipped

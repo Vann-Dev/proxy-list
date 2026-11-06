@@ -1,30 +1,26 @@
-name: Check and push proxies
+name: Update proxy lists
 
 on:
-  workflow_run:
-    workflows:
-      - Get Proxies and push proxies
+  schedule:
+    # Every 3 hours. GitHub may delay or drop scheduled runs under load.
+    - cron: "0 */3 * * *"
+  push:
     branches:
       - main
-    types:
-      - completed
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# Shared with getProxy.yaml so scrapes and checks never push concurrently.
+# One pipeline at a time: scrapes, checks and pushes never overlap.
 concurrency:
   group: proxy-data-write
   cancel-in-progress: false
 
 jobs:
-  test_proxies:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+  update:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -50,6 +46,16 @@ jobs:
           restore-keys: |
             proxy-state-
 
+      - name: Scrape proxies
+        run: |
+          set -uo pipefail
+          for protocol in http https socks4 socks5; do
+            echo "::group::Scraping $protocol"
+            python3 proxyScraper.py -p "$protocol" -o "proxies/$protocol.txt" \
+              || echo "::warning::Scrape failed for $protocol; keeping the previous list"
+            echo "::endgroup::"
+          done
+
       - name: Check proxies against every domain
         run: |
           set -uo pipefail
@@ -73,7 +79,8 @@ jobs:
               --json-out "proxies/$protocol-tested/proxies.json" \
               --anonymity \
               --state .cache/proxy-state.json \
-              "${sites[@]}"
+              "${sites[@]}" \
+              || echo "::warning::Check did not finish for $protocol; keeping the previous results"
             echo "::endgroup::"
           done
 
@@ -81,17 +88,17 @@ jobs:
         run: |
           python3 proxyCatalog.py --geo-cache .cache/ip2asn-v4-u32.tsv.gz
 
-      - name: Commit and push changes
+      - name: Commit and push once
         run: |
           set -uo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
           git add proxies
           if git diff --cached --quiet; then
-            echo "Checked proxy lists unchanged, nothing to commit."
+            echo "Proxy data unchanged, nothing to commit."
             exit 0
           fi
-          git commit -m "feat: update checked proxies"
+          git commit -m "chore(data): refresh proxy lists"
           for attempt in 1 2 3; do
             if git push; then
               exit 0
