@@ -24,7 +24,7 @@ for domain in "${DOMAINS[@]}"; do
     sites+=("-s" "$domain")
 done
 
-for protocol in http https socks5; do
+for protocol in http https socks4 socks5; do
     python3 proxyChecker.py \
         -p "$protocol" \
         -l "proxies/$protocol.txt" \

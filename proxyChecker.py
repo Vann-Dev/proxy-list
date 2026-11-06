@@ -12,10 +12,14 @@ import argparse
 import asyncio
 import json
 import random
+import socket
+import ssl
+import struct
 import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import httpx
 
@@ -92,6 +96,149 @@ async def try_site(
     return False, 0.0, error, fatal
 
 
+SOCKS4_CONNECT = 1
+SOCKS4_GRANTED = 90
+
+
+def socks4_connect_request(ip: str, port: int) -> bytes:
+    """Build a SOCKS4 CONNECT request for an already-resolved IPv4 address."""
+    return struct.pack("!BBH", 4, SOCKS4_CONNECT, port) + socket.inet_aton(ip) + b"\x00"
+
+
+def parse_status_line(line: bytes) -> int:
+    """Return the status code of an HTTP/1.x status line, or 0 if malformed."""
+    parts = line.split()
+    if len(parts) < 2 or not parts[0].startswith(b"HTTP/"):
+        return 0
+    try:
+        return int(parts[1])
+    except ValueError:
+        return 0
+
+
+async def socks4_request(
+    proxy: str,
+    url: str,
+    timeout: float,
+    user_agent: str,
+    verify: bool,
+) -> tuple[bool, float, str | None]:
+    """HTTP(S) GET through a SOCKS4 proxy using only the standard library.
+
+    httpcore (and therefore httpx) only supports SOCKS5, so SOCKS4 gets a
+    minimal implementation here. The target hostname is resolved locally
+    because SOCKS4 has no remote-DNS extension.
+    """
+    parsed = urlsplit(url)
+    host = parsed.hostname
+    if not host:
+        raise ValueError(f"invalid site URL: {url}")
+    port = parsed.port or (443 if parsed.scheme == "https" else 80)
+    path = parsed.path or "/"
+    if parsed.query:
+        path = f"{path}?{parsed.query}"
+
+    proxy_host, separator, proxy_port = proxy.rpartition(":")
+    if not separator or not proxy_host:
+        raise ValueError(f"invalid proxy address: {proxy}")
+
+    loop = asyncio.get_running_loop()
+    addresses = await loop.getaddrinfo(host, port, family=socket.AF_INET, type=socket.SOCK_STREAM)
+    target_ip = addresses[0][4][0]
+
+    started = time.perf_counter()
+    reader, writer = await asyncio.open_connection(proxy_host, int(proxy_port))
+    try:
+        writer.write(socks4_connect_request(target_ip, port))
+        await writer.drain()
+        reply = await reader.readexactly(8)
+        if reply[0] != 0 or reply[1] != SOCKS4_GRANTED:
+            raise ConnectionError(f"SOCKS4 proxy rejected the connection (code {reply[1]})")
+
+        if parsed.scheme == "https":
+            context = ssl.create_default_context()
+            if not verify:
+                context.check_hostname = False
+                context.verify_mode = ssl.CERT_NONE
+            await writer.start_tls(context, server_hostname=host)
+
+        request = (
+            f"GET {path} HTTP/1.1\r\n"
+            f"Host: {host}\r\n"
+            f"User-Agent: {user_agent}\r\n"
+            "Accept: */*\r\n"
+            "Connection: close\r\n\r\n"
+        )
+        writer.write(request.encode("ascii", "ignore"))
+        await writer.drain()
+        status_code = parse_status_line(await reader.readline())
+        latency = time.perf_counter() - started
+        if status_code == 0:
+            raise ConnectionError("SOCKS4 tunnel returned an invalid HTTP response")
+        if status_code < 400:
+            return True, latency, None
+        return False, latency, f"HTTP {status_code}"
+    finally:
+        writer.close()
+        try:
+            await writer.wait_closed()
+        except Exception:  # noqa: BLE001 - connection may already be broken
+            pass
+
+
+async def try_site_socks4(
+    proxy: str,
+    url: str,
+    timeout: float,
+    retries: int,
+    user_agent: str,
+    verify: bool,
+) -> tuple[bool, float, str | None, bool]:
+    """Return (ok, latency, error, fatal) for one site over SOCKS4."""
+    error: str | None = None
+    fatal = False
+    for attempt in range(retries + 1):
+        try:
+            ok, latency, error = await asyncio.wait_for(
+                socks4_request(proxy, url, timeout, user_agent, verify), timeout=timeout
+            )
+            return ok, latency, error, False
+        except asyncio.TimeoutError:
+            error = f"timeout after {timeout:.0f}s"
+            fatal = True
+        except Exception as exc:  # noqa: BLE001 - classified as fatal below
+            error = f"{type(exc).__name__}: {exc}"
+            fatal = True
+        if attempt < retries:
+            await asyncio.sleep(0.25 * (attempt + 1))
+    return False, 0.0, error, fatal
+
+
+def record_result(
+    result: ProxyResult,
+    sites: list[str],
+    index: int,
+    ok: bool,
+    latency: float,
+    error: str | None,
+    fatal: bool,
+    short_circuit: bool,
+) -> bool:
+    """Record one site result; return True when the remaining sites are skipped."""
+    url = sites[index]
+    result.checked += 1
+    if ok:
+        result.alive[url] = latency
+        return False
+    result.errors[url] = error or "unknown error"
+    if fatal and short_circuit:
+        for skipped in sites[index + 1 :]:
+            result.errors[skipped] = "skipped after fatal proxy error"
+            result.checked += 1
+        return True
+    return False
+
+
 async def check_proxy(
     proxy: str,
     method: str,
@@ -109,6 +256,20 @@ async def check_proxy(
     scheme = PROXY_SCHEMES[method]
 
     async with semaphore:
+        if method == "socks4":
+            for index, url in enumerate(sites):
+                hard_timeout = timeout * (retries + 1) * 2 + 3
+                try:
+                    ok, latency, error, fatal = await asyncio.wait_for(
+                        try_site_socks4(proxy, url, timeout, retries, user_agent, verify),
+                        timeout=hard_timeout,
+                    )
+                except asyncio.TimeoutError:
+                    ok, latency, error, fatal = False, 0.0, f"timeout after {hard_timeout:.0f}s", True
+                if record_result(result, sites, index, ok, latency, error, fatal, short_circuit):
+                    break
+            return result
+
         try:
             client = httpx.AsyncClient(
                 proxy=f"{scheme}://{proxy}",
@@ -133,16 +294,8 @@ async def check_proxy(
                     )
                 except asyncio.TimeoutError:
                     ok, latency, error, fatal = False, 0.0, f"timeout after {hard_timeout:.0f}s", True
-                result.checked += 1
-                if ok:
-                    result.alive[url] = min(latency, result.alive.get(url, latency))
-                else:
-                    result.errors[url] = error or "unknown error"
-                    if fatal and short_circuit:
-                        for skipped in sites[index + 1 :]:
-                            result.errors[skipped] = "skipped after fatal proxy error"
-                            result.checked += 1
-                        break
+                if record_result(result, sites, index, ok, latency, error, fatal, short_circuit):
+                    break
     return result
 
 
@@ -327,7 +480,7 @@ def main() -> int:
     parser.add_argument("-t", "--timeout", type=float, default=DEFAULT_TIMEOUT, help="Timeout per request in seconds")
     parser.add_argument(
         "-p", "--proxy", default="http", choices=["http", "https", "socks", "socks4", "socks5"],
-        help="Proxy type to test (socks is an alias for socks5; socks4 is not supported)",
+        help="Proxy type to test (socks is an alias for socks5)",
     )
     parser.add_argument("-l", "--list", default="output.txt", help="Input proxy list")
     parser.add_argument("-o", "--output", default="output.txt", help="Output file (single site only)")
@@ -353,8 +506,6 @@ def main() -> int:
     args = parser.parse_args()
 
     method = "socks5" if args.proxy == "socks" else args.proxy
-    if method == "socks4":
-        parser.error("socks4 checking is not supported by httpx/httpcore; only socks5 can be tested")
 
     sites = args.site or ["google.com"]
     if len(sites) > 1 and not args.output_dir:

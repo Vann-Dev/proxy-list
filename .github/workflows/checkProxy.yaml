@@ -51,8 +51,8 @@ jobs:
             sites+=("-s" "$domain")
           done
 
-          # socks5 is supported; socks4 is published raw but cannot be checked yet.
-          for protocol in http https socks5; do
+          # SOCKS4 uses a small stdlib implementation; SOCKS5 uses httpx[socks].
+          for protocol in http https socks4 socks5; do
             echo "::group::Checking $protocol proxies"
             python3 proxyChecker.py \
               -p "$protocol" \

@@ -19,7 +19,7 @@ more sources, SOCKS support, faster checking and per-domain result files.
 | --- | --- | --- |
 | HTTP | [`proxies/http.txt`](proxies/http.txt) | [`proxies/http-tested/`](proxies/http-tested/) |
 | HTTPS | [`proxies/https.txt`](proxies/https.txt) | [`proxies/https-tested/`](proxies/https-tested/) |
-| SOCKS4 | [`proxies/socks4.txt`](proxies/socks4.txt) | not checked yet |
+| SOCKS4 | [`proxies/socks4.txt`](proxies/socks4.txt) | [`proxies/socks4-tested/`](proxies/socks4-tested/) |
 | SOCKS5 | [`proxies/socks5.txt`](proxies/socks5.txt) | [`proxies/socks5-tested/`](proxies/socks5-tested/) |
 
 Raw lists contain one `ip:port` per line, sorted numerically and de-duplicated.
@@ -46,7 +46,9 @@ curl -s https://raw.githubusercontent.com/Vann-Dev/proxy-list/main/proxies/http-
 2. **Check** (`proxyChecker.py`) — tests proxies concurrently with `asyncio` +
    `httpx` (no more one thread per proxy). A proxy is tested against the first
    domain once; if the connection is dead, the remaining domains are skipped.
-   Working proxies are grouped per domain and sorted by latency.
+   Working proxies are grouped per domain and sorted by latency. SOCKS5 goes
+   through `httpx[socks]`; SOCKS4 uses a small standard-library client because
+   `httpcore` only speaks SOCKS5.
 3. **Publish** — GitHub Actions runs the scrape every 3 hours and the check
    afterwards, then commits the updated files.
 
@@ -105,7 +107,7 @@ python3 proxyChecker.py -p http -l proxies/http.txt \
   -s google.com -s discord.com --timeout 10
 ```
 
-* `-p`, `--proxy` — `http`, `https`, `socks5` (`socks` is an alias for `socks5`)
+* `-p`, `--proxy` — `http`, `https`, `socks4`, `socks5` (`socks` is an alias for `socks5`)
 * `-l`, `--list` — input proxy list
 * `-s`, `--site` — site to test, repeatable (default `google.com`)
 * `-o`, `--output` — output file when testing a single site
@@ -142,7 +144,6 @@ runs them on every push and pull request.
 ## Limitations
 
 * Only globally routable IPv4 proxies are published; IPv6 is not supported yet.
-* SOCKS4 proxies are scraped but not checked.
 * "HTTPS proxy" means an HTTP proxy that supports `CONNECT`, which is how HTTPS
   traffic is tunnelled.
 * A proxy can work for one domain and fail for another; always use the per-domain
