@@ -1,58 +1,58 @@
 {
-  "generated_at": "2026-11-22T19:11:18Z",
+  "generated_at": "2026-11-23T01:28:59Z",
   "protocol": "http",
   "input": "proxies/http.txt",
-  "input_count": 2629,
+  "input_count": 2853,
   "timeout_seconds": 6.0,
-  "duration_seconds": 86.8,
+  "duration_seconds": 126.0,
   "sites": [
     {
       "name": "google",
       "url": "http://google.com",
-      "alive": 366
+      "alive": 316
     },
     {
       "name": "facebook",
       "url": "http://facebook.com",
-      "alive": 332
+      "alive": 290
     },
     {
       "name": "twitter",
       "url": "http://twitter.com",
-      "alive": 298
+      "alive": 244
     },
     {
       "name": "tiktok",
       "url": "http://tiktok.com",
-      "alive": 73
+      "alive": 63
     },
     {
       "name": "youtube",
       "url": "http://youtube.com",
-      "alive": 67
+      "alive": 60
     },
     {
       "name": "whatsapp",
       "url": "http://whatsapp.com",
-      "alive": 73
+      "alive": 66
     },
     {
       "name": "microsoft",
       "url": "http://microsoft.com",
-      "alive": 71
+      "alive": 65
     },
     {
       "name": "discord",
       "url": "http://discord.com",
-      "alive": 68
+      "alive": 62
     },
     {
       "name": "instagram",
       "url": "http://instagram.com",
-      "alive": 71
+      "alive": 64
     }
   ],
-  "count": 408,
+  "count": 355,
   "proxies": [
     {
       "address": "1.15.53.214:8888",
@@ -60,7 +60,8 @@
       "port": 8888,
       "anonymity": "unknown",
       "sites": {
-        "google": 2110
+        "google": 2541,
+        "facebook": 1101
       }
     },
     {
@@ -69,25 +70,9 @@
       "port": 20303,
       "anonymity": "unknown",
       "sites": {
-        "tiktok": 191,
-        "youtube": 167,
-        "whatsapp": 99,
-        "microsoft": 72,
-        "discord": 1407,
-        "instagram": 125
-      }
-    },
-    {
-      "address": "3.21.156.147:30973",
-      "ip": "3.21.156.147",
-      "port": 30973,
-      "anonymity": "unknown",
-      "sites": {
-        "youtube": 81,
-        "whatsapp": 64,
-        "microsoft": 82,
-        "discord": 66,
-        "instagram": 1121
+        "whatsapp": 28,
+        "microsoft": 51,
+        "instagram": 26
       }
     },
     {
@@ -96,10 +81,26 @@
       "port": 4761,
       "anonymity": "unknown",
       "sites": {
-        "whatsapp": 62,
-        "microsoft": 69,
-        "discord": 69,
-        "instagram": 65
+        "tiktok": 24,
+        "youtube": 47,
+        "whatsapp": 39,
+        "microsoft": 30,
+        "discord": 1085,
+        "instagram": 23
+      }
+    },
+    {
+      "address": "3.21.247.154:52701",
+      "ip": "3.21.247.154",
+      "port": 52701,
+      "anonymity": "unknown",
+      "sites": {
+        "tiktok": 25,
+        "youtube": 23,
+        "whatsapp": 22,
+        "microsoft": 23,
+        "discord": 73,
+        "instagram": 1085
       }
     },
     {
@@ -108,40 +109,61 @@
       "port": 42984,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 3581,
-        "whatsapp": 319,
-        "microsoft": 324,
-        "discord": 319,
-        "instagram": 329
+        "youtube": 368,
+        "whatsapp": 378,
+        "microsoft": 363,
+        "discord": 370,
+        "instagram": 388
       }
     },
     {
-      "address": "3.96.141.200:27853",
+      "address": "3.96.141.200:30621",
       "ip": "3.96.141.200",
-      "port": 27853,
+      "port": 30621,
       "anonymity": "unknown",
       "sites": {
-        "tiktok": 102,
-        "youtube": 128,
-        "whatsapp": 94,
-        "microsoft": 99,
-        "discord": 100,
-        "instagram": 1164
+        "google": 4379
       }
     },
     {
-      "address": "3.96.141.200:31209",
-      "ip": "3.96.141.200",
-      "port": 31209,
+      "address": "3.134.245.77:47173",
+      "ip": "3.134.245.77",
+      "port": 47173,
       "anonymity": "unknown",
       "sites": {
-        "twitter": 97,
-        "tiktok": 95,
-        "youtube": 101,
-        "whatsapp": 208,
-        "microsoft": 99,
-        "discord": 97,
-        "instagram": 1152
+        "tiktok": 158,
+        "youtube": 24,
+        "whatsapp": 29,
+        "microsoft": 24,
+        "discord": 24,
+        "instagram": 1057
+      }
+    },
+    {
+      "address": "3.134.245.77:57240",
+      "ip": "3.134.245.77",
+      "port": 57240,
+      "anonymity": "unknown",
+      "sites": {
+        "twitter": 433,
+        "tiktok": 355,
+        "youtube": 233,
+        "whatsapp": 229,
+        "microsoft": 187,
+        "discord": 116,
+        "instagram": 80
+      }
+    },
+    {
+      "address": "3.231.160.150:443",
+      "ip": "3.231.160.150",
+      "port": 443,
+      "anonymity": "unknown",
+      "sites": {
+        "whatsapp": 44,
+        "microsoft": 46,
+        "discord": 49,
+        "instagram": 124
       }
     },
     {
@@ -150,14 +172,14 @@
       "port": 80,
       "anonymity": "anonymous",
       "sites": {
-        "google": 2255,
-        "facebook": 2672,
-        "tiktok": 2678,
-        "youtube": 2116,
-        "whatsapp": 3245,
-        "microsoft": 3241,
-        "discord": 2993,
-        "instagram": 4186
+        "google": 2468,
+        "facebook": 2942,
+        "tiktok": 2802,
+        "youtube": 2500,
+        "whatsapp": 2845,
+        "microsoft": 2735,
+        "discord": 1508,
+        "instagram": 3177
       }
     },
     {
@@ -166,15 +188,15 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 1023,
-        "facebook": 479,
-        "twitter": 475,
-        "tiktok": 470,
-        "youtube": 478,
-        "whatsapp": 474,
-        "microsoft": 498,
-        "discord": 482,
-        "instagram": 466
+        "google": 951,
+        "facebook": 428,
+        "twitter": 434,
+        "tiktok": 395,
+        "youtube": 407,
+        "whatsapp": 400,
+        "microsoft": 401,
+        "discord": 401,
+        "instagram": 410
       }
     },
     {
@@ -183,36 +205,25 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 3692,
-        "facebook": 2518,
-        "tiktok": 2466,
-        "youtube": 2693,
-        "whatsapp": 3407,
-        "microsoft": 2932,
-        "discord": 1256,
-        "instagram": 2252
+        "google": 1955,
+        "facebook": 2257,
+        "tiktok": 2339,
+        "youtube": 1573,
+        "whatsapp": 2040,
+        "microsoft": 2110,
+        "discord": 1179,
+        "instagram": 1824
       }
     },
     {
-      "address": "8.137.13.191:6666",
-      "ip": "8.137.13.191",
-      "port": 6666,
+      "address": "8.130.36.163:7878",
+      "ip": "8.130.36.163",
+      "port": 7878,
       "anonymity": "unknown",
       "sites": {
-        "google": 4214,
-        "facebook": 2639,
-        "twitter": 3594
-      }
-    },
-    {
-      "address": "8.137.38.48:3128",
-      "ip": "8.137.38.48",
-      "port": 3128,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4000,
-        "facebook": 2390,
-        "twitter": 2394
+        "google": 4821,
+        "facebook": 2495,
+        "twitter": 2500
       }
     },
     {
@@ -221,9 +232,9 @@
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3887,
-        "facebook": 2395,
-        "twitter": 2389
+        "google": 4306,
+        "facebook": 2579,
+        "twitter": 2544
       }
     },
     {
@@ -232,9 +243,9 @@
       "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3872,
-        "facebook": 2393,
-        "twitter": 2384
+        "google": 4268,
+        "facebook": 2640,
+        "twitter": 2567
       }
     },
     {
@@ -243,9 +254,9 @@
       "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3709,
-        "facebook": 2367,
-        "twitter": 2363
+        "google": 4170,
+        "facebook": 2660,
+        "twitter": 2501
       }
     },
     {
@@ -254,9 +265,9 @@
       "port": 30001,
       "anonymity": "unknown",
       "sites": {
-        "google": 3770,
-        "facebook": 2360,
-        "twitter": 2363
+        "google": 4166,
+        "facebook": 2664,
+        "twitter": 2491
       }
     },
     {
@@ -265,9 +276,9 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3851,
-        "facebook": 2373,
-        "twitter": 2370
+        "google": 4499,
+        "facebook": 2512,
+        "twitter": 2489
       }
     },
     {
@@ -276,7 +287,8 @@
       "port": 45,
       "anonymity": "unknown",
       "sites": {
-        "google": 3307
+        "google": 3493,
+        "facebook": 5490
       }
     },
     {
@@ -285,8 +297,8 @@
       "port": 89,
       "anonymity": "unknown",
       "sites": {
-        "google": 3730,
-        "facebook": 6044
+        "google": 3535,
+        "facebook": 5445
       }
     },
     {
@@ -295,8 +307,8 @@
       "port": 1099,
       "anonymity": "unknown",
       "sites": {
-        "google": 3773,
-        "facebook": 6003
+        "google": 3437,
+        "facebook": 5545
       }
     },
     {
@@ -305,7 +317,8 @@
       "port": 1234,
       "anonymity": "unknown",
       "sites": {
-        "google": 3453
+        "google": 3424,
+        "facebook": 5550
       }
     },
     {
@@ -314,8 +327,8 @@
       "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 3731,
-        "facebook": 6028
+        "google": 3556,
+        "facebook": 5416
       }
     },
     {
@@ -324,8 +337,8 @@
       "port": 3129,
       "anonymity": "unknown",
       "sites": {
-        "google": 3633,
-        "facebook": 6132
+        "google": 3552,
+        "facebook": 5416
       }
     },
     {
@@ -334,7 +347,8 @@
       "port": 4002,
       "anonymity": "unknown",
       "sites": {
-        "google": 3604
+        "google": 3416,
+        "facebook": 5557
       }
     },
     {
@@ -343,7 +357,28 @@
       "port": 7070,
       "anonymity": "unknown",
       "sites": {
-        "google": 3537
+        "google": 3434,
+        "facebook": 5531
+      }
+    },
+    {
+      "address": "8.209.96.245:8081",
+      "ip": "8.209.96.245",
+      "port": 8081,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3498,
+        "facebook": 5478
+      }
+    },
+    {
+      "address": "8.209.96.245:8999",
+      "ip": "8.209.96.245",
+      "port": 8999,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3563,
+        "facebook": 5383
       }
     },
     {
@@ -352,18 +387,30 @@
       "port": 31433,
       "anonymity": "unknown",
       "sites": {
-        "google": 3421
+        "google": 3539,
+        "facebook": 5437
       }
     },
     {
-      "address": "8.210.17.35:1311",
+      "address": "8.209.255.13:3128",
+      "ip": "8.209.255.13",
+      "port": 3128,
+      "anonymity": "anonymous",
+      "sites": {
+        "facebook": 5101,
+        "tiktok": 7253,
+        "youtube": 3724
+      }
+    },
+    {
+      "address": "8.210.17.35:8004",
       "ip": "8.210.17.35",
-      "port": 1311,
+      "port": 8004,
       "anonymity": "unknown",
       "sites": {
-        "google": 3784,
-        "facebook": 2324,
-        "twitter": 2329
+        "google": 4182,
+        "facebook": 2604,
+        "twitter": 2398
       }
     },
     {
@@ -372,53 +419,20 @@
       "port": 104,
       "anonymity": "unknown",
       "sites": {
-        "google": 3591,
-        "facebook": 2294,
-        "twitter": 2290
+        "google": 3507,
+        "facebook": 2221,
+        "twitter": 2216
       }
     },
     {
-      "address": "8.211.42.167:544",
+      "address": "8.211.42.167:1234",
       "ip": "8.211.42.167",
-      "port": 544,
+      "port": 1234,
       "anonymity": "unknown",
       "sites": {
-        "google": 3589,
-        "facebook": 2280,
-        "twitter": 2276
-      }
-    },
-    {
-      "address": "8.211.42.167:1081",
-      "ip": "8.211.42.167",
-      "port": 1081,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3326,
-        "facebook": 2274,
-        "twitter": 2278
-      }
-    },
-    {
-      "address": "8.211.42.167:4153",
-      "ip": "8.211.42.167",
-      "port": 4153,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3466,
-        "facebook": 2278,
-        "twitter": 2269
-      }
-    },
-    {
-      "address": "8.211.42.167:5060",
-      "ip": "8.211.42.167",
-      "port": 5060,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3604,
-        "facebook": 2290,
-        "twitter": 2281
+        "google": 3612,
+        "facebook": 2231,
+        "twitter": 2222
       }
     },
     {
@@ -427,9 +441,9 @@
       "port": 6379,
       "anonymity": "unknown",
       "sites": {
-        "google": 3465,
-        "facebook": 2279,
-        "twitter": 2275
+        "google": 3508,
+        "facebook": 2217,
+        "twitter": 2216
       }
     },
     {
@@ -438,20 +452,31 @@
       "port": 8005,
       "anonymity": "unknown",
       "sites": {
-        "google": 3665,
-        "facebook": 2283,
-        "twitter": 2275
+        "google": 3511,
+        "facebook": 2227,
+        "twitter": 2225
       }
     },
     {
-      "address": "8.211.42.167:8081",
+      "address": "8.211.42.167:9080",
       "ip": "8.211.42.167",
-      "port": 8081,
+      "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3467,
-        "facebook": 2279,
-        "twitter": 2276
+        "google": 3535,
+        "facebook": 2232,
+        "twitter": 2226
+      }
+    },
+    {
+      "address": "8.211.42.167:9098",
+      "ip": "8.211.42.167",
+      "port": 9098,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3481,
+        "facebook": 2231,
+        "twitter": 2221
       }
     },
     {
@@ -460,7 +485,8 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 3471
+        "google": 3393,
+        "facebook": 5946
       }
     },
     {
@@ -469,25 +495,18 @@
       "port": 119,
       "anonymity": "unknown",
       "sites": {
-        "google": 3446
+        "google": 3399,
+        "facebook": 5925
       }
     },
     {
-      "address": "8.211.49.86:808",
+      "address": "8.211.49.86:161",
       "ip": "8.211.49.86",
-      "port": 808,
+      "port": 161,
       "anonymity": "unknown",
       "sites": {
-        "google": 3657
-      }
-    },
-    {
-      "address": "8.211.49.86:2002",
-      "ip": "8.211.49.86",
-      "port": 2002,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3443
+        "google": 3396,
+        "facebook": 5945
       }
     },
     {
@@ -496,7 +515,8 @@
       "port": 3129,
       "anonymity": "unknown",
       "sites": {
-        "google": 3694
+        "google": 3398,
+        "facebook": 5937
       }
     },
     {
@@ -505,7 +525,18 @@
       "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3718
+        "google": 3407,
+        "facebook": 5929
+      }
+    },
+    {
+      "address": "8.211.49.86:9095",
+      "ip": "8.211.49.86",
+      "port": 9095,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3474,
+        "facebook": 5861
       }
     },
     {
@@ -514,8 +545,8 @@
       "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "google": 3844,
-        "facebook": 6057
+        "google": 3364,
+        "facebook": 5969
       }
     },
     {
@@ -524,7 +555,8 @@
       "port": 10801,
       "anonymity": "unknown",
       "sites": {
-        "google": 3622
+        "google": 3502,
+        "facebook": 5859
       }
     },
     {
@@ -533,9 +565,9 @@
       "port": 10,
       "anonymity": "unknown",
       "sites": {
-        "google": 3870,
-        "facebook": 2277,
-        "twitter": 2266
+        "google": 3634,
+        "facebook": 2216,
+        "twitter": 2217
       }
     },
     {
@@ -544,20 +576,9 @@
       "port": 202,
       "anonymity": "unknown",
       "sites": {
-        "google": 3644,
-        "facebook": 2265,
-        "twitter": 2277
-      }
-    },
-    {
-      "address": "8.211.51.115:443",
-      "ip": "8.211.51.115",
-      "port": 443,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3716,
-        "facebook": 2265,
-        "twitter": 2280
+        "google": 3517,
+        "facebook": 2229,
+        "twitter": 2218
       }
     },
     {
@@ -566,9 +587,9 @@
       "port": 1036,
       "anonymity": "unknown",
       "sites": {
-        "google": 3691,
-        "facebook": 2270,
-        "twitter": 2283
+        "google": 3540,
+        "facebook": 2227,
+        "twitter": 2226
       }
     },
     {
@@ -577,9 +598,9 @@
       "port": 1900,
       "anonymity": "unknown",
       "sites": {
-        "google": 3728,
-        "facebook": 2264,
-        "twitter": 2278
+        "google": 3500,
+        "facebook": 2231,
+        "twitter": 2229
       }
     },
     {
@@ -588,9 +609,9 @@
       "port": 3129,
       "anonymity": "unknown",
       "sites": {
-        "google": 3726,
-        "facebook": 2278,
-        "twitter": 2277
+        "google": 3649,
+        "facebook": 2226,
+        "twitter": 2226
       }
     },
     {
@@ -599,20 +620,31 @@
       "port": 4000,
       "anonymity": "unknown",
       "sites": {
-        "google": 3649,
-        "facebook": 2278,
-        "twitter": 2276
+        "google": 3401,
+        "facebook": 2224,
+        "twitter": 2227
       }
     },
     {
-      "address": "8.211.51.115:4022",
+      "address": "8.211.51.115:8008",
       "ip": "8.211.51.115",
-      "port": 4022,
+      "port": 8008,
       "anonymity": "unknown",
       "sites": {
-        "google": 3729,
-        "facebook": 2284,
-        "twitter": 2265
+        "google": 3536,
+        "facebook": 2223,
+        "twitter": 2226
+      }
+    },
+    {
+      "address": "8.211.51.115:8080",
+      "ip": "8.211.51.115",
+      "port": 8080,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3621,
+        "facebook": 2220,
+        "twitter": 2229
       }
     },
     {
@@ -621,31 +653,31 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3890,
-        "facebook": 2276,
-        "twitter": 2291
+        "google": 3538,
+        "facebook": 2234,
+        "twitter": 2220
       }
     },
     {
-      "address": "8.211.51.115:8889",
+      "address": "8.211.51.115:9080",
       "ip": "8.211.51.115",
-      "port": 8889,
+      "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3720,
-        "facebook": 2279,
-        "twitter": 2264
+        "google": 3541,
+        "facebook": 2227,
+        "twitter": 2231
       }
     },
     {
-      "address": "8.211.51.115:10000",
+      "address": "8.211.51.115:31433",
       "ip": "8.211.51.115",
-      "port": 10000,
+      "port": 31433,
       "anonymity": "unknown",
       "sites": {
-        "google": 3626,
-        "facebook": 2271,
-        "twitter": 2284
+        "google": 3535,
+        "facebook": 2223,
+        "twitter": 2224
       }
     },
     {
@@ -654,9 +686,9 @@
       "port": 51,
       "anonymity": "unknown",
       "sites": {
-        "google": 3589,
-        "facebook": 2235,
-        "twitter": 2241
+        "google": 3351,
+        "facebook": 2190,
+        "twitter": 2201
       }
     },
     {
@@ -665,42 +697,9 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 3550,
-        "facebook": 2254,
-        "twitter": 2227
-      }
-    },
-    {
-      "address": "8.211.194.78:138",
-      "ip": "8.211.194.78",
-      "port": 138,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3591,
-        "facebook": 2261,
-        "twitter": 2247
-      }
-    },
-    {
-      "address": "8.211.194.78:143",
-      "ip": "8.211.194.78",
-      "port": 143,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3585,
-        "facebook": 2255,
-        "twitter": 2237
-      }
-    },
-    {
-      "address": "8.211.194.78:443",
-      "ip": "8.211.194.78",
-      "port": 443,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3413,
-        "facebook": 2243,
-        "twitter": 2240
+        "google": 3362,
+        "facebook": 2202,
+        "twitter": 2193
       }
     },
     {
@@ -709,20 +708,9 @@
       "port": 3129,
       "anonymity": "unknown",
       "sites": {
-        "google": 3426,
-        "facebook": 2239,
-        "twitter": 2245
-      }
-    },
-    {
-      "address": "8.211.194.78:5800",
-      "ip": "8.211.194.78",
-      "port": 5800,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3588,
-        "facebook": 2246,
-        "twitter": 2243
+        "google": 3370,
+        "facebook": 2199,
+        "twitter": 2199
       }
     },
     {
@@ -731,42 +719,9 @@
       "port": 8008,
       "anonymity": "unknown",
       "sites": {
-        "google": 3300,
-        "facebook": 2245,
-        "twitter": 2244
-      }
-    },
-    {
-      "address": "8.211.194.78:8080",
-      "ip": "8.211.194.78",
-      "port": 8080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3572,
-        "facebook": 2254,
-        "twitter": 2252
-      }
-    },
-    {
-      "address": "8.211.194.78:8081",
-      "ip": "8.211.194.78",
-      "port": 8081,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3586,
-        "facebook": 2259,
-        "twitter": 2248
-      }
-    },
-    {
-      "address": "8.211.194.78:9098",
-      "ip": "8.211.194.78",
-      "port": 9098,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3575,
-        "facebook": 2243,
-        "twitter": 2240
+        "google": 3189,
+        "facebook": 2200,
+        "twitter": 2187
       }
     },
     {
@@ -775,20 +730,9 @@
       "port": 45,
       "anonymity": "unknown",
       "sites": {
-        "google": 5044,
-        "facebook": 2239,
-        "twitter": 2265
-      }
-    },
-    {
-      "address": "8.211.194.85:100",
-      "ip": "8.211.194.85",
-      "port": 100,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 5175,
-        "facebook": 2246,
-        "twitter": 2251
+        "google": 3299,
+        "facebook": 2607,
+        "twitter": 2216
       }
     },
     {
@@ -797,42 +741,20 @@
       "port": 443,
       "anonymity": "unknown",
       "sites": {
-        "google": 6035,
-        "facebook": 2238,
-        "twitter": 2238
+        "google": 3343,
+        "facebook": 2545,
+        "twitter": 2215
       }
     },
     {
-      "address": "8.211.194.85:3333",
+      "address": "8.211.194.85:808",
       "ip": "8.211.194.85",
-      "port": 3333,
+      "port": 808,
       "anonymity": "unknown",
       "sites": {
-        "google": 5049,
-        "facebook": 2244,
-        "twitter": 2250
-      }
-    },
-    {
-      "address": "8.211.194.85:4002",
-      "ip": "8.211.194.85",
-      "port": 4002,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 6154,
-        "facebook": 2250,
-        "twitter": 2248
-      }
-    },
-    {
-      "address": "8.211.194.85:8008",
-      "ip": "8.211.194.85",
-      "port": 8008,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 5431,
-        "facebook": 2245,
-        "twitter": 2247
+        "google": 3176,
+        "facebook": 2575,
+        "twitter": 2228
       }
     },
     {
@@ -841,75 +763,9 @@
       "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 5172,
-        "facebook": 2238,
-        "twitter": 2257
-      }
-    },
-    {
-      "address": "8.211.194.85:9098",
-      "ip": "8.211.194.85",
-      "port": 9098,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 5423,
-        "facebook": 2239,
-        "twitter": 2255
-      }
-    },
-    {
-      "address": "8.211.194.85:9999",
-      "ip": "8.211.194.85",
-      "port": 9999,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 6133,
-        "facebook": 2235,
-        "twitter": 2241
-      }
-    },
-    {
-      "address": "8.211.194.85:10000",
-      "ip": "8.211.194.85",
-      "port": 10000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 5300,
-        "facebook": 2245,
-        "twitter": 2243
-      }
-    },
-    {
-      "address": "8.211.195.139:80",
-      "ip": "8.211.195.139",
-      "port": 80,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3539,
-        "facebook": 2242,
-        "twitter": 2248
-      }
-    },
-    {
-      "address": "8.211.195.139:1000",
-      "ip": "8.211.195.139",
-      "port": 1000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3631,
-        "facebook": 2252,
-        "twitter": 2250
-      }
-    },
-    {
-      "address": "8.211.195.139:8000",
-      "ip": "8.211.195.139",
-      "port": 8000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3613,
-        "facebook": 2250,
-        "twitter": 2250
+        "google": 3391,
+        "facebook": 2407,
+        "twitter": 2237
       }
     },
     {
@@ -918,20 +774,9 @@
       "port": 8001,
       "anonymity": "unknown",
       "sites": {
-        "google": 3748,
-        "facebook": 2239,
-        "twitter": 2238
-      }
-    },
-    {
-      "address": "8.211.195.139:8081",
-      "ip": "8.211.195.139",
-      "port": 8081,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3614,
-        "facebook": 2256,
-        "twitter": 2232
+        "google": 3393,
+        "facebook": 2202,
+        "twitter": 2191
       }
     },
     {
@@ -940,31 +785,9 @@
       "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3581,
-        "facebook": 2244,
-        "twitter": 2252
-      }
-    },
-    {
-      "address": "8.211.195.139:8889",
-      "ip": "8.211.195.139",
-      "port": 8889,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3626,
-        "facebook": 2252,
-        "twitter": 2243
-      }
-    },
-    {
-      "address": "8.211.195.139:9080",
-      "ip": "8.211.195.139",
-      "port": 9080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3601,
-        "facebook": 2239,
-        "twitter": 2244
+        "google": 3358,
+        "facebook": 2195,
+        "twitter": 2192
       }
     },
     {
@@ -973,9 +796,9 @@
       "port": 18080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3603,
-        "facebook": 2239,
-        "twitter": 2255
+        "google": 3379,
+        "facebook": 2200,
+        "twitter": 2201
       }
     },
     {
@@ -984,64 +807,9 @@
       "port": 20002,
       "anonymity": "unknown",
       "sites": {
-        "google": 3644,
-        "facebook": 2250,
-        "twitter": 2238
-      }
-    },
-    {
-      "address": "8.211.195.139:28737",
-      "ip": "8.211.195.139",
-      "port": 28737,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3687,
-        "facebook": 2248,
-        "twitter": 2238
-      }
-    },
-    {
-      "address": "8.211.195.173:1000",
-      "ip": "8.211.195.173",
-      "port": 1000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3709,
-        "facebook": 2239,
-        "twitter": 2228
-      }
-    },
-    {
-      "address": "8.211.195.173:1234",
-      "ip": "8.211.195.173",
-      "port": 1234,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3586,
-        "facebook": 2244,
-        "twitter": 2229
-      }
-    },
-    {
-      "address": "8.211.195.173:3128",
-      "ip": "8.211.195.173",
-      "port": 3128,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3523,
-        "facebook": 2253,
-        "twitter": 2246
-      }
-    },
-    {
-      "address": "8.211.195.173:3333",
-      "ip": "8.211.195.173",
-      "port": 3333,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3564,
-        "facebook": 2246,
-        "twitter": 2248
+        "google": 3389,
+        "facebook": 2201,
+        "twitter": 2191
       }
     },
     {
@@ -1050,20 +818,9 @@
       "port": 5555,
       "anonymity": "unknown",
       "sites": {
-        "google": 3591,
-        "facebook": 2249,
-        "twitter": 2251
-      }
-    },
-    {
-      "address": "8.211.195.173:8008",
-      "ip": "8.211.195.173",
-      "port": 8008,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3577,
-        "facebook": 2253,
-        "twitter": 2253
+        "google": 3343,
+        "facebook": 2196,
+        "twitter": 2196
       }
     },
     {
@@ -1072,20 +829,9 @@
       "port": 8072,
       "anonymity": "unknown",
       "sites": {
-        "google": 3682,
-        "facebook": 2249,
-        "twitter": 2247
-      }
-    },
-    {
-      "address": "8.211.195.173:8080",
-      "ip": "8.211.195.173",
-      "port": 8080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3565,
-        "facebook": 2258,
-        "twitter": 2249
+        "google": 3477,
+        "facebook": 2209,
+        "twitter": 2193
       }
     },
     {
@@ -1094,9 +840,9 @@
       "port": 28737,
       "anonymity": "unknown",
       "sites": {
-        "google": 3583,
-        "facebook": 2244,
-        "twitter": 2245
+        "google": 3434,
+        "facebook": 2190,
+        "twitter": 2195
       }
     },
     {
@@ -1105,42 +851,20 @@
       "port": 1081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3488,
-        "facebook": 2250,
-        "twitter": 2237
+        "google": 3151,
+        "facebook": 2205,
+        "twitter": 2199
       }
     },
     {
-      "address": "8.211.200.183:1720",
+      "address": "8.211.200.183:1234",
       "ip": "8.211.200.183",
-      "port": 1720,
+      "port": 1234,
       "anonymity": "unknown",
       "sites": {
-        "google": 3321,
-        "facebook": 2239,
-        "twitter": 2245
-      }
-    },
-    {
-      "address": "8.211.200.183:3129",
-      "ip": "8.211.200.183",
-      "port": 3129,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3348,
-        "facebook": 2254,
-        "twitter": 2244
-      }
-    },
-    {
-      "address": "8.211.200.183:5060",
-      "ip": "8.211.200.183",
-      "port": 5060,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3605,
-        "facebook": 2241,
-        "twitter": 2244
+        "google": 3176,
+        "facebook": 2196,
+        "twitter": 2204
       }
     },
     {
@@ -1149,97 +873,20 @@
       "port": 6379,
       "anonymity": "unknown",
       "sites": {
-        "google": 3321,
-        "facebook": 2234,
-        "twitter": 2249
+        "google": 3285,
+        "facebook": 2199,
+        "twitter": 2202
       }
     },
     {
-      "address": "8.211.200.183:8008",
-      "ip": "8.211.200.183",
-      "port": 8008,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3511,
-        "facebook": 2249,
-        "twitter": 2240
-      }
-    },
-    {
-      "address": "8.211.200.183:8080",
-      "ip": "8.211.200.183",
-      "port": 8080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3530,
-        "facebook": 2241,
-        "twitter": 2239
-      }
-    },
-    {
-      "address": "8.211.200.183:8081",
-      "ip": "8.211.200.183",
-      "port": 8081,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3439,
-        "facebook": 2247,
-        "twitter": 2242
-      }
-    },
-    {
-      "address": "8.211.200.183:8443",
-      "ip": "8.211.200.183",
-      "port": 8443,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3481,
-        "facebook": 2241,
-        "twitter": 2242
-      }
-    },
-    {
-      "address": "8.211.200.183:9080",
-      "ip": "8.211.200.183",
-      "port": 9080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3307,
-        "facebook": 2247,
-        "twitter": 2227
-      }
-    },
-    {
-      "address": "8.211.200.183:10002",
-      "ip": "8.211.200.183",
-      "port": 10002,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3563,
-        "facebook": 2244,
-        "twitter": 2250
-      }
-    },
-    {
-      "address": "8.212.151.166:1234",
+      "address": "8.212.151.166:6379",
       "ip": "8.212.151.166",
-      "port": 1234,
+      "port": 6379,
       "anonymity": "unknown",
       "sites": {
-        "google": 3835,
-        "facebook": 2402,
-        "twitter": 2395
-      }
-    },
-    {
-      "address": "8.212.151.166:3129",
-      "ip": "8.212.151.166",
-      "port": 3129,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3865,
-        "facebook": 2400,
-        "twitter": 2404
+        "google": 4015,
+        "facebook": 2770,
+        "twitter": 2505
       }
     },
     {
@@ -1248,9 +895,9 @@
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3869,
-        "facebook": 2398,
-        "twitter": 2395
+        "google": 4951,
+        "facebook": 2597,
+        "twitter": 2587
       }
     },
     {
@@ -1259,31 +906,52 @@
       "port": 18081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3836,
-        "facebook": 2411,
-        "twitter": 2399
+        "google": 4035,
+        "facebook": 2770,
+        "twitter": 2642
       }
     },
     {
-      "address": "8.212.165.164:5080",
+      "address": "8.212.165.164:106",
       "ip": "8.212.165.164",
-      "port": 5080,
+      "port": 106,
       "anonymity": "unknown",
       "sites": {
-        "google": 3970,
-        "facebook": 2421,
-        "twitter": 2443
+        "google": 5048,
+        "facebook": 3651
       }
     },
     {
-      "address": "8.212.168.170:2080",
-      "ip": "8.212.168.170",
-      "port": 2080,
+      "address": "8.212.165.164:5003",
+      "ip": "8.212.165.164",
+      "port": 5003,
       "anonymity": "unknown",
       "sites": {
-        "google": 4840,
-        "facebook": 2419,
-        "twitter": 2428
+        "google": 5040,
+        "facebook": 2653,
+        "twitter": 2470
+      }
+    },
+    {
+      "address": "8.212.165.164:10000",
+      "ip": "8.212.165.164",
+      "port": 10000,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 5698,
+        "facebook": 2603,
+        "twitter": 2731
+      }
+    },
+    {
+      "address": "8.212.168.170:2067",
+      "ip": "8.212.168.170",
+      "port": 2067,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 5756,
+        "facebook": 3450,
+        "twitter": 2512
       }
     },
     {
@@ -1292,19 +960,20 @@
       "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 5085,
-        "facebook": 2416,
-        "twitter": 2451
+        "google": 6203,
+        "facebook": 3521,
+        "twitter": 2438
       }
     },
     {
-      "address": "8.213.128.6:84",
+      "address": "8.213.128.6:90",
       "ip": "8.213.128.6",
-      "port": 84,
+      "port": 90,
       "anonymity": "unknown",
       "sites": {
-        "google": 3326,
-        "facebook": 2294
+        "google": 3487,
+        "facebook": 2344,
+        "twitter": 2336
       }
     },
     {
@@ -1313,18 +982,9 @@
       "port": 102,
       "anonymity": "unknown",
       "sites": {
-        "google": 3322,
-        "facebook": 2292
-      }
-    },
-    {
-      "address": "8.213.128.6:804",
-      "ip": "8.213.128.6",
-      "port": 804,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3314,
-        "facebook": 2289
+        "google": 3473,
+        "facebook": 2336,
+        "twitter": 2338
       }
     },
     {
@@ -1333,39 +993,20 @@
       "port": 8999,
       "anonymity": "unknown",
       "sites": {
-        "google": 3317
+        "google": 3480,
+        "facebook": 2340,
+        "twitter": 2336
       }
     },
     {
-      "address": "8.213.128.6:9080",
-      "ip": "8.213.128.6",
-      "port": 9080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3331,
-        "facebook": 2292
-      }
-    },
-    {
-      "address": "8.213.134.213:4145",
+      "address": "8.213.134.213:8889",
       "ip": "8.213.134.213",
-      "port": 4145,
+      "port": 8889,
       "anonymity": "unknown",
       "sites": {
-        "google": 3476,
-        "facebook": 2285,
-        "twitter": 2294
-      }
-    },
-    {
-      "address": "8.213.134.213:8083",
-      "ip": "8.213.134.213",
-      "port": 8083,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3498,
-        "facebook": 2294,
-        "twitter": 2297
+        "google": 3656,
+        "facebook": 2335,
+        "twitter": 2337
       }
     },
     {
@@ -1374,31 +1015,31 @@
       "port": 10000,
       "anonymity": "unknown",
       "sites": {
-        "google": 3487,
-        "facebook": 2292,
-        "twitter": 2300
+        "google": 3662,
+        "facebook": 2332,
+        "twitter": 2340
       }
     },
     {
       "address": "8.213.151.128:3128",
       "ip": "8.213.151.128",
       "port": 3128,
-      "anonymity": "unknown",
+      "anonymity": "anonymous",
       "sites": {
-        "facebook": 3828,
-        "youtube": 3529,
-        "whatsapp": 3702
+        "facebook": 11329,
+        "tiktok": 4069,
+        "youtube": 4671
       }
     },
     {
-      "address": "8.213.156.191:80",
+      "address": "8.213.156.191:50",
       "ip": "8.213.156.191",
-      "port": 80,
+      "port": 50,
       "anonymity": "unknown",
       "sites": {
-        "google": 3493,
-        "facebook": 2295,
-        "twitter": 2295
+        "google": 3688,
+        "facebook": 2337,
+        "twitter": 2336
       }
     },
     {
@@ -1407,20 +1048,64 @@
       "port": 194,
       "anonymity": "unknown",
       "sites": {
-        "google": 3471,
-        "facebook": 2288,
-        "twitter": 2297
+        "google": 3638,
+        "facebook": 2338,
+        "twitter": 2334
       }
     },
     {
-      "address": "8.213.195.191:8081",
-      "ip": "8.213.195.191",
-      "port": 8081,
+      "address": "8.213.156.191:800",
+      "ip": "8.213.156.191",
+      "port": 800,
       "anonymity": "unknown",
       "sites": {
-        "google": 3949,
-        "facebook": 2503,
-        "twitter": 2481
+        "google": 3648,
+        "facebook": 2345,
+        "twitter": 2336
+      }
+    },
+    {
+      "address": "8.213.156.191:3128",
+      "ip": "8.213.156.191",
+      "port": 3128,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3661,
+        "facebook": 2334,
+        "twitter": 2332
+      }
+    },
+    {
+      "address": "8.213.156.191:5060",
+      "ip": "8.213.156.191",
+      "port": 5060,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3632,
+        "facebook": 2337,
+        "twitter": 2333
+      }
+    },
+    {
+      "address": "8.213.195.191:13",
+      "ip": "8.213.195.191",
+      "port": 13,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4115,
+        "facebook": 2651,
+        "twitter": 2534
+      }
+    },
+    {
+      "address": "8.213.195.191:4002",
+      "ip": "8.213.195.191",
+      "port": 4002,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4172,
+        "facebook": 2620,
+        "twitter": 2510
       }
     },
     {
@@ -1429,31 +1114,20 @@
       "port": 9191,
       "anonymity": "unknown",
       "sites": {
-        "google": 3947,
-        "facebook": 2479,
-        "twitter": 2459
+        "google": 4112,
+        "facebook": 2651,
+        "twitter": 2547
       }
     },
     {
-      "address": "8.213.195.191:10000",
-      "ip": "8.213.195.191",
-      "port": 10000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3930,
-        "facebook": 2424,
-        "twitter": 2427
-      }
-    },
-    {
-      "address": "8.213.197.208:1337",
+      "address": "8.213.197.208:312",
       "ip": "8.213.197.208",
-      "port": 1337,
+      "port": 312,
       "anonymity": "unknown",
       "sites": {
-        "google": 3947,
-        "facebook": 2477,
-        "twitter": 2463
+        "google": 4101,
+        "facebook": 2660,
+        "twitter": 2526
       }
     },
     {
@@ -1462,9 +1136,9 @@
       "port": 2083,
       "anonymity": "unknown",
       "sites": {
-        "google": 3916,
-        "facebook": 2433,
-        "twitter": 2434
+        "google": 4108,
+        "facebook": 2653,
+        "twitter": 2520
       }
     },
     {
@@ -1473,42 +1147,86 @@
       "port": 5060,
       "anonymity": "unknown",
       "sites": {
-        "google": 3925,
-        "facebook": 2427,
-        "twitter": 2425
+        "google": 4088,
+        "facebook": 2669,
+        "twitter": 2502
       }
     },
     {
-      "address": "8.213.215.187:1081",
-      "ip": "8.213.215.187",
-      "port": 1081,
+      "address": "8.213.197.208:8000",
+      "ip": "8.213.197.208",
+      "port": 8000,
       "anonymity": "unknown",
       "sites": {
-        "google": 3951,
-        "facebook": 2499,
-        "twitter": 2479
+        "google": 4115,
+        "facebook": 2646,
+        "twitter": 2509
       }
     },
     {
-      "address": "8.213.215.187:4002",
-      "ip": "8.213.215.187",
-      "port": 4002,
+      "address": "8.213.197.208:8008",
+      "ip": "8.213.197.208",
+      "port": 8008,
       "anonymity": "unknown",
       "sites": {
-        "google": 3931,
-        "facebook": 2432,
-        "twitter": 2438
-      }
-    },
-    {
-      "address": "8.213.215.187:8443",
-      "ip": "8.213.215.187",
-      "port": 8443,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3945,
-        "facebook": 2501,
+        "google": 4351,
+        "facebook": 2508,
         "twitter": 2483
+      }
+    },
+    {
+      "address": "8.213.197.208:9098",
+      "ip": "8.213.197.208",
+      "port": 9098,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4165,
+        "facebook": 2620,
+        "twitter": 2521
+      }
+    },
+    {
+      "address": "8.213.215.187:104",
+      "ip": "8.213.215.187",
+      "port": 104,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4090,
+        "facebook": 2664,
+        "twitter": 2504
+      }
+    },
+    {
+      "address": "8.213.215.187:176",
+      "ip": "8.213.215.187",
+      "port": 176,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4096,
+        "facebook": 2661,
+        "twitter": 2506
+      }
+    },
+    {
+      "address": "8.213.215.187:8888",
+      "ip": "8.213.215.187",
+      "port": 8888,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4099,
+        "facebook": 2659,
+        "twitter": 2510
+      }
+    },
+    {
+      "address": "8.213.222.157:80",
+      "ip": "8.213.222.157",
+      "port": 80,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3873,
+        "facebook": 2488,
+        "twitter": 2477
       }
     },
     {
@@ -1517,9 +1235,9 @@
       "port": 443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3950,
-        "facebook": 2496,
-        "twitter": 2475
+        "google": 4105,
+        "facebook": 2648,
+        "twitter": 2525
       }
     },
     {
@@ -1528,9 +1246,9 @@
       "port": 4002,
       "anonymity": "unknown",
       "sites": {
-        "google": 4137,
-        "facebook": 2619,
-        "twitter": 2448
+        "google": 4149,
+        "facebook": 2628,
+        "twitter": 2513
       }
     },
     {
@@ -1539,9 +1257,9 @@
       "port": 5060,
       "anonymity": "unknown",
       "sites": {
-        "google": 3930,
-        "facebook": 2487,
-        "twitter": 2464
+        "google": 4151,
+        "facebook": 2626,
+        "twitter": 2511
       }
     },
     {
@@ -1550,42 +1268,20 @@
       "port": 13,
       "anonymity": "unknown",
       "sites": {
-        "google": 3941,
-        "facebook": 2501,
-        "twitter": 2471
+        "google": 4077,
+        "facebook": 2672,
+        "twitter": 2513
       }
     },
     {
-      "address": "8.213.222.247:4145",
+      "address": "8.213.222.247:3128",
       "ip": "8.213.222.247",
-      "port": 4145,
+      "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 3945,
-        "facebook": 2497,
-        "twitter": 2479
-      }
-    },
-    {
-      "address": "8.213.222.247:6379",
-      "ip": "8.213.222.247",
-      "port": 6379,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3922,
-        "facebook": 2434,
-        "twitter": 2440
-      }
-    },
-    {
-      "address": "8.213.222.247:18080",
-      "ip": "8.213.222.247",
-      "port": 18080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3942,
-        "facebook": 2500,
-        "twitter": 2474
+        "google": 4081,
+        "facebook": 2668,
+        "twitter": 2505
       }
     },
     {
@@ -1594,20 +1290,31 @@
       "port": 119,
       "anonymity": "unknown",
       "sites": {
-        "google": 4001,
-        "facebook": 2483,
-        "twitter": 2556
+        "google": 4450,
+        "facebook": 2444,
+        "twitter": 2446
       }
     },
     {
-      "address": "8.215.3.250:6379",
-      "ip": "8.215.3.250",
-      "port": 6379,
+      "address": "8.215.12.103:37",
+      "ip": "8.215.12.103",
+      "port": 37,
       "anonymity": "unknown",
       "sites": {
-        "google": 4001,
-        "facebook": 2482,
-        "twitter": 2557
+        "google": 4421,
+        "facebook": 3949,
+        "twitter": 2444
+      }
+    },
+    {
+      "address": "8.215.12.103:8000",
+      "ip": "8.215.12.103",
+      "port": 8000,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4294,
+        "facebook": 4074,
+        "twitter": 2450
       }
     },
     {
@@ -1616,185 +1323,97 @@
       "port": 8001,
       "anonymity": "unknown",
       "sites": {
-        "google": 4203,
-        "facebook": 6001,
-        "twitter": 2394
+        "google": 4000,
+        "facebook": 4362,
+        "twitter": 2457
       }
     },
     {
-      "address": "8.215.15.163:92",
+      "address": "8.215.12.103:8080",
+      "ip": "8.215.12.103",
+      "port": 8080,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4214,
+        "facebook": 4151,
+        "twitter": 2447
+      }
+    },
+    {
+      "address": "8.215.15.163:3129",
       "ip": "8.215.15.163",
-      "port": 92,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4208,
-        "facebook": 2541,
-        "twitter": 2427
-      }
-    },
-    {
-      "address": "8.215.15.163:4145",
-      "ip": "8.215.15.163",
-      "port": 4145,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4220,
-        "facebook": 2530,
-        "twitter": 2427
-      }
-    },
-    {
-      "address": "8.215.15.163:9080",
-      "ip": "8.215.15.163",
-      "port": 9080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4006,
-        "facebook": 2537,
-        "twitter": 2572
-      }
-    },
-    {
-      "address": "8.219.229.53:20",
-      "ip": "8.219.229.53",
-      "port": 20,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3720,
-        "facebook": 2366,
-        "twitter": 2366
-      }
-    },
-    {
-      "address": "8.219.229.53:111",
-      "ip": "8.219.229.53",
-      "port": 111,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4088,
-        "facebook": 2627,
-        "twitter": 2394
-      }
-    },
-    {
-      "address": "8.219.229.53:8443",
-      "ip": "8.219.229.53",
-      "port": 8443,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4088,
-        "facebook": 2626,
-        "twitter": 2398
-      }
-    },
-    {
-      "address": "8.220.136.174:2000",
-      "ip": "8.220.136.174",
-      "port": 2000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3915,
-        "facebook": 2558,
-        "twitter": 2616
-      }
-    },
-    {
-      "address": "8.220.141.8:8081",
-      "ip": "8.220.141.8",
-      "port": 8081,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4426,
-        "facebook": 2419,
-        "twitter": 2423
-      }
-    },
-    {
-      "address": "8.220.141.8:9090",
-      "ip": "8.220.141.8",
-      "port": 9090,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4215,
-        "facebook": 2527,
-        "twitter": 2435
-      }
-    },
-    {
-      "address": "8.220.141.8:10000",
-      "ip": "8.220.141.8",
-      "port": 10000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 4411,
-        "facebook": 2424,
-        "twitter": 2440
-      }
-    },
-    {
-      "address": "8.220.204.92:3129",
-      "ip": "8.220.204.92",
       "port": 3129,
       "anonymity": "unknown",
       "sites": {
-        "google": 3439,
-        "facebook": 4887,
-        "twitter": 2286
+        "google": 4305,
+        "facebook": 2512,
+        "twitter": 2480
       }
     },
     {
-      "address": "8.220.204.92:8091",
+      "address": "8.219.229.53:1081",
+      "ip": "8.219.229.53",
+      "port": 1081,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3894,
+        "facebook": 2417,
+        "twitter": 2429
+      }
+    },
+    {
+      "address": "8.220.136.174:3120",
+      "ip": "8.220.136.174",
+      "port": 3120,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 5283,
+        "facebook": 2607,
+        "twitter": 2641
+      }
+    },
+    {
+      "address": "8.220.136.174:8084",
+      "ip": "8.220.136.174",
+      "port": 8084,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 5001,
+        "facebook": 2627,
+        "twitter": 2647
+      }
+    },
+    {
+      "address": "8.220.136.174:20000",
+      "ip": "8.220.136.174",
+      "port": 20000,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4170,
+        "facebook": 2669,
+        "twitter": 2498
+      }
+    },
+    {
+      "address": "8.220.141.8:8090",
+      "ip": "8.220.141.8",
+      "port": 8090,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 5312,
+        "facebook": 2599,
+        "twitter": 2618
+      }
+    },
+    {
+      "address": "8.220.204.92:100",
       "ip": "8.220.204.92",
-      "port": 8091,
+      "port": 100,
       "anonymity": "unknown",
       "sites": {
-        "google": 3453,
-        "facebook": 4865,
-        "twitter": 2294
-      }
-    },
-    {
-      "address": "8.220.204.92:9080",
-      "ip": "8.220.204.92",
-      "port": 9080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3461,
-        "facebook": 4861,
-        "twitter": 2286
-      }
-    },
-    {
-      "address": "8.220.204.92:9999",
-      "ip": "8.220.204.92",
-      "port": 9999,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3464,
-        "facebook": 4860,
-        "twitter": 2291
-      }
-    },
-    {
-      "address": "8.220.204.92:12000",
-      "ip": "8.220.204.92",
-      "port": 12000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3471,
-        "facebook": 4848,
-        "twitter": 2285
-      }
-    },
-    {
-      "address": "8.220.204.215:90",
-      "ip": "8.220.204.215",
-      "port": 90,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3460,
-        "facebook": 2294,
-        "twitter": 2294
+        "google": 3620,
+        "facebook": 5231,
+        "twitter": 2332
       }
     },
     {
@@ -1803,9 +1422,9 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3463,
-        "facebook": 2300,
-        "twitter": 2293
+        "google": 3611,
+        "facebook": 2341,
+        "twitter": 2332
       }
     },
     {
@@ -1814,20 +1433,9 @@
       "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "google": 3310,
-        "facebook": 2285,
-        "twitter": 2290
-      }
-    },
-    {
-      "address": "8.220.204.215:9200",
-      "ip": "8.220.204.215",
-      "port": 9200,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3427,
-        "facebook": 2291,
-        "twitter": 2293
+        "google": 3628,
+        "facebook": 2338,
+        "twitter": 2341
       }
     },
     {
@@ -1836,53 +1444,31 @@
       "port": 31433,
       "anonymity": "unknown",
       "sites": {
-        "google": 3420,
-        "facebook": 2287,
-        "twitter": 2288
+        "google": 3607,
+        "facebook": 2332,
+        "twitter": 2332
       }
     },
     {
-      "address": "8.220.205.172:4145",
+      "address": "8.220.205.172:8888",
       "ip": "8.220.205.172",
-      "port": 4145,
+      "port": 8888,
       "anonymity": "unknown",
       "sites": {
-        "google": 3459,
-        "facebook": 2299,
-        "twitter": 2297
+        "google": 3620,
+        "facebook": 2332,
+        "twitter": 2333
       }
     },
     {
-      "address": "8.220.205.172:30001",
+      "address": "8.220.205.172:9000",
       "ip": "8.220.205.172",
-      "port": 30001,
+      "port": 9000,
       "anonymity": "unknown",
       "sites": {
-        "google": 3422,
-        "facebook": 2288,
-        "twitter": 2295
-      }
-    },
-    {
-      "address": "8.221.138.111:1080",
-      "ip": "8.221.138.111",
-      "port": 1080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3522,
-        "facebook": 2249,
-        "twitter": 2252
-      }
-    },
-    {
-      "address": "8.221.138.111:8045",
-      "ip": "8.221.138.111",
-      "port": 8045,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3531,
-        "facebook": 2245,
-        "twitter": 2257
+        "google": 3460,
+        "facebook": 2335,
+        "twitter": 2333
       }
     },
     {
@@ -1891,9 +1477,9 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3527,
-        "facebook": 2247,
-        "twitter": 2259
+        "google": 3745,
+        "facebook": 2301,
+        "twitter": 2298
       }
     },
     {
@@ -1902,87 +1488,55 @@
       "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3644,
-        "facebook": 2245,
-        "twitter": 2247
+        "google": 3479,
+        "facebook": 2291,
+        "twitter": 2293
       }
     },
     {
-      "address": "8.221.138.111:9000",
-      "ip": "8.221.138.111",
-      "port": 9000,
+      "address": "8.221.139.222:9080",
+      "ip": "8.221.139.222",
+      "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3640,
-        "facebook": 2246,
-        "twitter": 2244
+        "google": 5154,
+        "facebook": 2298,
+        "twitter": 2294
       }
     },
     {
-      "address": "8.221.141.88:443",
+      "address": "8.221.141.88:541",
       "ip": "8.221.141.88",
-      "port": 443,
+      "port": 541,
       "anonymity": "unknown",
       "sites": {
-        "google": 3297,
-        "facebook": 2251,
-        "twitter": 2251
+        "google": 3470,
+        "facebook": 2297,
+        "twitter": 2296
       }
     },
     {
-      "address": "8.221.141.88:8080",
+      "address": "8.221.141.88:9500",
       "ip": "8.221.141.88",
-      "port": 8080,
+      "port": 9500,
       "anonymity": "unknown",
       "sites": {
-        "google": 3292,
-        "facebook": 2253,
-        "twitter": 2254
+        "google": 3492,
+        "facebook": 2291,
+        "twitter": 2298
       }
     },
     {
-      "address": "8.221.141.88:8083",
-      "ip": "8.221.141.88",
-      "port": 8083,
+      "address": "13.208.246.143:56169",
+      "ip": "13.208.246.143",
+      "port": 56169,
       "anonymity": "unknown",
       "sites": {
-        "google": 3289,
-        "facebook": 2256,
-        "twitter": 2253
-      }
-    },
-    {
-      "address": "8.221.141.88:9044",
-      "ip": "8.221.141.88",
-      "port": 9044,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3281,
-        "facebook": 2248,
-        "twitter": 2244
-      }
-    },
-    {
-      "address": "8.221.141.88:9992",
-      "ip": "8.221.141.88",
-      "port": 9992,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3273,
-        "facebook": 2254,
-        "twitter": 2255
-      }
-    },
-    {
-      "address": "13.209.65.136:27085",
-      "ip": "13.209.65.136",
-      "port": 27085,
-      "anonymity": "unknown",
-      "sites": {
-        "whatsapp": 411,
-        "microsoft": 294,
-        "discord": 597,
-        "instagram": 357
+        "youtube": 2521,
+        "whatsapp": 304,
+        "microsoft": 306,
+        "discord": 307,
+        "instagram": 310
       }
     },
     {
@@ -1991,11 +1545,10 @@
       "port": 21492,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 259,
-        "whatsapp": 255,
-        "microsoft": 257,
-        "discord": 256,
-        "instagram": 257
+        "whatsapp": 307,
+        "microsoft": 305,
+        "discord": 312,
+        "instagram": 304
       }
     },
     {
@@ -2004,11 +1557,10 @@
       "port": 8885,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 400,
-        "whatsapp": 402,
-        "microsoft": 402,
-        "discord": 459,
-        "instagram": 411
+        "youtube": 447,
+        "whatsapp": 457,
+        "microsoft": 449,
+        "instagram": 454
       }
     },
     {
@@ -2017,13 +1569,7 @@
       "port": 46102,
       "anonymity": "unknown",
       "sites": {
-        "facebook": 7270,
-        "tiktok": 282,
-        "youtube": 274,
-        "whatsapp": 275,
-        "microsoft": 305,
-        "discord": 304,
-        "instagram": 635
+        "google": 2729
       }
     },
     {
@@ -2032,36 +1578,12 @@
       "port": 56194,
       "anonymity": "unknown",
       "sites": {
-        "tiktok": 3209,
-        "youtube": 369,
-        "whatsapp": 367,
-        "microsoft": 385,
-        "discord": 369,
-        "instagram": 373
-      }
-    },
-    {
-      "address": "16.28.32.67:9123",
-      "ip": "16.28.32.67",
-      "port": 9123,
-      "anonymity": "unknown",
-      "sites": {
-        "youtube": 2286,
-        "whatsapp": 631,
-        "microsoft": 495,
-        "discord": 497,
-        "instagram": 498
-      }
-    },
-    {
-      "address": "16.28.101.55:59847",
-      "ip": "16.28.101.55",
-      "port": 59847,
-      "anonymity": "unknown",
-      "sites": {
-        "whatsapp": 494,
-        "microsoft": 507,
-        "instagram": 494
+        "tiktok": 3515,
+        "youtube": 418,
+        "whatsapp": 430,
+        "microsoft": 417,
+        "discord": 442,
+        "instagram": 412
       }
     },
     {
@@ -2070,15 +1592,15 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 753,
-        "facebook": 335,
-        "twitter": 334,
-        "tiktok": 335,
-        "youtube": 335,
-        "whatsapp": 333,
-        "microsoft": 345,
-        "discord": 337,
-        "instagram": 357
+        "google": 803,
+        "facebook": 384,
+        "twitter": 385,
+        "tiktok": 378,
+        "youtube": 380,
+        "whatsapp": 388,
+        "microsoft": 388,
+        "discord": 387,
+        "instagram": 389
       }
     },
     {
@@ -2087,11 +1609,10 @@
       "port": 23407,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 52,
-        "whatsapp": 53,
-        "microsoft": 51,
-        "discord": 53,
-        "instagram": 59
+        "whatsapp": 100,
+        "microsoft": 105,
+        "discord": 101,
+        "instagram": 99
       }
     },
     {
@@ -2100,10 +1621,11 @@
       "port": 58720,
       "anonymity": "unknown",
       "sites": {
-        "whatsapp": 1118,
-        "microsoft": 1013,
-        "discord": 702,
-        "instagram": 682
+        "youtube": 385,
+        "whatsapp": 394,
+        "microsoft": 391,
+        "discord": 593,
+        "instagram": 473
       }
     },
     {
@@ -2112,11 +1634,10 @@
       "port": 21005,
       "anonymity": "unknown",
       "sites": {
-        "google": 1141,
-        "whatsapp": 252,
-        "microsoft": 246,
-        "discord": 488,
-        "instagram": 231
+        "whatsapp": 202,
+        "microsoft": 214,
+        "discord": 195,
+        "instagram": 425
       }
     },
     {
@@ -2125,35 +1646,58 @@
       "port": 53508,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 246,
-        "whatsapp": 245,
-        "microsoft": 245,
-        "discord": 255,
-        "instagram": 324
+        "tiktok": 1673,
+        "youtube": 197,
+        "whatsapp": 203,
+        "microsoft": 205,
+        "discord": 222,
+        "instagram": 206
       }
     },
     {
-      "address": "18.191.250.90:58119",
-      "ip": "18.191.250.90",
-      "port": 58119,
+      "address": "18.188.168.99:8741",
+      "ip": "18.188.168.99",
+      "port": 8741,
       "anonymity": "unknown",
       "sites": {
-        "whatsapp": 75,
-        "microsoft": 77,
-        "instagram": 83
+        "google": 6067,
+        "tiktok": 517,
+        "youtube": 40,
+        "whatsapp": 22,
+        "microsoft": 42,
+        "discord": 23,
+        "instagram": 1053
       }
     },
     {
-      "address": "18.217.248.118:12561",
+      "address": "18.217.248.118:8158",
       "ip": "18.217.248.118",
-      "port": 12561,
+      "port": 8158,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 95,
-        "whatsapp": 85,
-        "microsoft": 86,
-        "discord": 90,
-        "instagram": 92
+        "twitter": 41,
+        "tiktok": 43,
+        "youtube": 43,
+        "whatsapp": 46,
+        "microsoft": 48,
+        "discord": 1083,
+        "instagram": 45
+      }
+    },
+    {
+      "address": "18.217.248.118:57113",
+      "ip": "18.217.248.118",
+      "port": 57113,
+      "anonymity": "unknown",
+      "sites": {
+        "facebook": 586,
+        "twitter": 46,
+        "tiktok": 46,
+        "youtube": 42,
+        "whatsapp": 1088,
+        "microsoft": 44,
+        "discord": 1041,
+        "instagram": 1091
       }
     },
     {
@@ -2162,10 +1706,14 @@
       "port": 8090,
       "anonymity": "unknown",
       "sites": {
-        "whatsapp": 98,
-        "microsoft": 101,
-        "discord": 100,
-        "instagram": 95
+        "facebook": 5799,
+        "twitter": 42,
+        "tiktok": 37,
+        "youtube": 41,
+        "whatsapp": 42,
+        "microsoft": 1097,
+        "discord": 69,
+        "instagram": 1075
       }
     },
     {
@@ -2174,39 +1722,10 @@
       "port": 27161,
       "anonymity": "unknown",
       "sites": {
-        "google": 3708,
-        "youtube": 98,
-        "whatsapp": 96,
-        "microsoft": 90,
-        "discord": 97,
-        "instagram": 95
-      }
-    },
-    {
-      "address": "18.224.94.46:10366",
-      "ip": "18.224.94.46",
-      "port": 10366,
-      "anonymity": "unknown",
-      "sites": {
-        "tiktok": 2073,
-        "youtube": 95,
-        "whatsapp": 108,
-        "microsoft": 100,
-        "discord": 100,
-        "instagram": 1106
-      }
-    },
-    {
-      "address": "18.230.23.72:52399",
-      "ip": "18.230.23.72",
-      "port": 52399,
-      "anonymity": "unknown",
-      "sites": {
-        "youtube": 330,
-        "whatsapp": 321,
-        "microsoft": 321,
-        "discord": 322,
-        "instagram": 321
+        "whatsapp": 44,
+        "microsoft": 42,
+        "discord": 49,
+        "instagram": 59
       }
     },
     {
@@ -2215,11 +1734,11 @@
       "port": 48128,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 316,
-        "whatsapp": 316,
-        "microsoft": 314,
-        "discord": 313,
-        "instagram": 315
+        "youtube": 268,
+        "whatsapp": 276,
+        "microsoft": 270,
+        "discord": 269,
+        "instagram": 275
       }
     },
     {
@@ -2228,36 +1747,25 @@
       "port": 8080,
       "anonymity": "elite",
       "sites": {
-        "google": 1002,
-        "facebook": 1051,
-        "tiktok": 913,
-        "youtube": 750,
-        "whatsapp": 1402,
-        "microsoft": 789,
-        "discord": 1397,
-        "instagram": 1105
+        "google": 997,
+        "facebook": 649,
+        "tiktok": 1419,
+        "youtube": 459,
+        "whatsapp": 625
       }
     },
     {
-      "address": "27.147.155.206:12051",
-      "ip": "27.147.155.206",
-      "port": 12051,
-      "anonymity": "elite",
+      "address": "23.132.28.60:3129",
+      "ip": "23.132.28.60",
+      "port": 3129,
+      "anonymity": "anonymous",
       "sites": {
-        "google": 4045,
-        "facebook": 4498,
-        "youtube": 4228
-      }
-    },
-    {
-      "address": "34.207.102.197:12662",
-      "ip": "34.207.102.197",
-      "port": 12662,
-      "anonymity": "unknown",
-      "sites": {
-        "whatsapp": 180,
-        "microsoft": 91,
-        "instagram": 180
+        "tiktok": 2665,
+        "youtube": 2853,
+        "whatsapp": 2748,
+        "microsoft": 2799,
+        "discord": 1458,
+        "instagram": 2785
       }
     },
     {
@@ -2266,24 +1774,10 @@
       "port": 4091,
       "anonymity": "unknown",
       "sites": {
-        "whatsapp": 100,
-        "microsoft": 103,
-        "discord": 98,
-        "instagram": 85
-      }
-    },
-    {
-      "address": "35.43.85.195:4492",
-      "ip": "35.43.85.195",
-      "port": 4492,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2424,
-        "youtube": 269,
-        "whatsapp": 268,
-        "microsoft": 271,
-        "discord": 272,
-        "instagram": 270
+        "whatsapp": 49,
+        "microsoft": 54,
+        "discord": 46,
+        "instagram": 59
       }
     },
     {
@@ -2292,13 +1786,13 @@
       "port": 14185,
       "anonymity": "unknown",
       "sites": {
-        "twitter": 256,
-        "tiktok": 245,
-        "youtube": 735,
-        "whatsapp": 302,
-        "microsoft": 249,
-        "discord": 274,
-        "instagram": 243
+        "twitter": 288,
+        "tiktok": 311,
+        "youtube": 293,
+        "whatsapp": 297,
+        "microsoft": 297,
+        "discord": 295,
+        "instagram": 291
       }
     },
     {
@@ -2307,23 +1801,21 @@
       "port": 32053,
       "anonymity": "unknown",
       "sites": {
-        "facebook": 4600,
-        "tiktok": 289,
-        "youtube": 250,
-        "whatsapp": 255,
-        "microsoft": 256,
-        "discord": 265,
-        "instagram": 250
+        "tiktok": 304,
+        "youtube": 312,
+        "whatsapp": 290,
+        "microsoft": 287,
+        "discord": 298,
+        "instagram": 290
       }
     },
     {
-      "address": "37.187.109.70:10111",
-      "ip": "37.187.109.70",
-      "port": 10111,
+      "address": "38.225.40.143:465",
+      "ip": "38.225.40.143",
+      "port": 465,
       "anonymity": "elite",
       "sites": {
-        "google": 3675,
-        "facebook": 5186
+        "google": 12630
       }
     },
     {
@@ -2332,10 +1824,9 @@
       "port": 8888,
       "anonymity": "unknown",
       "sites": {
-        "google": 3643,
-        "facebook": 2348,
-        "twitter": 2342,
-        "tiktok": 2358
+        "google": 4440,
+        "facebook": 2487,
+        "twitter": 2474
       }
     },
     {
@@ -2344,10 +1835,9 @@
       "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "google": 3602,
-        "facebook": 2362,
-        "twitter": 2343,
-        "tiktok": 2337
+        "google": 4145,
+        "facebook": 2489,
+        "twitter": 2516
       }
     },
     {
@@ -2356,22 +1846,9 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3475,
-        "facebook": 2331,
-        "twitter": 2345,
-        "tiktok": 2368
-      }
-    },
-    {
-      "address": "39.102.210.176:8888",
-      "ip": "39.102.210.176",
-      "port": 8888,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3633,
-        "facebook": 2351,
-        "twitter": 2351,
-        "tiktok": 2349
+        "google": 3976,
+        "facebook": 2559,
+        "twitter": 2528
       }
     },
     {
@@ -2380,21 +1857,9 @@
       "port": 3333,
       "anonymity": "unknown",
       "sites": {
-        "google": 3461,
-        "facebook": 2355,
-        "twitter": 2343,
-        "tiktok": 2346
-      }
-    },
-    {
-      "address": "39.102.213.213:9098",
-      "ip": "39.102.213.213",
-      "port": 9098,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 5228,
-        "facebook": 2354,
-        "twitter": 2364
+        "google": 3922,
+        "facebook": 2611,
+        "twitter": 2540
       }
     },
     {
@@ -2403,9 +1868,9 @@
       "port": 8090,
       "anonymity": "unknown",
       "sites": {
-        "google": 3771,
-        "facebook": 2407,
-        "twitter": 2389
+        "google": 3905,
+        "facebook": 2626,
+        "twitter": 2534
       }
     },
     {
@@ -2414,9 +1879,9 @@
       "port": 9999,
       "anonymity": "unknown",
       "sites": {
-        "google": 3781,
-        "facebook": 2465,
-        "twitter": 2508
+        "google": 3900,
+        "facebook": 2630,
+        "twitter": 2530
       }
     },
     {
@@ -2425,9 +1890,9 @@
       "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3615,
-        "facebook": 2345,
-        "twitter": 3677
+        "google": 3967,
+        "facebook": 4124,
+        "twitter": 2505
       }
     },
     {
@@ -2436,9 +1901,9 @@
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3884,
-        "facebook": 2600,
-        "twitter": 2389
+        "google": 4557,
+        "facebook": 2499,
+        "twitter": 2651
       }
     },
     {
@@ -2447,10 +1912,9 @@
       "port": 8001,
       "anonymity": "unknown",
       "sites": {
-        "google": 3498,
-        "facebook": 2363,
-        "twitter": 2365,
-        "tiktok": 2370
+        "google": 3997,
+        "facebook": 2588,
+        "twitter": 2521
       }
     },
     {
@@ -2459,15 +1923,15 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 527,
-        "facebook": 262,
-        "twitter": 248,
-        "tiktok": 247,
-        "youtube": 271,
-        "whatsapp": 264,
-        "microsoft": 256,
-        "discord": 244,
-        "instagram": 269
+        "google": 451,
+        "facebook": 206,
+        "twitter": 224,
+        "tiktok": 217,
+        "youtube": 215,
+        "whatsapp": 215,
+        "microsoft": 219,
+        "discord": 212,
+        "instagram": 208
       }
     },
     {
@@ -2476,72 +1940,28 @@
       "port": 30577,
       "anonymity": "unknown",
       "sites": {
-        "tiktok": 1272,
-        "youtube": 131,
-        "whatsapp": 133,
-        "microsoft": 131,
-        "discord": 131,
-        "instagram": 134
+        "youtube": 68,
+        "whatsapp": 68,
+        "microsoft": 68,
+        "discord": 70,
+        "instagram": 67
       }
     },
     {
-      "address": "40.192.70.191:7196",
-      "ip": "40.192.70.191",
-      "port": 7196,
+      "address": "43.135.129.151:80",
+      "ip": "43.135.129.151",
+      "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "tiktok": 2722,
-        "youtube": 512,
-        "whatsapp": 510,
-        "microsoft": 518,
-        "discord": 522,
-        "instagram": 511
-      }
-    },
-    {
-      "address": "43.99.60.244:8089",
-      "ip": "43.99.60.244",
-      "port": 8089,
-      "anonymity": "unknown",
-      "sites": {
-        "facebook": 4495,
-        "tiktok": 4504
-      }
-    },
-    {
-      "address": "43.198.78.37:37211",
-      "ip": "43.198.78.37",
-      "port": 37211,
-      "anonymity": "unknown",
-      "sites": {
-        "youtube": 1744,
-        "whatsapp": 333,
-        "microsoft": 337,
-        "discord": 336,
-        "instagram": 333
-      }
-    },
-    {
-      "address": "44.200.234.67:8097",
-      "ip": "44.200.234.67",
-      "port": 8097,
-      "anonymity": "unknown",
-      "sites": {
-        "tiktok": 1441,
-        "youtube": 87,
-        "whatsapp": 86,
-        "microsoft": 88,
-        "discord": 119,
-        "instagram": 1204
-      }
-    },
-    {
-      "address": "45.65.137.218:999",
-      "ip": "45.65.137.218",
-      "port": 999,
-      "anonymity": "elite",
-      "sites": {
-        "google": 12885
+        "google": 312,
+        "facebook": 104,
+        "twitter": 106,
+        "tiktok": 93,
+        "youtube": 96,
+        "whatsapp": 100,
+        "microsoft": 99,
+        "discord": 99,
+        "instagram": 104
       }
     },
     {
@@ -2550,56 +1970,45 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 1441,
-        "facebook": 4076,
-        "tiktok": 4490,
-        "youtube": 2110,
-        "whatsapp": 4542,
-        "microsoft": 2841,
-        "discord": 1213,
-        "instagram": 4415
+        "google": 1126,
+        "facebook": 2781,
+        "tiktok": 4476,
+        "youtube": 1518,
+        "whatsapp": 3665,
+        "microsoft": 2487,
+        "discord": 776,
+        "instagram": 3842
       }
     },
     {
-      "address": "46.101.21.9:10000",
-      "ip": "46.101.21.9",
-      "port": 10000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 5551,
-        "facebook": 5451
-      }
-    },
-    {
-      "address": "47.74.46.81:6379",
-      "ip": "47.74.46.81",
-      "port": 6379,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3145,
-        "facebook": 2249,
-        "twitter": 2245
-      }
-    },
-    {
-      "address": "47.76.144.139:8080",
-      "ip": "47.76.144.139",
+      "address": "46.209.30.11:8080",
+      "ip": "46.209.30.11",
       "port": 8080,
-      "anonymity": "unknown",
+      "anonymity": "elite",
       "sites": {
-        "google": 3189,
-        "facebook": 2326,
-        "twitter": 2325
+        "google": 13010
       }
     },
     {
-      "address": "47.85.161.37:3128",
-      "ip": "47.85.161.37",
-      "port": 3128,
+      "address": "47.74.46.81:9098",
+      "ip": "47.74.46.81",
+      "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "facebook": 4687,
-        "tiktok": 13480
+        "google": 3210,
+        "facebook": 2294,
+        "twitter": 2295
+      }
+    },
+    {
+      "address": "47.76.144.139:9443",
+      "ip": "47.76.144.139",
+      "port": 9443,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3529,
+        "facebook": 2370,
+        "twitter": 2371
       }
     },
     {
@@ -2608,9 +2017,9 @@
       "port": 6379,
       "anonymity": "unknown",
       "sites": {
-        "google": 2392,
-        "facebook": 2080,
-        "twitter": 2081
+        "google": 2208,
+        "facebook": 2040,
+        "twitter": 2044
       }
     },
     {
@@ -2619,20 +2028,31 @@
       "port": 8010,
       "anonymity": "unknown",
       "sites": {
-        "google": 2365,
-        "facebook": 2083,
-        "twitter": 2082
+        "google": 2205,
+        "facebook": 2040,
+        "twitter": 2043
       }
     },
     {
-      "address": "47.89.159.212:8080",
+      "address": "47.89.159.212:8083",
       "ip": "47.89.159.212",
-      "port": 8080,
+      "port": 8083,
       "anonymity": "unknown",
       "sites": {
-        "google": 2361,
-        "facebook": 2085,
-        "twitter": 2083
+        "google": 2207,
+        "facebook": 2043,
+        "twitter": 2042
+      }
+    },
+    {
+      "address": "47.89.159.212:8085",
+      "ip": "47.89.159.212",
+      "port": 8085,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 2204,
+        "facebook": 2040,
+        "twitter": 2041
       }
     },
     {
@@ -2641,18 +2061,20 @@
       "port": 8123,
       "anonymity": "unknown",
       "sites": {
-        "google": 2360,
-        "facebook": 2088,
-        "twitter": 2083
+        "google": 2216,
+        "facebook": 2038,
+        "twitter": 2041
       }
     },
     {
-      "address": "47.89.184.18:3128",
-      "ip": "47.89.184.18",
-      "port": 3128,
+      "address": "47.89.159.212:9000",
+      "ip": "47.89.159.212",
+      "port": 9000,
       "anonymity": "unknown",
       "sites": {
-        "facebook": 5860
+        "google": 2205,
+        "facebook": 2038,
+        "twitter": 2035
       }
     },
     {
@@ -2661,31 +2083,9 @@
       "port": 41,
       "anonymity": "unknown",
       "sites": {
-        "google": 2380,
-        "facebook": 2083,
-        "twitter": 2082
-      }
-    },
-    {
-      "address": "47.90.149.238:81",
-      "ip": "47.90.149.238",
-      "port": 81,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2383,
-        "facebook": 2081,
-        "twitter": 2081
-      }
-    },
-    {
-      "address": "47.90.149.238:1081",
-      "ip": "47.90.149.238",
-      "port": 1081,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2390,
-        "facebook": 2084,
-        "twitter": 2083
+        "google": 2219,
+        "facebook": 2038,
+        "twitter": 2040
       }
     },
     {
@@ -2694,20 +2094,42 @@
       "port": 5060,
       "anonymity": "unknown",
       "sites": {
-        "google": 2390,
-        "facebook": 2082,
-        "twitter": 2081
+        "google": 2221,
+        "facebook": 2041,
+        "twitter": 2070
       }
     },
     {
-      "address": "47.90.167.27:1000",
-      "ip": "47.90.167.27",
-      "port": 1000,
+      "address": "47.90.149.238:8081",
+      "ip": "47.90.149.238",
+      "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 2396,
-        "facebook": 2094,
-        "twitter": 2081
+        "google": 2215,
+        "facebook": 2041,
+        "twitter": 2041
+      }
+    },
+    {
+      "address": "47.90.149.238:9098",
+      "ip": "47.90.149.238",
+      "port": 9098,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 2217,
+        "facebook": 2042,
+        "twitter": 2071
+      }
+    },
+    {
+      "address": "47.90.167.27:8080",
+      "ip": "47.90.167.27",
+      "port": 8080,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 2409,
+        "facebook": 2282,
+        "twitter": 2040
       }
     },
     {
@@ -2716,20 +2138,20 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 2394,
-        "facebook": 2094,
-        "twitter": 2088
+        "google": 2361,
+        "facebook": 2325,
+        "twitter": 2040
       }
     },
     {
-      "address": "47.91.29.151:4145",
+      "address": "47.91.29.151:4002",
       "ip": "47.91.29.151",
-      "port": 4145,
+      "port": 4002,
       "anonymity": "unknown",
       "sites": {
-        "google": 3167,
-        "facebook": 2246,
-        "twitter": 2245
+        "google": 3375,
+        "facebook": 2291,
+        "twitter": 2290
       }
     },
     {
@@ -2738,20 +2160,31 @@
       "port": 6666,
       "anonymity": "unknown",
       "sites": {
-        "google": 3165,
-        "facebook": 2245,
-        "twitter": 2244
+        "google": 3378,
+        "facebook": 2294,
+        "twitter": 2295
       }
     },
     {
-      "address": "47.91.29.151:8888",
+      "address": "47.91.29.151:8585",
       "ip": "47.91.29.151",
-      "port": 8888,
+      "port": 8585,
       "anonymity": "unknown",
       "sites": {
-        "google": 3176,
-        "facebook": 2246,
-        "twitter": 2246
+        "google": 3352,
+        "facebook": 2294,
+        "twitter": 2291
+      }
+    },
+    {
+      "address": "47.91.89.3:11",
+      "ip": "47.91.89.3",
+      "port": 11,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 2837,
+        "facebook": 2233,
+        "twitter": 2245
       }
     },
     {
@@ -2760,9 +2193,9 @@
       "port": 35,
       "anonymity": "unknown",
       "sites": {
-        "google": 3035,
-        "facebook": 2277,
-        "twitter": 2279
+        "google": 2815,
+        "facebook": 2230,
+        "twitter": 2226
       }
     },
     {
@@ -2771,9 +2204,9 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 3039,
-        "facebook": 2278,
-        "twitter": 2271
+        "google": 2863,
+        "facebook": 2228,
+        "twitter": 2229
       }
     },
     {
@@ -2782,9 +2215,9 @@
       "port": 1000,
       "anonymity": "unknown",
       "sites": {
-        "google": 3075,
-        "facebook": 2263,
-        "twitter": 2275
+        "google": 2834,
+        "facebook": 2228,
+        "twitter": 2216
       }
     },
     {
@@ -2793,9 +2226,9 @@
       "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 3058,
-        "facebook": 2275,
-        "twitter": 2280
+        "google": 2817,
+        "facebook": 2227,
+        "twitter": 2227
       }
     },
     {
@@ -2804,9 +2237,20 @@
       "port": 5060,
       "anonymity": "unknown",
       "sites": {
-        "google": 3071,
-        "facebook": 2286,
-        "twitter": 2278
+        "google": 2846,
+        "facebook": 2233,
+        "twitter": 2233
+      }
+    },
+    {
+      "address": "47.91.89.3:8040",
+      "ip": "47.91.89.3",
+      "port": 8040,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 2841,
+        "facebook": 2232,
+        "twitter": 2236
       }
     },
     {
@@ -2815,44 +2259,57 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3088,
-        "facebook": 2276,
-        "twitter": 2276
+        "google": 2858,
+        "facebook": 2228,
+        "twitter": 2226
       }
     },
     {
-      "address": "47.91.89.3:8099",
-      "ip": "47.91.89.3",
-      "port": 8099,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3093,
-        "facebook": 2288,
-        "twitter": 2267
-      }
-    },
-    {
-      "address": "47.91.109.17:8060",
+      "address": "47.91.109.17:8080",
       "ip": "47.91.109.17",
-      "port": 8060,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3465,
-        "facebook": 2411,
-        "twitter": 2396,
-        "tiktok": 2409
-      }
-    },
-    {
-      "address": "47.91.110.148:8080",
-      "ip": "47.91.110.148",
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3472,
-        "facebook": 2415,
-        "twitter": 2397,
-        "tiktok": 2410
+        "google": 3328,
+        "facebook": 2364,
+        "twitter": 2359,
+        "tiktok": 2349
+      }
+    },
+    {
+      "address": "47.91.110.148:10",
+      "ip": "47.91.110.148",
+      "port": 10,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3356,
+        "facebook": 2355,
+        "twitter": 2347,
+        "tiktok": 2365
+      }
+    },
+    {
+      "address": "47.91.110.148:5060",
+      "ip": "47.91.110.148",
+      "port": 5060,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3306,
+        "facebook": 2382,
+        "twitter": 2369,
+        "tiktok": 2381
+      }
+    },
+    {
+      "address": "47.91.110.148:8008",
+      "ip": "47.91.110.148",
+      "port": 8008,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3319,
+        "facebook": 2358,
+        "twitter": 2349,
+        "tiktok": 2351
       }
     },
     {
@@ -2861,70 +2318,58 @@
       "port": 8888,
       "anonymity": "unknown",
       "sites": {
-        "google": 3514,
-        "facebook": 2397,
-        "twitter": 2408,
-        "tiktok": 2403
+        "google": 3333,
+        "facebook": 2351,
+        "twitter": 2352,
+        "tiktok": 2348
       }
     },
     {
-      "address": "47.91.115.179:7890",
+      "address": "47.91.115.179:8080",
       "ip": "47.91.115.179",
-      "port": 7890,
+      "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3524,
-        "facebook": 2399,
-        "twitter": 2399,
-        "tiktok": 2411
+        "google": 3336,
+        "facebook": 2361,
+        "twitter": 2376,
+        "tiktok": 2350
       }
     },
     {
-      "address": "47.91.120.190:80",
+      "address": "47.91.120.190:2021",
       "ip": "47.91.120.190",
-      "port": 80,
+      "port": 2021,
       "anonymity": "unknown",
       "sites": {
-        "google": 3478,
-        "facebook": 2398,
-        "twitter": 2411,
-        "tiktok": 2414
+        "google": 3297,
+        "facebook": 2350,
+        "twitter": 2366,
+        "tiktok": 2357
       }
     },
     {
-      "address": "47.91.120.190:5060",
+      "address": "47.91.120.190:3129",
       "ip": "47.91.120.190",
-      "port": 5060,
+      "port": 3129,
       "anonymity": "unknown",
       "sites": {
-        "google": 3517,
-        "facebook": 2399,
-        "twitter": 2401,
-        "tiktok": 2415
+        "google": 3291,
+        "facebook": 2356,
+        "twitter": 2362,
+        "tiktok": 2357
       }
     },
     {
-      "address": "47.91.120.190:8888",
-      "ip": "47.91.120.190",
-      "port": 8888,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3332,
-        "facebook": 2408,
-        "twitter": 2399,
-        "tiktok": 2398
-      }
-    },
-    {
-      "address": "47.91.121.127:1080",
+      "address": "47.91.121.127:1111",
       "ip": "47.91.121.127",
-      "port": 1080,
+      "port": 1111,
       "anonymity": "unknown",
       "sites": {
-        "google": 3661,
-        "facebook": 2412,
-        "twitter": 2397,
-        "tiktok": 2396
+        "google": 3275,
+        "facebook": 2361,
+        "twitter": 2351,
+        "tiktok": 2356
       }
     },
     {
@@ -2933,10 +2378,22 @@
       "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3648,
-        "facebook": 2402,
-        "twitter": 2411,
-        "tiktok": 2411
+        "google": 3291,
+        "facebook": 2352,
+        "twitter": 2352,
+        "tiktok": 2359
+      }
+    },
+    {
+      "address": "47.91.121.127:10000",
+      "ip": "47.91.121.127",
+      "port": 10000,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3313,
+        "facebook": 2351,
+        "twitter": 2365,
+        "tiktok": 2372
       }
     },
     {
@@ -2945,9 +2402,9 @@
       "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 4004,
-        "facebook": 2350,
-        "twitter": 2358
+        "google": 4321,
+        "facebook": 2514,
+        "twitter": 2489
       }
     },
     {
@@ -2956,10 +2413,9 @@
       "port": 8090,
       "anonymity": "unknown",
       "sites": {
-        "google": 5477,
-        "facebook": 2363,
-        "twitter": 2363,
-        "tiktok": 2361
+        "google": 5719,
+        "facebook": 2494,
+        "twitter": 2502
       }
     },
     {
@@ -2968,9 +2424,9 @@
       "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 5643,
-        "facebook": 2371,
-        "twitter": 2354
+        "google": 5717,
+        "facebook": 2495,
+        "twitter": 2504
       }
     },
     {
@@ -2979,10 +2435,9 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 3403,
-        "facebook": 2343,
-        "twitter": 2338,
-        "tiktok": 2766
+        "google": 3718,
+        "facebook": 2477,
+        "twitter": 3223
       }
     },
     {
@@ -2991,10 +2446,9 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3376,
-        "facebook": 2346,
-        "twitter": 2337,
-        "tiktok": 2787
+        "google": 3790,
+        "facebook": 2513,
+        "twitter": 3112
       }
     },
     {
@@ -3003,10 +2457,9 @@
       "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "google": 3391,
-        "facebook": 2338,
-        "twitter": 2345,
-        "tiktok": 2774
+        "google": 3781,
+        "facebook": 2497,
+        "twitter": 3141
       }
     },
     {
@@ -3015,9 +2468,9 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 3744,
-        "facebook": 2365,
-        "twitter": 2326
+        "google": 3978,
+        "facebook": 2482,
+        "twitter": 2473
       }
     },
     {
@@ -3026,21 +2479,9 @@
       "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "google": 3727,
-        "facebook": 2335,
-        "twitter": 2337,
-        "tiktok": 2332
-      }
-    },
-    {
-      "address": "47.108.159.113:4006",
-      "ip": "47.108.159.113",
-      "port": 4006,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3766,
-        "facebook": 2436,
-        "twitter": 2404
+        "google": 3725,
+        "facebook": 2481,
+        "twitter": 2483
       }
     },
     {
@@ -3049,9 +2490,9 @@
       "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3595,
-        "facebook": 2397,
-        "twitter": 2394
+        "google": 3805,
+        "facebook": 2516,
+        "twitter": 2511
       }
     },
     {
@@ -3060,9 +2501,9 @@
       "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "google": 3545,
-        "facebook": 3179,
-        "twitter": 2336
+        "google": 4060,
+        "facebook": 3409,
+        "twitter": 2469
       }
     },
     {
@@ -3071,9 +2512,9 @@
       "port": 8008,
       "anonymity": "unknown",
       "sites": {
-        "google": 3464,
-        "facebook": 2359,
-        "twitter": 2362
+        "google": 3659,
+        "facebook": 2468,
+        "twitter": 2470
       }
     },
     {
@@ -3082,9 +2523,9 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 3663,
-        "facebook": 2364,
-        "twitter": 2365
+        "google": 4244,
+        "facebook": 2469,
+        "twitter": 2480
       }
     },
     {
@@ -3093,9 +2534,20 @@
       "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3852,
-        "facebook": 2384,
-        "twitter": 2380
+        "google": 4280,
+        "facebook": 2473,
+        "twitter": 2470
+      }
+    },
+    {
+      "address": "47.237.2.245:808",
+      "ip": "47.237.2.245",
+      "port": 808,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3945,
+        "facebook": 2416,
+        "twitter": 2418
       }
     },
     {
@@ -3104,64 +2556,130 @@
       "port": 1081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3853,
-        "facebook": 2379,
-        "twitter": 2371
+        "google": 3943,
+        "facebook": 2414,
+        "twitter": 2417
       }
     },
     {
-      "address": "47.237.92.86:3129",
+      "address": "47.237.2.245:8083",
+      "ip": "47.237.2.245",
+      "port": 8083,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3549,
+        "facebook": 2412,
+        "twitter": 2412
+      }
+    },
+    {
+      "address": "47.237.2.245:9080",
+      "ip": "47.237.2.245",
+      "port": 9080,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3753,
+        "facebook": 2434,
+        "twitter": 2420
+      }
+    },
+    {
+      "address": "47.237.92.86:80",
       "ip": "47.237.92.86",
-      "port": 3129,
+      "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 4026,
-        "facebook": 2368,
-        "twitter": 2369
+        "google": 3943,
+        "facebook": 2424,
+        "twitter": 2419
       }
     },
     {
-      "address": "47.237.107.41:85",
+      "address": "47.237.92.86:88",
+      "ip": "47.237.92.86",
+      "port": 88,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4027,
+        "facebook": 2420,
+        "twitter": 2416
+      }
+    },
+    {
+      "address": "47.237.92.86:4916",
+      "ip": "47.237.92.86",
+      "port": 4916,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3554,
+        "facebook": 2430,
+        "twitter": 2416
+      }
+    },
+    {
+      "address": "47.237.92.86:8123",
+      "ip": "47.237.92.86",
+      "port": 8123,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3956,
+        "facebook": 2416,
+        "twitter": 2419
+      }
+    },
+    {
+      "address": "47.237.107.41:193",
       "ip": "47.237.107.41",
-      "port": 85,
+      "port": 193,
       "anonymity": "unknown",
       "sites": {
-        "google": 3484,
-        "facebook": 2371,
-        "twitter": 2373
+        "google": 3598,
+        "facebook": 2419,
+        "twitter": 2438
       }
     },
     {
-      "address": "47.237.107.41:111",
+      "address": "47.237.107.41:808",
       "ip": "47.237.107.41",
-      "port": 111,
+      "port": 808,
       "anonymity": "unknown",
       "sites": {
-        "google": 3485,
-        "facebook": 2367,
-        "twitter": 2368
+        "google": 3762,
+        "facebook": 2419,
+        "twitter": 2416
       }
     },
     {
-      "address": "47.237.107.41:1080",
+      "address": "47.237.107.41:8443",
       "ip": "47.237.107.41",
-      "port": 1080,
+      "port": 8443,
       "anonymity": "unknown",
       "sites": {
-        "google": 3486,
-        "facebook": 2366,
-        "twitter": 2374
+        "google": 3934,
+        "facebook": 2414,
+        "twitter": 2420
       }
     },
     {
-      "address": "47.237.113.119:89",
+      "address": "47.237.113.119:999",
       "ip": "47.237.113.119",
-      "port": 89,
+      "port": 999,
       "anonymity": "unknown",
       "sites": {
-        "google": 3489,
-        "facebook": 2368,
-        "twitter": 2371
+        "google": 3557,
+        "facebook": 2415,
+        "twitter": 2432
+      }
+    },
+    {
+      "address": "47.237.113.119:1000",
+      "ip": "47.237.113.119",
+      "port": 1000,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3540,
+        "facebook": 2416,
+        "twitter": 2417
       }
     },
     {
@@ -3170,8 +2688,63 @@
       "port": 8118,
       "anonymity": "unknown",
       "sites": {
-        "google": 3488,
-        "facebook": 2369,
+        "google": 3562,
+        "facebook": 2420,
+        "twitter": 2419
+      }
+    },
+    {
+      "address": "47.237.113.119:9080",
+      "ip": "47.237.113.119",
+      "port": 9080,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3699,
+        "facebook": 2413,
+        "twitter": 2412
+      }
+    },
+    {
+      "address": "47.237.113.119:16044",
+      "ip": "47.237.113.119",
+      "port": 16044,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3631,
+        "facebook": 2414,
+        "twitter": 2411
+      }
+    },
+    {
+      "address": "47.238.60.156:45",
+      "ip": "47.238.60.156",
+      "port": 45,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3469,
+        "facebook": 2379,
+        "twitter": 2374
+      }
+    },
+    {
+      "address": "47.238.60.156:88",
+      "ip": "47.238.60.156",
+      "port": 88,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3478,
+        "facebook": 2379,
+        "twitter": 2376
+      }
+    },
+    {
+      "address": "47.238.60.156:9098",
+      "ip": "47.238.60.156",
+      "port": 9098,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3482,
+        "facebook": 2376,
         "twitter": 2370
       }
     },
@@ -3181,20 +2754,18 @@
       "port": 90,
       "anonymity": "unknown",
       "sites": {
-        "google": 3327,
-        "facebook": 2324,
-        "twitter": 4956
+        "google": 3502,
+        "facebook": 2373
       }
     },
     {
-      "address": "47.238.128.246:8181",
+      "address": "47.238.128.246:202",
       "ip": "47.238.128.246",
-      "port": 8181,
+      "port": 202,
       "anonymity": "unknown",
       "sites": {
-        "google": 3330,
-        "facebook": 2324,
-        "twitter": 4954
+        "google": 3473,
+        "facebook": 2379
       }
     },
     {
@@ -3203,108 +2774,31 @@
       "port": 28,
       "anonymity": "unknown",
       "sites": {
-        "google": 3343,
-        "facebook": 2327,
-        "twitter": 2327
+        "google": 3483,
+        "facebook": 2375,
+        "twitter": 2370
       }
     },
     {
-      "address": "47.238.130.212:443",
-      "ip": "47.238.130.212",
-      "port": 443,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3333,
-        "facebook": 2326,
-        "twitter": 2325
-      }
-    },
-    {
-      "address": "47.238.130.212:1081",
-      "ip": "47.238.130.212",
-      "port": 1081,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3340,
-        "facebook": 2328,
-        "twitter": 2324
-      }
-    },
-    {
-      "address": "47.238.130.212:2000",
-      "ip": "47.238.130.212",
-      "port": 2000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3339,
-        "facebook": 2327,
-        "twitter": 2324
-      }
-    },
-    {
-      "address": "47.238.130.212:20000",
-      "ip": "47.238.130.212",
-      "port": 20000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3333,
-        "facebook": 2325,
-        "twitter": 2324
-      }
-    },
-    {
-      "address": "47.238.130.212:59394",
-      "ip": "47.238.130.212",
-      "port": 59394,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3336,
-        "facebook": 2332,
-        "twitter": 2325
-      }
-    },
-    {
-      "address": "47.238.134.126:888",
+      "address": "47.238.134.126:51",
       "ip": "47.238.134.126",
-      "port": 888,
+      "port": 51,
       "anonymity": "unknown",
       "sites": {
-        "google": 6301,
-        "facebook": 2337,
-        "twitter": 2327
+        "google": 3960,
+        "facebook": 2372,
+        "twitter": 2616
       }
     },
     {
-      "address": "47.238.134.126:5060",
+      "address": "47.238.134.126:84",
       "ip": "47.238.134.126",
-      "port": 5060,
+      "port": 84,
       "anonymity": "unknown",
       "sites": {
-        "google": 6170,
-        "facebook": 2326,
-        "twitter": 2323
-      }
-    },
-    {
-      "address": "47.238.134.126:8080",
-      "ip": "47.238.134.126",
-      "port": 8080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 6300,
-        "facebook": 2336,
-        "twitter": 2326
-      }
-    },
-    {
-      "address": "47.238.134.126:8888",
-      "ip": "47.238.134.126",
-      "port": 8888,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 6301,
-        "facebook": 2333,
-        "twitter": 2325
+        "google": 3911,
+        "facebook": 2369,
+        "twitter": 2794
       }
     },
     {
@@ -3313,42 +2807,52 @@
       "port": 3128,
       "anonymity": "anonymous",
       "sites": {
-        "facebook": 2483,
-        "twitter": 1793,
-        "tiktok": 4887
+        "facebook": 7442,
+        "tiktok": 9786
       }
     },
     {
-      "address": "47.250.11.111:81",
+      "address": "47.250.11.111:4002",
       "ip": "47.250.11.111",
-      "port": 81,
+      "port": 4002,
       "anonymity": "unknown",
       "sites": {
-        "google": 3513,
-        "facebook": 2379,
-        "twitter": 2375
+        "google": 3685,
+        "facebook": 2426,
+        "twitter": 2423
       }
     },
     {
-      "address": "47.250.11.111:10000",
+      "address": "47.250.11.111:8085",
       "ip": "47.250.11.111",
-      "port": 10000,
+      "port": 8085,
       "anonymity": "unknown",
       "sites": {
-        "google": 3489,
-        "facebook": 2375,
-        "twitter": 2378
+        "google": 3694,
+        "facebook": 2424,
+        "twitter": 2421
       }
     },
     {
-      "address": "47.250.51.110:1080",
+      "address": "47.250.51.110:1234",
       "ip": "47.250.51.110",
-      "port": 1080,
+      "port": 1234,
       "anonymity": "unknown",
       "sites": {
-        "google": 3772,
-        "facebook": 2374,
-        "twitter": 2375
+        "google": 4093,
+        "facebook": 2423,
+        "twitter": 2424
+      }
+    },
+    {
+      "address": "47.250.51.110:4145",
+      "ip": "47.250.51.110",
+      "port": 4145,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 4068,
+        "facebook": 2429,
+        "twitter": 2427
       }
     },
     {
@@ -3357,9 +2861,9 @@
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 3575,
-        "facebook": 2379,
-        "twitter": 2382
+        "google": 3851,
+        "facebook": 2424,
+        "twitter": 2424
       }
     },
     {
@@ -3368,130 +2872,95 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3387,
-        "facebook": 2377,
-        "twitter": 2375
+        "google": 4071,
+        "facebook": 2425,
+        "twitter": 2429
       }
     },
     {
-      "address": "47.250.51.110:50070",
-      "ip": "47.250.51.110",
-      "port": 50070,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3955,
-        "facebook": 2378,
-        "twitter": 2378
-      }
-    },
-    {
-      "address": "47.250.155.254:111",
+      "address": "47.250.155.254:14",
       "ip": "47.250.155.254",
-      "port": 111,
+      "port": 14,
       "anonymity": "unknown",
       "sites": {
-        "google": 3397,
-        "facebook": 3817,
-        "twitter": 2377
+        "google": 6583,
+        "facebook": 2431
       }
     },
     {
-      "address": "47.250.159.65:1080",
-      "ip": "47.250.159.65",
-      "port": 1080,
+      "address": "47.250.155.254:89",
+      "ip": "47.250.155.254",
+      "port": 89,
       "anonymity": "unknown",
       "sites": {
-        "google": 3392,
-        "facebook": 2378,
-        "twitter": 2377
+        "google": 3650,
+        "facebook": 3848,
+        "twitter": 2423
       }
     },
     {
-      "address": "47.250.159.65:6969",
-      "ip": "47.250.159.65",
-      "port": 6969,
+      "address": "47.250.155.254:8004",
+      "ip": "47.250.155.254",
+      "port": 8004,
       "anonymity": "unknown",
       "sites": {
-        "google": 3400,
-        "facebook": 2376,
-        "twitter": 2377
+        "google": 6558,
+        "facebook": 2428
       }
     },
     {
-      "address": "47.250.177.202:3129",
+      "address": "47.250.155.254:8080",
+      "ip": "47.250.155.254",
+      "port": 8080,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3650,
+        "facebook": 3845,
+        "twitter": 2423
+      }
+    },
+    {
+      "address": "47.250.155.254:8085",
+      "ip": "47.250.155.254",
+      "port": 8085,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3657,
+        "facebook": 3837,
+        "twitter": 2429
+      }
+    },
+    {
+      "address": "47.250.155.254:55443",
+      "ip": "47.250.155.254",
+      "port": 55443,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3861,
+        "facebook": 3635,
+        "twitter": 2428
+      }
+    },
+    {
+      "address": "47.250.177.202:1081",
       "ip": "47.250.177.202",
-      "port": 3129,
+      "port": 1081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3758,
-        "facebook": 2379,
-        "twitter": 2377
+        "google": 3865,
+        "facebook": 2425,
+        "twitter": 2433
       }
     },
     {
-      "address": "47.250.177.202:4145",
+      "address": "47.250.177.202:8081",
       "ip": "47.250.177.202",
-      "port": 4145,
+      "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 3394,
-        "facebook": 2378,
-        "twitter": 2376
-      }
-    },
-    {
-      "address": "47.250.177.202:5060",
-      "ip": "47.250.177.202",
-      "port": 5060,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3392,
-        "facebook": 2380,
-        "twitter": 2377
-      }
-    },
-    {
-      "address": "47.251.73.54:64",
-      "ip": "47.251.73.54",
-      "port": 64,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2284,
-        "facebook": 2118,
-        "twitter": 2080
-      }
-    },
-    {
-      "address": "47.251.73.54:888",
-      "ip": "47.251.73.54",
-      "port": 888,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2290,
-        "facebook": 2113,
-        "twitter": 2078
-      }
-    },
-    {
-      "address": "47.251.73.54:5060",
-      "ip": "47.251.73.54",
-      "port": 5060,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2299,
-        "facebook": 2106,
-        "twitter": 2081
-      }
-    },
-    {
-      "address": "47.251.73.54:8123",
-      "ip": "47.251.73.54",
-      "port": 8123,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2306,
-        "facebook": 2100,
-        "twitter": 2081
+        "google": 3848,
+        "facebook": 2424,
+        "twitter": 2423
       }
     },
     {
@@ -3500,9 +2969,9 @@
       "port": 8888,
       "anonymity": "unknown",
       "sites": {
-        "google": 2300,
-        "facebook": 2104,
-        "twitter": 2082
+        "google": 2526,
+        "facebook": 2099,
+        "twitter": 2106
       }
     },
     {
@@ -3511,9 +2980,20 @@
       "port": 9000,
       "anonymity": "unknown",
       "sites": {
-        "google": 2288,
-        "facebook": 2112,
-        "twitter": 2085
+        "google": 2523,
+        "facebook": 2105,
+        "twitter": 2101
+      }
+    },
+    {
+      "address": "47.251.73.54:9080",
+      "ip": "47.251.73.54",
+      "port": 9080,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 2520,
+        "facebook": 2104,
+        "twitter": 2096
       }
     },
     {
@@ -3522,108 +3002,20 @@
       "port": 199,
       "anonymity": "unknown",
       "sites": {
-        "google": 2296,
-        "facebook": 2105,
-        "twitter": 2081
+        "google": 2551,
+        "facebook": 2103,
+        "twitter": 2105
       }
     },
     {
-      "address": "47.251.74.38:202",
-      "ip": "47.251.74.38",
-      "port": 202,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2271,
-        "facebook": 2125,
-        "twitter": 2089
-      }
-    },
-    {
-      "address": "47.251.74.38:808",
-      "ip": "47.251.74.38",
-      "port": 808,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2293,
-        "facebook": 2105,
-        "twitter": 2083
-      }
-    },
-    {
-      "address": "47.251.74.38:1000",
-      "ip": "47.251.74.38",
-      "port": 1000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2284,
-        "facebook": 2113,
-        "twitter": 2091
-      }
-    },
-    {
-      "address": "47.251.74.38:4840",
-      "ip": "47.251.74.38",
-      "port": 4840,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2291,
-        "facebook": 2107,
-        "twitter": 2085
-      }
-    },
-    {
-      "address": "47.251.74.38:9080",
-      "ip": "47.251.74.38",
-      "port": 9080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2276,
-        "facebook": 2118,
-        "twitter": 2065
-      }
-    },
-    {
-      "address": "47.251.74.38:10000",
-      "ip": "47.251.74.38",
-      "port": 10000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2276,
-        "facebook": 2117,
-        "twitter": 2087
-      }
-    },
-    {
-      "address": "47.251.87.74:13",
+      "address": "47.251.87.74:3128",
       "ip": "47.251.87.74",
-      "port": 13,
+      "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 2333,
-        "facebook": 2082,
-        "twitter": 2075
-      }
-    },
-    {
-      "address": "47.251.87.74:85",
-      "ip": "47.251.87.74",
-      "port": 85,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2376,
-        "facebook": 2065,
-        "twitter": 2055
-      }
-    },
-    {
-      "address": "47.251.87.74:1080",
-      "ip": "47.251.87.74",
-      "port": 1080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2383,
-        "facebook": 2062,
-        "twitter": 2058
+        "google": 2998,
+        "facebook": 2096,
+        "twitter": 2108
       }
     },
     {
@@ -3632,31 +3024,42 @@
       "port": 8000,
       "anonymity": "unknown",
       "sites": {
-        "google": 2343,
-        "facebook": 2070,
-        "twitter": 2074
+        "google": 3032,
+        "facebook": 2098,
+        "twitter": 2105
       }
     },
     {
-      "address": "47.251.87.74:9080",
+      "address": "47.251.87.74:8008",
       "ip": "47.251.87.74",
-      "port": 9080,
+      "port": 8008,
       "anonymity": "unknown",
       "sites": {
-        "google": 2313,
-        "facebook": 2093,
-        "twitter": 2079
+        "google": 2998,
+        "facebook": 2097,
+        "twitter": 2097
       }
     },
     {
-      "address": "47.251.87.199:45",
-      "ip": "47.251.87.199",
-      "port": 45,
+      "address": "47.251.87.74:8118",
+      "ip": "47.251.87.74",
+      "port": 8118,
       "anonymity": "unknown",
       "sites": {
-        "google": 2259,
-        "facebook": 2126,
-        "twitter": 2076
+        "google": 3021,
+        "facebook": 2100,
+        "twitter": 2102
+      }
+    },
+    {
+      "address": "47.251.87.74:20125",
+      "ip": "47.251.87.74",
+      "port": 20125,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 3032,
+        "facebook": 2100,
+        "twitter": 2106
       }
     },
     {
@@ -3665,20 +3068,9 @@
       "port": 8008,
       "anonymity": "unknown",
       "sites": {
-        "google": 2257,
-        "facebook": 2127,
-        "twitter": 2071
-      }
-    },
-    {
-      "address": "47.251.87.199:8088",
-      "ip": "47.251.87.199",
-      "port": 8088,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2265,
-        "facebook": 2120,
-        "twitter": 2074
+        "google": 2554,
+        "facebook": 2099,
+        "twitter": 2099
       }
     },
     {
@@ -3687,75 +3079,53 @@
       "port": 82,
       "anonymity": "unknown",
       "sites": {
-        "google": 2349,
-        "facebook": 2090,
-        "twitter": 2089
+        "google": 2290,
+        "facebook": 2039,
+        "twitter": 2042
       }
     },
     {
-      "address": "47.252.11.233:1080",
+      "address": "47.252.11.233:91",
       "ip": "47.252.11.233",
-      "port": 1080,
+      "port": 91,
       "anonymity": "unknown",
       "sites": {
-        "google": 2353,
-        "facebook": 2092,
-        "twitter": 2099
+        "google": 2286,
+        "facebook": 2040,
+        "twitter": 2041
       }
     },
     {
-      "address": "47.252.11.233:1081",
+      "address": "47.252.11.233:4145",
       "ip": "47.252.11.233",
-      "port": 1081,
+      "port": 4145,
       "anonymity": "unknown",
       "sites": {
-        "google": 2348,
-        "facebook": 2090,
-        "twitter": 2087
+        "google": 2274,
+        "facebook": 2041,
+        "twitter": 2038
       }
     },
     {
-      "address": "47.252.11.233:5060",
+      "address": "47.252.11.233:8081",
       "ip": "47.252.11.233",
-      "port": 5060,
+      "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 2349,
-        "facebook": 2090,
-        "twitter": 2087
+        "google": 2306,
+        "facebook": 2126,
+        "twitter": 2048
       }
     },
     {
-      "address": "47.252.11.233:6379",
-      "ip": "47.252.11.233",
-      "port": 6379,
+      "address": "47.252.18.37:808",
+      "ip": "47.252.18.37",
+      "port": 808,
       "anonymity": "unknown",
       "sites": {
         "google": 2307,
-        "facebook": 2102,
-        "twitter": 2106
-      }
-    },
-    {
-      "address": "47.252.11.233:9080",
-      "ip": "47.252.11.233",
-      "port": 9080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2331,
-        "facebook": 2086,
-        "twitter": 2095
-      }
-    },
-    {
-      "address": "47.252.18.37:45",
-      "ip": "47.252.18.37",
-      "port": 45,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2331,
-        "facebook": 2086,
-        "twitter": 2084
+        "facebook": 2125,
+        "twitter": 2042
       }
     },
     {
@@ -3764,9 +3134,9 @@
       "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 2292,
-        "facebook": 2108,
-        "twitter": 2089
+        "google": 2306,
+        "facebook": 2125,
+        "twitter": 2046
       }
     },
     {
@@ -3775,9 +3145,9 @@
       "port": 45,
       "anonymity": "unknown",
       "sites": {
-        "google": 2206,
-        "facebook": 2052,
-        "twitter": 2153
+        "google": 2509,
+        "facebook": 2101,
+        "twitter": 2098
       }
     },
     {
@@ -3786,54 +3156,31 @@
       "port": 123,
       "anonymity": "unknown",
       "sites": {
-        "google": 2222,
-        "facebook": 2149,
-        "twitter": 2085
+        "google": 2486,
+        "facebook": 2101,
+        "twitter": 2099
       }
     },
     {
-      "address": "47.254.36.213:1081",
+      "address": "47.254.36.213:1080",
       "ip": "47.254.36.213",
-      "port": 1081,
+      "port": 1080,
       "anonymity": "unknown",
       "sites": {
-        "google": 2203,
-        "facebook": 2152,
-        "twitter": 2061
+        "google": 2506,
+        "facebook": 2101,
+        "twitter": 2103
       }
     },
     {
-      "address": "47.254.36.213:3128",
+      "address": "47.254.36.213:8080",
       "ip": "47.254.36.213",
-      "port": 3128,
+      "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 2222,
-        "facebook": 2146,
-        "twitter": 2094
-      }
-    },
-    {
-      "address": "47.254.36.213:3129",
-      "ip": "47.254.36.213",
-      "port": 3129,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2195,
-        "facebook": 2054,
-        "twitter": 2053,
-        "tiktok": 2055
-      }
-    },
-    {
-      "address": "47.254.36.213:5000",
-      "ip": "47.254.36.213",
-      "port": 5000,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 2231,
-        "facebook": 2137,
-        "twitter": 2088
+        "google": 2502,
+        "facebook": 2099,
+        "twitter": 2097
       }
     },
     {
@@ -3842,9 +3189,9 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 2225,
-        "facebook": 2142,
-        "twitter": 2089
+        "google": 2509,
+        "facebook": 2102,
+        "twitter": 2105
       }
     },
     {
@@ -3853,26 +3200,9 @@
       "port": 9080,
       "anonymity": "unknown",
       "sites": {
-        "google": 2198,
-        "facebook": 2153,
-        "twitter": 2058
-      }
-    },
-    {
-      "address": "50.210.166.34:80",
-      "ip": "50.210.166.34",
-      "port": 80,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 241,
-        "facebook": 184,
-        "twitter": 203,
-        "tiktok": 217,
-        "youtube": 195,
-        "whatsapp": 180,
-        "microsoft": 192,
-        "discord": 184,
-        "instagram": 156
+        "google": 2498,
+        "facebook": 2100,
+        "twitter": 2100
       }
     },
     {
@@ -3881,14 +3211,14 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 598,
-        "facebook": 1374,
-        "tiktok": 1052,
-        "youtube": 1369,
-        "whatsapp": 743,
-        "microsoft": 1078,
-        "discord": 315,
-        "instagram": 911
+        "google": 507,
+        "facebook": 579,
+        "tiktok": 722,
+        "youtube": 339,
+        "whatsapp": 512,
+        "microsoft": 1954,
+        "discord": 205,
+        "instagram": 541
       }
     },
     {
@@ -3897,26 +3227,11 @@
       "port": 4954,
       "anonymity": "unknown",
       "sites": {
-        "tiktok": 2087,
-        "youtube": 348,
-        "whatsapp": 338,
-        "microsoft": 345,
-        "discord": 343,
-        "instagram": 346
-      }
-    },
-    {
-      "address": "51.17.99.135:35715",
-      "ip": "51.17.99.135",
-      "port": 35715,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 5265,
-        "youtube": 352,
-        "whatsapp": 333,
-        "microsoft": 333,
-        "discord": 352,
-        "instagram": 339
+        "youtube": 362,
+        "whatsapp": 308,
+        "microsoft": 309,
+        "discord": 284,
+        "instagram": 391
       }
     },
     {
@@ -3925,15 +3240,44 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 289,
-        "facebook": 255,
-        "twitter": 263,
-        "tiktok": 245,
-        "youtube": 268,
-        "whatsapp": 259,
-        "microsoft": 262,
-        "discord": 267,
-        "instagram": 265
+        "google": 299,
+        "facebook": 219,
+        "twitter": 204,
+        "tiktok": 219,
+        "youtube": 207,
+        "whatsapp": 210,
+        "microsoft": 210,
+        "discord": 203,
+        "instagram": 215
+      }
+    },
+    {
+      "address": "51.85.44.162:22160",
+      "ip": "51.85.44.162",
+      "port": 22160,
+      "anonymity": "unknown",
+      "sites": {
+        "whatsapp": 750,
+        "microsoft": 294,
+        "discord": 302,
+        "instagram": 300
+      }
+    },
+    {
+      "address": "52.53.187.123:3129",
+      "ip": "52.53.187.123",
+      "port": 3129,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 425,
+        "facebook": 126,
+        "twitter": 101,
+        "tiktok": 223,
+        "youtube": 128,
+        "whatsapp": 116,
+        "microsoft": 1153,
+        "discord": 127,
+        "instagram": 1098
       }
     },
     {
@@ -3942,15 +3286,15 @@
       "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 818,
-        "facebook": 280,
-        "twitter": 253,
-        "tiktok": 251,
-        "youtube": 462,
-        "whatsapp": 790,
-        "microsoft": 712,
-        "discord": 249,
-        "instagram": 289
+        "google": 785,
+        "facebook": 873,
+        "twitter": 264,
+        "tiktok": 316,
+        "youtube": 221,
+        "whatsapp": 242,
+        "microsoft": 190,
+        "discord": 194,
+        "instagram": 206
       }
     },
     {
@@ -3959,30 +3303,24 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 134,
-        "facebook": 58,
-        "twitter": 61,
-        "tiktok": 53,
-        "youtube": 59,
-        "whatsapp": 63,
-        "microsoft": 59,
-        "discord": 51,
-        "instagram": 57
+        "google": 219,
+        "facebook": 95,
+        "twitter": 96,
+        "tiktok": 99,
+        "youtube": 94,
+        "whatsapp": 116,
+        "microsoft": 95,
+        "discord": 103,
+        "instagram": 93
       }
     },
     {
       "address": "54.66.128.198:3128",
       "ip": "54.66.128.198",
       "port": 3128,
-      "anonymity": "elite",
+      "anonymity": "unknown",
       "sites": {
-        "google": 2465,
-        "facebook": 5224,
-        "tiktok": 1637,
-        "youtube": 2415,
-        "whatsapp": 2483,
-        "microsoft": 2062,
-        "discord": 1172
+        "google": 10292
       }
     },
     {
@@ -3991,13 +3329,13 @@
       "port": 14899,
       "anonymity": "unknown",
       "sites": {
-        "twitter": 1304,
-        "tiktok": 1533,
-        "youtube": 586,
-        "whatsapp": 617,
-        "microsoft": 306,
-        "discord": 458,
-        "instagram": 317
+        "twitter": 354,
+        "tiktok": 348,
+        "youtube": 902,
+        "whatsapp": 885,
+        "microsoft": 391,
+        "discord": 411,
+        "instagram": 762
       }
     },
     {
@@ -4006,26 +3344,36 @@
       "port": 45079,
       "anonymity": "unknown",
       "sites": {
-        "facebook": 3764,
-        "tiktok": 307,
-        "youtube": 327,
-        "whatsapp": 303,
-        "microsoft": 295,
-        "discord": 312,
-        "instagram": 301
+        "facebook": 5305,
+        "tiktok": 456,
+        "youtube": 515,
+        "whatsapp": 361,
+        "microsoft": 352,
+        "discord": 342,
+        "instagram": 352
       }
     },
     {
-      "address": "56.112.92.32:40066",
-      "ip": "56.112.92.32",
-      "port": 40066,
+      "address": "54.198.140.56:8049",
+      "ip": "54.198.140.56",
+      "port": 8049,
       "anonymity": "unknown",
       "sites": {
-        "youtube": 1807,
-        "whatsapp": 140,
-        "microsoft": 134,
-        "discord": 134,
-        "instagram": 161
+        "whatsapp": 46,
+        "microsoft": 128,
+        "discord": 49,
+        "instagram": 46
+      }
+    },
+    {
+      "address": "56.112.93.245:6021",
+      "ip": "56.112.93.245",
+      "port": 6021,
+      "anonymity": "unknown",
+      "sites": {
+        "whatsapp": 115,
+        "microsoft": 113,
+        "instagram": 111
       }
     },
     {
@@ -4034,26 +3382,16 @@
       "port": 4145,
       "anonymity": "unknown",
       "sites": {
-        "google": 292
+        "tiktok": 902
       }
     },
     {
       "address": "65.108.159.129:5153",
       "ip": "65.108.159.129",
       "port": 5153,
-      "anonymity": "anonymous",
-      "sites": {
-        "google": 296
-      }
-    },
-    {
-      "address": "65.108.159.129:8080",
-      "ip": "65.108.159.129",
-      "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 309,
-        "tiktok": 1131
+        "google": 1151
       }
     },
     {
@@ -4062,7 +3400,7 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 292
+        "google": 904
       }
     },
     {
@@ -4071,7 +3409,7 @@
       "port": 8889,
       "anonymity": "elite",
       "sites": {
-        "google": 8298
+        "google": 5296
       }
     },
     {
@@ -4080,31 +3418,40 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 361,
-        "facebook": 353,
-        "twitter": 348,
-        "tiktok": 328,
-        "youtube": 322,
-        "whatsapp": 419,
-        "microsoft": 367,
-        "discord": 352,
-        "instagram": 958
+        "google": 296,
+        "facebook": 287,
+        "twitter": 274,
+        "tiktok": 296,
+        "youtube": 297,
+        "whatsapp": 287,
+        "microsoft": 275,
+        "discord": 293,
+        "instagram": 279
       }
     },
     {
-      "address": "81.168.119.85:5443",
-      "ip": "81.168.119.85",
-      "port": 5443,
+      "address": "81.19.210.10:80",
+      "ip": "81.19.210.10",
+      "port": 80,
       "anonymity": "elite",
       "sites": {
-        "google": 5631,
-        "facebook": 4850,
-        "tiktok": 2786,
-        "youtube": 1696,
-        "whatsapp": 5222,
-        "microsoft": 4429,
-        "discord": 1031,
-        "instagram": 1907
+        "google": 1157,
+        "facebook": 1820,
+        "tiktok": 1908,
+        "youtube": 1227,
+        "whatsapp": 1701,
+        "microsoft": 1663,
+        "discord": 1123,
+        "instagram": 2119
+      }
+    },
+    {
+      "address": "82.165.182.74:8080",
+      "ip": "82.165.182.74",
+      "port": 8080,
+      "anonymity": "unknown",
+      "sites": {
+        "facebook": 1933
       }
     },
     {
@@ -4113,52 +3460,38 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "facebook": 273,
-        "twitter": 277,
-        "youtube": 273,
-        "discord": 266,
-        "instagram": 274
+        "facebook": 220,
+        "twitter": 250,
+        "youtube": 218,
+        "discord": 232,
+        "instagram": 217
       }
     },
     {
-      "address": "89.46.131.79:10000",
-      "ip": "89.46.131.79",
-      "port": 10000,
-      "anonymity": "anonymous",
-      "sites": {
-        "google": 5338,
-        "facebook": 6523
-      }
-    },
-    {
-      "address": "98.81.204.137:9459",
-      "ip": "98.81.204.137",
-      "port": 9459,
-      "anonymity": "unknown",
-      "sites": {
-        "youtube": 88,
-        "whatsapp": 112,
-        "microsoft": 87,
-        "discord": 83,
-        "instagram": 85
-      }
-    },
-    {
-      "address": "103.166.159.93:8080",
-      "ip": "103.166.159.93",
+      "address": "103.166.158.213:8080",
+      "ip": "103.166.158.213",
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 12734
+        "google": 8398
       }
     },
     {
-      "address": "103.175.238.122:8085",
-      "ip": "103.175.238.122",
-      "port": 8085,
-      "anonymity": "unknown",
+      "address": "103.172.42.115:1111",
+      "ip": "103.172.42.115",
+      "port": 1111,
+      "anonymity": "elite",
       "sites": {
-        "google": 8990
+        "google": 10593
+      }
+    },
+    {
+      "address": "103.179.117.247:8083",
+      "ip": "103.179.117.247",
+      "port": 8083,
+      "anonymity": "elite",
+      "sites": {
+        "google": 6952
       }
     },
     {
@@ -4167,26 +3500,23 @@
       "port": 11111,
       "anonymity": "elite",
       "sites": {
-        "google": 1421,
-        "facebook": 2105,
-        "tiktok": 1973,
-        "youtube": 1740,
-        "whatsapp": 3090,
-        "microsoft": 1905,
-        "discord": 1119,
-        "instagram": 2118
+        "google": 1139,
+        "facebook": 1840,
+        "tiktok": 1454,
+        "youtube": 1356,
+        "whatsapp": 1502,
+        "microsoft": 1536,
+        "discord": 856,
+        "instagram": 1675
       }
     },
     {
-      "address": "103.247.14.44:1111",
-      "ip": "103.247.14.44",
+      "address": "103.247.23.103:1111",
+      "ip": "103.247.23.103",
       "port": 1111,
       "anonymity": "unknown",
       "sites": {
-        "google": 3224,
-        "facebook": 7478,
-        "twitter": 6340,
-        "tiktok": 4313
+        "google": 12100
       }
     },
     {
@@ -4195,11 +3525,21 @@
       "port": 33200,
       "anonymity": "unknown",
       "sites": {
-        "tiktok": 5125,
-        "whatsapp": 404,
-        "microsoft": 398,
-        "discord": 397,
-        "instagram": 423
+        "whatsapp": 449,
+        "microsoft": 453,
+        "instagram": 439
+      }
+    },
+    {
+      "address": "110.40.178.232:8080",
+      "ip": "110.40.178.232",
+      "port": 8080,
+      "anonymity": "elite",
+      "sites": {
+        "google": 4668,
+        "facebook": 977,
+        "twitter": 1608,
+        "tiktok": 4808
       }
     },
     {
@@ -4208,76 +3548,42 @@
       "port": 7302,
       "anonymity": "unknown",
       "sites": {
-        "google": 373,
-        "facebook": 395,
-        "twitter": 465,
-        "tiktok": 345
-      }
-    },
-    {
-      "address": "116.80.49.179:6000",
-      "ip": "116.80.49.179",
-      "port": 6000,
-      "anonymity": "elite",
-      "sites": {
-        "google": 12572
+        "google": 461,
+        "facebook": 479,
+        "twitter": 501,
+        "tiktok": 489
       }
     },
     {
       "address": "116.203.139.209:5678",
       "ip": "116.203.139.209",
       "port": 5678,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 1239
-      }
-    },
-    {
-      "address": "122.3.77.180:8082",
-      "ip": "122.3.77.180",
-      "port": 8082,
       "anonymity": "elite",
       "sites": {
-        "google": 8016
+        "google": 221
       }
     },
     {
-      "address": "125.25.167.188:8080",
-      "ip": "125.25.167.188",
-      "port": 8080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 7791
-      }
-    },
-    {
-      "address": "128.140.113.110:1080",
-      "ip": "128.140.113.110",
-      "port": 1080,
+      "address": "124.105.42.227:8081",
+      "ip": "124.105.42.227",
+      "port": 8081,
       "anonymity": "elite",
       "sites": {
-        "google": 295
-      }
-    },
-    {
-      "address": "128.140.113.110:3128",
-      "ip": "128.140.113.110",
-      "port": 3128,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 290,
-        "facebook": 2275,
-        "twitter": 2284
+        "google": 13790,
+        "facebook": 7232,
+        "youtube": 9734,
+        "whatsapp": 11766,
+        "microsoft": 14702,
+        "discord": 9575
       }
     },
     {
       "address": "128.140.113.110:4145",
       "ip": "128.140.113.110",
       "port": 4145,
-      "anonymity": "unknown",
+      "anonymity": "elite",
       "sites": {
-        "google": 287,
-        "facebook": 2278
+        "google": 236
       }
     },
     {
@@ -4286,8 +3592,25 @@
       "port": 5153,
       "anonymity": "unknown",
       "sites": {
-        "google": 294,
-        "instagram": 279
+        "facebook": 2242
+      }
+    },
+    {
+      "address": "128.140.113.110:5678",
+      "ip": "128.140.113.110",
+      "port": 5678,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 232
+      }
+    },
+    {
+      "address": "128.140.113.110:8081",
+      "ip": "128.140.113.110",
+      "port": 8081,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 232
       }
     },
     {
@@ -4296,7 +3619,7 @@
       "port": 8080,
       "anonymity": "elite",
       "sites": {
-        "google": 1806
+        "google": 1940
       }
     },
     {
@@ -4305,14 +3628,14 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 2626,
-        "facebook": 4180,
-        "tiktok": 3292,
-        "youtube": 3291,
-        "whatsapp": 4155,
-        "microsoft": 3440,
-        "discord": 1919,
-        "instagram": 4420
+        "google": 2245,
+        "facebook": 3346,
+        "tiktok": 2600,
+        "youtube": 3214,
+        "whatsapp": 2862,
+        "microsoft": 2794,
+        "discord": 1649,
+        "instagram": 3015
       }
     },
     {
@@ -4321,7 +3644,7 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 1220
+        "google": 1066
       }
     },
     {
@@ -4330,24 +3653,33 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 204,
-        "facebook": 480,
-        "twitter": 882,
-        "tiktok": 161,
-        "youtube": 80,
-        "whatsapp": 77,
-        "microsoft": 81,
-        "discord": 159,
-        "instagram": 156
+        "google": 122,
+        "facebook": 82,
+        "twitter": 77,
+        "tiktok": 61,
+        "youtube": 87,
+        "whatsapp": 62,
+        "microsoft": 61,
+        "discord": 65,
+        "instagram": 131
+      }
+    },
+    {
+      "address": "138.68.60.8:3128",
+      "ip": "138.68.60.8",
+      "port": 3128,
+      "anonymity": "elite",
+      "sites": {
+        "google": 599
       }
     },
     {
       "address": "139.59.1.14:8080",
       "ip": "139.59.1.14",
       "port": 8080,
-      "anonymity": "elite",
+      "anonymity": "unknown",
       "sites": {
-        "google": 2522
+        "google": 2294
       }
     },
     {
@@ -4356,26 +3688,26 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 633,
-        "facebook": 641,
-        "twitter": 642,
-        "tiktok": 640,
-        "youtube": 655,
-        "whatsapp": 640,
-        "microsoft": 637,
-        "discord": 668,
-        "instagram": 638
+        "google": 739,
+        "facebook": 732,
+        "twitter": 748,
+        "tiktok": 750,
+        "youtube": 746,
+        "whatsapp": 740,
+        "microsoft": 751,
+        "discord": 794,
+        "instagram": 768
       }
     },
     {
-      "address": "149.129.226.9:4002",
+      "address": "149.129.226.9:37",
       "ip": "149.129.226.9",
-      "port": 4002,
+      "port": 37,
       "anonymity": "unknown",
       "sites": {
-        "google": 3776,
-        "facebook": 2393,
-        "twitter": 2395
+        "google": 3994,
+        "facebook": 2444,
+        "twitter": 2442
       }
     },
     {
@@ -4384,53 +3716,42 @@
       "port": 5441,
       "anonymity": "unknown",
       "sites": {
-        "google": 3561,
-        "facebook": 2394,
-        "twitter": 2394
+        "google": 4007,
+        "facebook": 2460,
+        "twitter": 2444
       }
     },
     {
-      "address": "149.129.226.9:8000",
+      "address": "149.129.226.9:9098",
       "ip": "149.129.226.9",
-      "port": 8000,
+      "port": 9098,
       "anonymity": "unknown",
       "sites": {
-        "google": 3766,
-        "facebook": 2394,
-        "twitter": 2392
+        "google": 3992,
+        "facebook": 2461,
+        "twitter": 2449
       }
     },
     {
-      "address": "149.129.226.9:9080",
+      "address": "149.129.226.9:9999",
       "ip": "149.129.226.9",
-      "port": 9080,
+      "port": 9999,
       "anonymity": "unknown",
       "sites": {
-        "google": 3749,
-        "facebook": 2397,
-        "twitter": 2394
+        "google": 4076,
+        "facebook": 2442,
+        "twitter": 2444
       }
     },
     {
-      "address": "149.129.255.179:8091",
+      "address": "149.129.255.179:7890",
       "ip": "149.129.255.179",
-      "port": 8091,
+      "port": 7890,
       "anonymity": "unknown",
       "sites": {
-        "google": 3763,
-        "facebook": 2392,
-        "twitter": 2396
-      }
-    },
-    {
-      "address": "149.129.255.179:18080",
-      "ip": "149.129.255.179",
-      "port": 18080,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 3599,
-        "facebook": 2393,
-        "twitter": 2393
+        "google": 3997,
+        "facebook": 2459,
+        "twitter": 2445
       }
     },
     {
@@ -4439,26 +3760,33 @@
       "port": 8081,
       "anonymity": "unknown",
       "sites": {
-        "google": 2058,
-        "facebook": 1215,
-        "twitter": 2052,
-        "tiktok": 1199,
-        "youtube": 1474,
-        "whatsapp": 1178,
-        "microsoft": 1454,
-        "discord": 1169,
-        "instagram": 1443
+        "google": 1664,
+        "facebook": 987,
+        "twitter": 1637,
+        "tiktok": 1012,
+        "youtube": 1620,
+        "whatsapp": 983,
+        "microsoft": 1203,
+        "discord": 526,
+        "instagram": 1214
       }
     },
     {
-      "address": "158.101.175.124:5566",
-      "ip": "158.101.175.124",
-      "port": 5566,
+      "address": "154.19.39.69:8080",
+      "ip": "154.19.39.69",
+      "port": 8080,
+      "anonymity": "elite",
+      "sites": {
+        "google": 11089
+      }
+    },
+    {
+      "address": "157.10.97.185:8080",
+      "ip": "157.10.97.185",
+      "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 7471,
-        "facebook": 7656,
-        "youtube": 6583
+        "google": 11967
       }
     },
     {
@@ -4467,20 +3795,48 @@
       "port": 9443,
       "anonymity": "elite",
       "sites": {
-        "google": 1282,
-        "facebook": 2355,
-        "tiktok": 2944,
-        "youtube": 1706,
-        "whatsapp": 1887
+        "google": 1303,
+        "facebook": 2428,
+        "tiktok": 3498,
+        "youtube": 1501,
+        "whatsapp": 1394,
+        "microsoft": 2713,
+        "discord": 915,
+        "instagram": 1706
       }
     },
     {
-      "address": "159.65.27.1:10000",
-      "ip": "159.65.27.1",
-      "port": 10000,
+      "address": "160.30.204.24:60062",
+      "ip": "160.30.204.24",
+      "port": 60062,
+      "anonymity": "elite",
+      "sites": {
+        "google": 4361,
+        "facebook": 5419,
+        "tiktok": 4623,
+        "youtube": 5180,
+        "whatsapp": 6729,
+        "microsoft": 6729,
+        "discord": 3246,
+        "instagram": 7259
+      }
+    },
+    {
+      "address": "161.22.37.18:999",
+      "ip": "161.22.37.18",
+      "port": 999,
       "anonymity": "unknown",
       "sites": {
-        "google": 5791
+        "google": 6721
+      }
+    },
+    {
+      "address": "161.22.37.20:999",
+      "ip": "161.22.37.20",
+      "port": 999,
+      "anonymity": "unknown",
+      "sites": {
+        "google": 8902
       }
     },
     {
@@ -4489,31 +3845,15 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 369,
-        "facebook": 372,
-        "twitter": 370,
-        "tiktok": 367,
-        "youtube": 368,
-        "whatsapp": 370,
-        "microsoft": 369,
-        "discord": 369,
-        "instagram": 370
-      }
-    },
-    {
-      "address": "167.99.8.113:8003",
-      "ip": "167.99.8.113",
-      "port": 8003,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 633,
-        "facebook": 939,
-        "tiktok": 928,
-        "youtube": 787,
-        "whatsapp": 860,
-        "microsoft": 875,
-        "discord": 410,
-        "instagram": 885
+        "google": 414,
+        "facebook": 417,
+        "twitter": 418,
+        "tiktok": 420,
+        "youtube": 503,
+        "whatsapp": 416,
+        "microsoft": 415,
+        "discord": 414,
+        "instagram": 418
       }
     },
     {
@@ -4522,15 +3862,15 @@
       "port": 3128,
       "anonymity": "unknown",
       "sites": {
-        "google": 309,
-        "facebook": 332,
-        "twitter": 325,
-        "tiktok": 314,
-        "youtube": 309,
-        "whatsapp": 297,
-        "microsoft": 299,
-        "discord": 304,
-        "instagram": 316
+        "google": 271,
+        "facebook": 270,
+        "twitter": 261,
+        "tiktok": 261,
+        "youtube": 254,
+        "whatsapp": 317,
+        "microsoft": 278,
+        "discord": 272,
+        "instagram": 260
       }
     },
     {
@@ -4539,15 +3879,15 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 101,
-        "facebook": 94,
-        "twitter": 193,
-        "tiktok": 111,
-        "youtube": 96,
-        "whatsapp": 99,
-        "microsoft": 100,
-        "discord": 98,
-        "instagram": 97
+        "google": 61,
+        "facebook": 51,
+        "twitter": 45,
+        "tiktok": 50,
+        "youtube": 45,
+        "whatsapp": 45,
+        "microsoft": 47,
+        "discord": 45,
+        "instagram": 55
       }
     },
     {
@@ -4556,26 +3896,86 @@
       "port": 39811,
       "anonymity": "elite",
       "sites": {
-        "google": 1537,
-        "facebook": 2523,
-        "youtube": 1937,
-        "whatsapp": 3161,
-        "microsoft": 2808,
-        "discord": 1035,
-        "instagram": 2309
+        "google": 1372,
+        "facebook": 2352,
+        "youtube": 1643,
+        "whatsapp": 1889,
+        "microsoft": 2649,
+        "discord": 910,
+        "instagram": 1975
       }
     },
     {
-      "address": "189.51.168.164:999",
-      "ip": "189.51.168.164",
+      "address": "180.190.222.136:8082",
+      "ip": "180.190.222.136",
+      "port": 8082,
+      "anonymity": "anonymous",
+      "sites": {
+        "google": 6037
+      }
+    },
+    {
+      "address": "180.191.143.6:8085",
+      "ip": "180.191.143.6",
+      "port": 8085,
+      "anonymity": "elite",
+      "sites": {
+        "google": 10425
+      }
+    },
+    {
+      "address": "181.78.195.136:999",
+      "ip": "181.78.195.136",
+      "port": 999,
+      "anonymity": "anonymous",
+      "sites": {
+        "google": 9907
+      }
+    },
+    {
+      "address": "181.224.175.200:999",
+      "ip": "181.224.175.200",
       "port": 999,
       "anonymity": "elite",
       "sites": {
-        "google": 6823,
-        "facebook": 6802,
-        "youtube": 7240,
-        "whatsapp": 9308,
-        "microsoft": 3819
+        "google": 14710
+      }
+    },
+    {
+      "address": "185.191.239.248:3128",
+      "ip": "185.191.239.248",
+      "port": 3128,
+      "anonymity": "elite",
+      "sites": {
+        "google": 1477,
+        "facebook": 2363,
+        "tiktok": 1689,
+        "youtube": 2113,
+        "whatsapp": 2366,
+        "microsoft": 2122,
+        "discord": 884,
+        "instagram": 2889
+      }
+    },
+    {
+      "address": "187.102.219.64:999",
+      "ip": "187.102.219.64",
+      "port": 999,
+      "anonymity": "elite",
+      "sites": {
+        "google": 9384,
+        "facebook": 8988,
+        "youtube": 13494
+      }
+    },
+    {
+      "address": "189.51.168.165:999",
+      "ip": "189.51.168.165",
+      "port": 999,
+      "anonymity": "elite",
+      "sites": {
+        "google": 5337,
+        "facebook": 4609
       }
     },
     {
@@ -4584,15 +3984,15 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 79,
-        "facebook": 86,
-        "twitter": 78,
-        "tiktok": 79,
-        "youtube": 83,
-        "whatsapp": 78,
-        "microsoft": 78,
-        "discord": 80,
-        "instagram": 84
+        "google": 101,
+        "facebook": 102,
+        "twitter": 101,
+        "tiktok": 101,
+        "youtube": 102,
+        "whatsapp": 103,
+        "microsoft": 100,
+        "discord": 104,
+        "instagram": 100
       }
     },
     {
@@ -4601,10 +4001,10 @@
       "port": 2052,
       "anonymity": "elite",
       "sites": {
-        "google": 4715,
-        "facebook": 5253,
-        "tiktok": 1826,
-        "youtube": 3858
+        "google": 1626,
+        "facebook": 2787,
+        "tiktok": 1684,
+        "youtube": 2045
       }
     },
     {
@@ -4613,23 +4013,16 @@
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 2493
+        "google": 1902
       }
     },
     {
-      "address": "195.170.193.170:10808",
-      "ip": "195.170.193.170",
-      "port": 10808,
-      "anonymity": "elite",
+      "address": "197.164.101.14:1981",
+      "ip": "197.164.101.14",
+      "port": 1981,
+      "anonymity": "anonymous",
       "sites": {
-        "google": 4554,
-        "facebook": 5130,
-        "tiktok": 5717,
-        "youtube": 5777,
-        "whatsapp": 5298,
-        "microsoft": 4963,
-        "discord": 2861,
-        "instagram": 5301
+        "google": 8698
       }
     },
     {
@@ -4638,42 +4031,30 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 669
+        "google": 521
       }
     },
     {
-      "address": "198.244.254.77:3128",
-      "ip": "198.244.254.77",
-      "port": 3128,
+      "address": "201.28.86.18:61804",
+      "ip": "201.28.86.18",
+      "port": 61804,
       "anonymity": "elite",
       "sites": {
-        "google": 12577
+        "google": 2466,
+        "facebook": 2620,
+        "youtube": 2525,
+        "whatsapp": 2329,
+        "microsoft": 2566,
+        "discord": 1283
       }
     },
     {
-      "address": "203.8.223.254:3000",
-      "ip": "203.8.223.254",
-      "port": 3000,
-      "anonymity": "elite",
+      "address": "203.150.113.58:8080",
+      "ip": "203.150.113.58",
+      "port": 8080,
+      "anonymity": "anonymous",
       "sites": {
-        "google": 10189
-      }
-    },
-    {
-      "address": "203.161.52.193:80",
-      "ip": "203.161.52.193",
-      "port": 80,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 93,
-        "facebook": 133,
-        "twitter": 140,
-        "tiktok": 74,
-        "youtube": 75,
-        "whatsapp": 89,
-        "microsoft": 73,
-        "discord": 74,
-        "instagram": 73
+        "google": 6010
       }
     },
     {
@@ -4682,24 +4063,7 @@
       "port": 8080,
       "anonymity": "unknown",
       "sites": {
-        "google": 2727
-      }
-    },
-    {
-      "address": "204.108.154.43:80",
-      "ip": "204.108.154.43",
-      "port": 80,
-      "anonymity": "unknown",
-      "sites": {
-        "google": 445,
-        "facebook": 153,
-        "twitter": 403,
-        "tiktok": 148,
-        "youtube": 392,
-        "whatsapp": 144,
-        "microsoft": 405,
-        "discord": 151,
-        "instagram": 389
+        "google": 2748
       }
     },
     {
@@ -4708,7 +4072,7 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 659
+        "google": 447
       }
     },
     {
@@ -4717,15 +4081,15 @@
       "port": 80,
       "anonymity": "unknown",
       "sites": {
-        "google": 252,
-        "facebook": 258,
-        "twitter": 268,
-        "tiktok": 253,
-        "youtube": 256,
-        "whatsapp": 253,
-        "microsoft": 262,
-        "discord": 256,
-        "instagram": 268
+        "google": 211,
+        "facebook": 206,
+        "twitter": 210,
+        "tiktok": 213,
+        "youtube": 208,
+        "whatsapp": 212,
+        "microsoft": 220,
+        "discord": 219,
+        "instagram": 213
       }
     },
     {
@@ -4734,7 +4098,30 @@
       "port": 3128,
       "anonymity": "elite",
       "sites": {
-        "google": 2944
+        "google": 347,
+        "facebook": 657,
+        "tiktok": 518,
+        "youtube": 696,
+        "whatsapp": 1443,
+        "microsoft": 542,
+        "discord": 196,
+        "instagram": 1903
+      }
+    },
+    {
+      "address": "217.154.195.87:8888",
+      "ip": "217.154.195.87",
+      "port": 8888,
+      "anonymity": "elite",
+      "sites": {
+        "google": 6778,
+        "facebook": 3297,
+        "tiktok": 6207,
+        "youtube": 8584,
+        "whatsapp": 5799,
+        "microsoft": 8088,
+        "discord": 4520,
+        "instagram": 10102
       }
     }
   ]
